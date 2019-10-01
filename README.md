@@ -54,7 +54,7 @@
 ### Association
 - belongs_to :user
 
-### モデル
+### productモデル
 |Column|Type|Options|
 |:------|:----|:-------|
 |name|string|null: false, index: true|

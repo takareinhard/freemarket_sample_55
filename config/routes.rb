@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root "categories#index"
+  root to: "categories#index"
 end
