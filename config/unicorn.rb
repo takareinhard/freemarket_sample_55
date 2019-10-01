@@ -4,7 +4,7 @@ worker_processes 1
 # currentを指定
 # working_directory "#{app_path}/current"
 # # 実行したファイルの場所からrailsのrootパスを見つける
-RAILS_ROOT = File.expand_path('../', __FILE__)
+RAILS_ROOT = File.expand_path('../../', __FILE__)
 ENV['BUNDLE_GEMFILE'] = RAILS_ROOT + "/Gemfile"
 # # ここは、RIALS_ROOTが記載されていれば、明示的にかかなくても大丈夫です。
 # # 自分が使っている環境でも、下の記載なしにちゃんと動いてますね。
