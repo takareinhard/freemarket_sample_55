@@ -2,13 +2,12 @@ app_path = File.expand_path('../../../', __FILE__)
 
 worker_processes 1
 # currentを指定
-working_directory rails_root
 # # 実行したファイルの場所からrailsのrootパスを見つける
 # RAILS_ROOT = File.expand_path('../../', __FILE__)
-# ENV['BUNDLE_GEMFILE'] = RAILS_ROOT + "/Gemfile"
+ENV['BUNDLE_GEMFILE'] = app_path + "/Gemfile"
 # ここは、RIALS_ROOTが記載されていれば、明示的にかかなくても大丈夫です。
 # 自分が使っている環境でも、下の記載なしにちゃんと動いてますね。
-# working_directory RAILS_ROOT
+working_directory RAILS_ROOT
 
 # それぞれ、sharedの中を参照するよう変更
 listen "#{app_path}/shared/tmp/sockets/unicorn.sock"
