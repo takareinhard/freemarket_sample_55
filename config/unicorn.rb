@@ -1,7 +1,7 @@
 
 
 worker_processes 1
-RAILS_ROOT = File.expand_path('../../../../', __FILE__)
+RAILS_ROOT = File.expand_path('../../', __FILE__)
 # currentを指定
 # # 実行したファイルの場所からrailsのrootパスを見つける
 # RAILS_ROOT = File.expand_path('../../', __FILE__)
