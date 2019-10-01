@@ -2,7 +2,7 @@ app_path = File.expand_path('../../../', __FILE__)
 
 worker_processes 1
 # currentを指定
-working_directory "#{app_path}/current"
+working_directory rails_root
 # # 実行したファイルの場所からrailsのrootパスを見つける
 # RAILS_ROOT = File.expand_path('../../', __FILE__)
 # ENV['BUNDLE_GEMFILE'] = RAILS_ROOT + "/Gemfile"
