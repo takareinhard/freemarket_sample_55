@@ -22,7 +22,7 @@
 - has_many :seller_dealings, class_name: 'Dealing', foreign_key: 'seller_id'
 - has_many :buyer_sell_values, class_name: 'BuyValue', foreign_key: 'buyer_id'
 - has_many :seller_sell_values, class_name: 'SellValue', foreign_key: 'seller_id'
-- has_one :sns_credentials
+- has_one :sms_authentication
 - belong_to :profile
 
 ### profileモデル 
@@ -43,14 +43,11 @@
 ### Association
 - belongs_to :user
 
-### sns_credentialsモデル 
+### sms_authenticationモデル 
 |Column|Type|Options|
 |:------|:----|:-------|
-|uid|string|null: false|
-|provider|string|null: false|
-|token|string|null: false|
+|phone_number|integer|null: false|
 |user|references|null: false, foreign_key: true|
-
 ### Association
 - belongs_to :user
 
@@ -61,8 +58,8 @@
 |price|integer|null: false|
 |detail|text|null: false|
 |condition|integer|null: false|
-|shipping_tax_payer|integer|null: false|   [](送料負担者)
-|shipping_agency|integer|null: false|   [](発送元地域)
+|postage_payer|integer|null: false|   [](送料負担者)
+|shipping_area|integer|null: false|   [](発送元地域)
 |shipping_days|integer|null: false|   [](発送までの日数)
 |deal|integer|default: 0|   [](取引状態)
 |category|references|null: false, forign_key: true|
@@ -135,29 +132,17 @@
 ### Association
 - belongs_to :user
 
-[](ブランドの一覧を入れておくテーブル)
-### brand_listモデル 
+### brandsモデル
 |Column|Type|Options|
 |:------|:----|:-------|
-|name|string|null: false,index: true|
-|ancestry|string|| [](親子関係)
+|name|string|null: false|
 
 ### Association
-- has_many :brands
-
-[](各商品がどのブランドに属しているかについてのテーブル)
-### product_option_brandモデル 
-|Column|Type|Options|
-|:------|:----|:-------|
-|brand_list|references|null: false, foreign_key: true|
-|product|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :product
-- belongs_to :brand_list
+- has_many :products
+- has_many :categories
 
 [](各商品のサイズについてのテーブル)
-### product_option_sizeモデル 
+### product_sizeモデル 
 |Column|Type|Options|
 |:------|:----|:-------|
 |size|integer|null: false|
@@ -242,7 +227,7 @@
 |seller|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :
+- belongs_to :product
 - belongs_to :buyer, class_name: 'User', :foreign_key: 'buyer_id'
 - belongs_to :seller, class_name: 'User', foreign_key: 'seller_id
 
