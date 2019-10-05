@@ -1,0 +1,309 @@
+:root {
+  cursor: auto;
+}
+
+:root {
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #000;
+  cursor: default;
+  font: 66.66667% sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+html {
+  overflow-y: auto;
+}
+
+* {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
+
+*, ::before, ::after {
+  border-style: solid;
+  border-width: 0;
+}
+
+* {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+*, ::before, ::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+div {
+  display: block;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+
+
+
+.single-header {
+  height: 128px;
+  text-align: center;
+  background: rgb(245, 245, 245);
+  img{
+    vertical-align: middle;
+    width: 122px;
+    height: 33px;
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+}
+
+.signup-bar.progress-bar {
+  padding: 16px 0;
+  border-top: 1px solid #eee;
+}
+
+.single-main {
+  background: rgb(245, 245, 245);
+  display: block;
+}
+
+.progress-bar.signup-bar {
+    border-top: 1px solid #eee;
+}
+
+.progress-bar {
+  font-size: 0;
+  text-align: center;
+}
+
+.progress-bar ol {
+  margin: 0;
+}
+
+.ol {
+  display: block;
+  list-style-type: decimal;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+.progress-status {
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  background: #ccc;
+  border-radius: 50%;
+  
+}
+
+.progress-bar li {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: 40px;
+  margin: 0 5% 0 0;
+  font-size: 12px;
+  color: #888;
+  
+}
+
+.progress-bar li:last-child {
+  margin: 0;
+}
+
+.progress-bar li.active {
+  font-weight: 600;
+  color: #ea352d;
+  .progress-status {
+  background: #ea352d;
+  }
+}
+
+.progress-status:after {
+  left: 50%;
+}
+
+.progress-status:before {
+  right: 50%;
+}
+
+.progress-status:before, .progress-status:after {
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #ccc;
+  border-style: solid;
+  border-width: 0;
+}
+
+.l-single-head.registration, .l-chapter-head.registration {
+  background-color: #fff;
+  padding: 16px;
+}
+
+.l-single-inner.registration-form {
+  padding: 24px 16px 40px;
+  background-color: #fff;
+}
+
+.l-single-head {
+  padding: 24px 8px;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+h2 {
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.l-single-inner {
+  border-top: 1px solid #f5f5f5;
+  padding: 40px;
+  .registration-form {
+  padding: 24px 16px 40px;
+}
+}
+
+.form-group:first-child {
+  margin: 0;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+.form-require {
+  background: #ea352d;
+}
+
+.form-require, .form-arbitrary, .message-is-seller, .news-private {
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+.form-group .input-default {
+  width: 100%;
+  margin: 8px 0 0;
+}
+
+.input-default {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.input-default.half:first-of-type {
+  margin-right: 8px;
+}
+
+.input-default.half {
+  width: calc(50% - 6px);
+}
+
+button, input {
+  overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.l-single-inner.registration-form .l-single-content {
+  max-width: 343px;
+}
+
+button, [type="button"], [type="date"], [type="datetime"], [type="datetime-local"], [type="email"], [type="month"], [type="number"], [type="password"], [type="reset"], [type="search"], [type="submit"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"], select, textarea {
+  min-height: 1.5em;
+}
+
+input {
+  border: 0;
+  outline: 0;
+  font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+a, area, button, input, label, select, textarea, [tabindex] {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+button, input, select, textarea {
+  color: inherit;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+}
+
+.l-single-inner.registration-form .form-group:not(:first-of-type), .l-single-inner.registration-form .btn-red {
+  margin: 24px 0 0;
+}
+
+.l-single-content {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.birthday-select-wrap {
+  box-sizing: inherit;
+  .select-wrap+span {
+    margin: 0 2px;
+  }
+}
+
+.birthday-select-wrap .select-wrap .select-default {
+  padding: 0 10px;
+}
+.form-group select {
+  width: 100%;
+}
+.select-default {
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
