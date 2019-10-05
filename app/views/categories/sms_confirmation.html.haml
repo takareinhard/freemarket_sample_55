@@ -1,0 +1,106 @@
+!!!
+%html{:lang => "ja-JP"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    / Anti-flicker snippet
+    :css
+      .async-hide { opacity: 0 !important}
+    :javascript
+      (function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+      h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+      (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+      })(window,document.documentElement,'async-hide','dataLayer',4000,
+      {'GTM-KLPT5L5':true});
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
+    %title 電話番号の確認 - メルカリ スマホでかんたん フリマアプリ
+    %meta{:content => "CMで話題！フリマアプリ「メルカリ」は、スマホから誰でも簡単に売り買いが楽しめるフリマアプリです。購入時はクレジットカード・キャリア決済・コンビニ・銀行ATMで支払いでき、品物が届いてから出品者に入金される独自システムで安心です。", :name => "description"}/
+    %meta{:content => "telephone=no", :name => "format-detection"}/
+    %link{:href => "https://www.mercari.com/jp/signup/sms_confirmation/", :rel => "canonical"}/
+    %link{:href => "https://www.mercari.com/jp/signup/sms_confirmation/", :hreflang => "ja", :rel => "alternate"}/
+    %link{:href => "https://www.mercari.com/signup/sms_confirmation/", :hreflang => "en", :rel => "alternate"}/
+    %link{:href => "/jp/assets/css/app.jp.css?2440642250", :rel => "stylesheet"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/favicon.ico?3761641567", :rel => "shortcut icon"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon.png?3761641567", :rel => "apple-touch-icon"}/
+    %link{:color => "#ea352d", :href => "//w.akamaized.net/safari-pinned-tab.svg?3761641567", :rel => "icon", :type => "image/png"}/
+    %link{:href => "https://www.mercari.com/jp/manifest.json?3761641567", :rel => "manifest"}/
+    %meta{:content => "#ffc40d", :name => "msapplication-TileColor"}/
+    %meta{:content => "//www-mercari-jp.akamaized.net/mstile-144x144.png?3761641567", :name => "msapplication-TileImage"}/
+    %meta{:content => "#ea352d", :name => "theme-color"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-precomposed.png?3761641567", :rel => "apple-touch-icon-precomposed"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-57x57.png?3761641567", :rel => "apple-touch-icon", :sizes => "57x57"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-60x60.png?3761641567", :rel => "apple-touch-icon", :sizes => "60x60"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-72x72.png?3761641567", :rel => "apple-touch-icon", :sizes => "72x72"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-76x76.png?3761641567", :rel => "apple-touch-icon", :sizes => "76x76"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-114x114.png?3761641567", :rel => "apple-touch-icon", :sizes => "114x114"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-120x120.png?3761641567", :rel => "apple-touch-icon", :sizes => "120x120"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-144x144.png?3761641567", :rel => "apple-touch-icon", :sizes => "144x144"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-152x152.png?3761641567", :rel => "apple-touch-icon", :sizes => "152x152"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-180x180.png?3761641567", :rel => "apple-touch-icon", :sizes => "180x180"}/
+  %body
+    / Google Tag Manager (noscript)
+    %noscript
+      %iframe{:height => "0", :src => "https://www.googletagmanager.com/ns.html?id=GTM-KLPT5L5", :style => "display:none;visibility:hidden", :width => "0"}
+    / End Google Tag Manager (noscript)
+    .single-container
+      %header.single-header
+        %h1
+          %a{:href => "https://www.mercari.com/jp/"}
+            %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3761641567"}/
+        %nav.progress-bar.signup-bar
+          %ol.clearfix
+            %li.through
+              会員情報
+              .progress-status
+            %li.active
+              電話番号認証
+              .progress-status
+            %li
+              お届け先住所入力
+              .progress-status
+            %li
+              支払い方法
+              .progress-status
+            %li
+              完了
+              .progress-status
+      %main.single-main
+        %section.l-single-container
+          %h2.l-chapter-head.registration 電話番号の確認
+          %form.l-single-inner.registration-form{:action => "https://www.mercari.com/jp/signup/sms_confirmation/sms/", :method => "POST", :novalidate => "novalidate"}
+            %input{:name => "after_save_callback", :type => "hidden", :value => ""}/
+            .l-single-content
+              .form-group
+                %label{:for => "phone_number"} 携帯電話の番号
+                %input.input-default{:name => "phone_number", :placeholder => "携帯電話の番号を入力", :type => "tel", :value => ""}/
+              %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+              %button.btn-default.btn-red{:type => "submit"} SMSを送信する
+              %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+              .form-group.text-right
+                %a{:href => "/jp/help_center/article/244/", :target => "_blank"}
+                  電話番号の確認が必要な理由
+                  %i.icon-arrow-right
+            %input{:name => "__csrf_value", :type => "hidden", :value => "7088e23ff34753755fa91a4bd357742cb0b9477a98bc9bf39fa29885088ce782622488d02d5244764a1951cd25bb0f0e3bb22c2dcaafdc3031122e0b4d1b65767"}/
+            %input{:name => "id", :type => "hidden", :value => "699473991"}/
+      %footer.single-footer
+        %nav
+          %ul.clearfix
+            %li
+              %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+            %li
+              %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+            %li
+              %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+        %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
+          %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3761641567", :width => "80"}/
+        %p
+          %small © 2019 Mercari
+    %script{:src => "//www-mercari-jp.akamaized.net/assets/js/app.js?4246962500"}
+    / Google Tag Manager
+    :javascript
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-KLPT5L5');
+    / End Google Tag Manager

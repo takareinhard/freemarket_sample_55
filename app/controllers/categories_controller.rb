@@ -5,4 +5,7 @@ class CategoriesController < ApplicationController
   def new
   end
   
+  def sms_confirmation
+  end
+  
 end
