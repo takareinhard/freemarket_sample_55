@@ -2,10 +2,13 @@ class CategoriesController < ApplicationController
   def index
   end
 
-  def new
+  def user
   end
   
-  def sms_confirmation
+  def sms_authentication
+  end
+
+  def profile
   end
   
 end
