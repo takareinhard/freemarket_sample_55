@@ -10,5 +10,8 @@ class CategoriesController < ApplicationController
 
   def profile
   end
+
+  def payment
+  end
   
 end

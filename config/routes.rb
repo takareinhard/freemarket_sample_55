@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get "user" => 'categories#user'
   get "sms_authentication" => 'categories#sms_authentication'
   get "profile" => 'categories#profile'
+  get "payment" => 'categories#payment'
 
 end
