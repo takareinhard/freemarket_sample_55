@@ -47,7 +47,7 @@ ul li {
 
 i[class^='icon-'], i[class*='icon-'] {
   display: inline-block;
-  font-family: 'icon-font';
+  font-family: "Font Awesome 5 Free";
   speak: none;
   font-style: normal;
   font-weight: 400;
@@ -62,8 +62,24 @@ i[class^='icon-'], i[class*='icon-'] {
   content: '\e001';
 }
 
-::before, ::after {
-  text-decoration: inherit;
-  vertical-align: inherit;
+.signup-seqcode {
+  position: relative;
+  margin: 8px 0 0;
 }
 
+.signup-seqcode-text {
+  text-align: right;
+  color: #0099e8;
+}
+
+.form-question {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0099e8;
+  color: #fff;
+  line-height: 14px;
+  font-size: 12px;
+  text-align: center;
+}

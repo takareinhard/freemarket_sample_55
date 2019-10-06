@@ -68,4 +68,4 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'haml-rails'
-gem "font-awesome-rails"
+gem 'font-awesome-sass', '~> 5.11.2'
