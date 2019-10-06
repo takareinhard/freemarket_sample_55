@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   def index
   end
 
-  def registration
+  def member_information_input
   end
   
   def sms_authentication
@@ -15,6 +15,9 @@ class CategoriesController < ApplicationController
   end
 
   def member_finish
+  end
+
+  def new_member_registration
   end
   
 end

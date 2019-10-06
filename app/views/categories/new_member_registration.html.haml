@@ -15,7 +15,6 @@
     %meta{:charset => "utf-8"}/
     %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
     %title 会員情報入力 - メルカリ スマホでかんたん フリマアプリ
-    <script src="https://kit.fontawesome.com/afc27cd841.js" crossorigin="anonymous"></script>
     %meta{:content => "CMで話題！フリマアプリ「メルカリ」は、スマホから誰でも簡単に売り買いが楽しめるフリマアプリです。購入時はクレジットカード・キャリア決済・コンビニ・銀行ATMで支払いでき、品物が届いてから出品者に入金される独自システムで安心です。", :name => "description"}/
     %meta{:content => "telephone=no", :name => "format-detection"}/
     %link{:href => "https://www.mercari.com/jp/signup/registration/", :rel => "canonical"}/
@@ -51,40 +50,42 @@
     / End Google Tag Manager (noscript)
     .single-container
       %header.single-header
-        %h1
-          %a{:href => "https://www.mercari.com/jp/"}
-            %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3761641567"}/
-        %nav.progress-bar.signup-bar
-          %ol.clearfix
-            %li.through
-              会員情報
-              .progress-status
-            %li.through
-              電話番号認証
-              .progress-status
-            %li.through
-              お届け先住所入力
-              .progress-status
-            %li.through
-              支払い方法
-              .progress-status
-            %li.active
-              完了
-              .progress-status
+        %a{:href => "https://www.mercari.com/jp/"}
+          %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3761641567"}/
       %main.single-main
         %section.l-single-container
-          %h2.l-single-head.registration 会員登録完了
+          %h2.l-single-head.registration 住所入力
           %form.l-single-inner.registration-form{:action => "https://www.mercari.com/jp/signup/sms_confirmation/", :method => "POST", :novalidate => "novalidate"}
             %input{:name => "__csrf_value", :type => "hidden", :value => "7088e23ff34753755fa91a4bd357742cb0b9477a98bc9bf39fa29885088ce782622488d02d5244764a1951cd25bb0f0e3bb22c2dcaafdc3031122e0b4d1b65767"}/
             .l-single-content
-              %p.thankyou
-                <br>ありがとうございます。</br>
-                会員登録が完了しました。
-                %button.btn-default.btn-red{:type => "submit"} メルカリをはじめる
-            = image_tag 'merucali_app_image.png', class: 'merucali_image', height: '120px'
+              .form-group
+                %label{:for => "post_number"} 郵便番号
+                %span.form-require 必須
+                %input.input-default{:name => "post_number", :placeholder => "例) 123-4567", :type => "integer", :value => ""}/
+              .form-group
+                %label{:for => "prefecture"} 都道府県
+                %span.form-require 必須
+                %input.input-default{:name => "prefecture", :placeholder => "", :type => "integer", :value => ""}/
+              .form-group
+                %label{:for => "city"} 市区町村
+                %span.form-require 必須
+                %input.input-default{:name => "city", :placeholder => "例) 横浜市緑区", :type => "string"}/
+              .form-group
+                %label{:for => "house_number"} 番地
+                %span.form-require 必須
+                %input.input-default{:name => "house_number", :placeholder => "例) 青山1-1-1", :type => "string"}/
+              .form-group
+                %label{:for => "building_name"} 建物名
+                %span.form-require 任意
+                %input.input-default{:name => "building_name", :placeholder => "例) 柳ビル103", :type => "string"}/
+              .form-group
+                %label{:for => "building_name"} 電話
+                %span.form-require 任意
+                %input.input-default{:name => "building_name", :placeholder => "例) 柳ビル103", :type => "string"}/
 
-
-
+              %button.btn-default.btn-red{:type => "submit"} 次へ進む
+              .form-group.text-right
+                %p
       %footer.single-footer
         %nav
           %ul.clearfix
