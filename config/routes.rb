@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 
   #ログインページ
   get "new_member_registration" => 'categories#new_member_registration' #新規会員登録ログインページ"
-
+  get "old_member_registration" => 'categories#old_member_registration' #既存メンバーのログインページ"
 end

@@ -1,0 +1,111 @@
+!!!
+<link rel="stylesheet" href="css/normalize.css">
+%html{:lang => "ja-JP"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    / Anti-flicker snippet
+    :css
+      .async-hide { opacity: 0 !important}
+    :javascript
+      (function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+      h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+      (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+      })(window,document.documentElement,'async-hide','dataLayer',4000,
+      {'GTM-KLPT5L5':true});
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
+    %title 会員情報入力 - メルカリ スマホでかんたん フリマアプリ
+    %meta{:content => "CMで話題！フリマアプリ「メルカリ」は、スマホから誰でも簡単に売り買いが楽しめるフリマアプリです。購入時はクレジットカード・キャリア決済・コンビニ・銀行ATMで支払いでき、品物が届いてから出品者に入金される独自システムで安心です。", :name => "description"}/
+    %meta{:content => "telephone=no", :name => "format-detection"}/
+    %link{:href => "https://www.mercari.com/jp/signup/registration/", :rel => "canonical"}/
+    %link{:href => "https://www.mercari.com/jp/signup/registration/", :hreflang => "ja", :rel => "alternate"}/
+    %link{:href => "https://www.mercari.com/signup/registration/", :hreflang => "en", :rel => "alternate"}/
+    %link{:href => "/jp/assets/css/app.jp.css?2440642250", :rel => "stylesheet"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/favicon.ico?3761641567", :rel => "shortcut icon"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon.png?3761641567", :rel => "apple-touch-icon"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/favicon-16x16.png?3761641567", :rel => "icon", :sizes => "16x16", :type => "image/png"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/favicon-32x32.png?3761641567", :rel => "icon", :sizes => "32x32", :type => "image/png"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/favicon-194x194.png?3761641567", :rel => "icon", :sizes => "194x194", :type => "image/png"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/android-chrome-192x192.png?3761641567", :rel => "icon", :sizes => "192x192", :type => "image/png"}/
+    %link{:color => "#ea352d", :href => "//www-mercari-jp.akamaized.net/safari-pinned-tab.svg?3761641567", :rel => "mask-icon"}/
+    %link{:href => "https://www.mercari.com/jp/manifest.json?3761641567", :rel => "manifest"}/
+    %meta{:content => "#ffc40d", :name => "msapplication-TileColor"}/
+    %meta{:content => "//www-mercari-jp.akamaized.net/mstile-144x144.png?3761641567", :name => "msapplication-TileImage"}/
+    %meta{:content => "#ea352d", :name => "theme-color"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-precomposed.png?3761641567", :rel => "apple-touch-icon-precomposed"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-57x57.png?3761641567", :rel => "apple-touch-icon", :sizes => "57x57"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-60x60.png?3761641567", :rel => "apple-touch-icon", :sizes => "60x60"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-72x72.png?3761641567", :rel => "apple-touch-icon", :sizes => "72x72"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-76x76.png?3761641567", :rel => "apple-touch-icon", :sizes => "76x76"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-114x114.png?3761641567", :rel => "apple-touch-icon", :sizes => "114x114"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-120x120.png?3761641567", :rel => "apple-touch-icon", :sizes => "120x120"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-144x144.png?3761641567", :rel => "apple-touch-icon", :sizes => "144x144"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-152x152.png?3761641567", :rel => "apple-touch-icon", :sizes => "152x152"}/
+    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-180x180.png?3761641567", :rel => "apple-touch-icon", :sizes => "180x180"}/
+    %script{:src => "https://www.google.com/recaptcha/api.js?hl=ja"}
+  %body
+    / Google Tag Manager (noscript)
+    %noscript
+      %iframe{:height => "0", :src => "https://www.googletagmanager.com/ns.html?id=GTM-KLPT5L5", :style => "display:none;visibility:hidden", :width => "0"}
+    / End Google Tag Manager (noscript)
+    .single-container
+      %header.single-header
+        %h1
+          %a{:href => "https://www.mercari.com/jp/"}
+            %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3761641567"}/
+      %main.single-main
+        .login-panel
+          .login-no-account
+            %p アカウントをお持ちでない方はこちら
+            %a{:href => "https://www.mercari.com/jp/signup/?after_save_callback=%2Fjp%2F"} 新規会員登録
+
+          %form.login-form-inner{:action => "https://www.mercari.com/jp/signup/sms_confirmation/", :method => "POST", :novalidate => "novalidate"}
+            %input{:name => "__csrf_value", :type => "hidden", :value => "7088e23ff34753755fa91a4bd357742cb0b9477a98bc9bf39fa29885088ce782622488d02d5244764a1951cd25bb0f0e3bb22c2dcaafdc3031122e0b4d1b65767"}/
+            .l-single-content
+              %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
+                %i.icon-facebook
+                  Facebookでログインする
+
+              %button#google-login.btn-default.btn-sns.btn-sns-google
+                Googleでログインする
+
+          %form{:action => "https://www.mercari.com/jp/login/", :method => "POST", :novalidate => "novalidate"}
+            .login-form-inner
+              .form-group
+                %input.login-input-text.input-default{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}/
+              .form-group-old-login
+                %input.login-input-text.input-old{:name => "password", :placeholder => "パスワード", :type => "password"}/
+              .form-group-old-login
+                .g-recaptcha.login-captcha{"data-sitekey" => "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}
+                  %div{:style => "width: 304px; height: 78px;"}
+                    %div
+                      %iframe{:frameborder => "0", :height => "78", :name => "a-g2ns2hqk93wo", :role => "presentation", :sandbox => "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", :scrolling => "no", :src => "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=Zy-zVXWdnDW6AUZkKlojAKGe&size=normal&cb=f4n11xh9289j", :width => "304"}
+                    %textarea#g-recaptcha-response.g-recaptcha-response{:name => "g-recaptcha-response", :style => "width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"}
+              %button.login-submit.btn-default.btn-red#old{:type => "submit"} ログイン
+              %input{:name => "login_callback", :type => "hidden", :value => "/jp/"}/
+              %input{:name => "__csrf_value", :type => "hidden", :value => "41624c5462bd60848f497d97c189fd3bb4c14fa000a81d772ebc889bfe69e58d376ecb07cabbdb71ac111c1d2db8e4a45f6291f11b8f0942fed922150f27e5404"}/
+              %a.forget_password{:href => "https://www.mercari.com/jp/password/reset/start/"} パスワードをお忘れの方
+
+                
+      %footer.single-footer
+        %nav
+          %ul.clearfix
+            %li
+              %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+            %li
+              %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+            %li
+              %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+        %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
+          %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3761641567", :width => "80"}/
+        %p
+          %small © 2019 Mercari
+    %script{:src => "//www-mercari-jp.akamaized.net/assets/js/app.js?4246962500"}
+    / Google Tag Manager
+    :javascript
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-KLPT5L5');
+    / End Google Tag Manager
