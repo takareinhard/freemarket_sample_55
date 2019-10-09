@@ -22,5 +22,8 @@ class CategoriesController < ApplicationController
 
   def old_member_registration
   end
+
+  def mypage
+  end
   
 end
