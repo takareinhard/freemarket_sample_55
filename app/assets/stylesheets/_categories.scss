@@ -253,11 +253,6 @@
         top: 0px;
         width: 100vw;
         overflow: hidden;
-        a.info {
-          color: -webkit-link;
-          cursor: pointer;
-          text-decoration: underline;
-        }
         .slider-info {
           box-sizing: border-box;
           display: block;
@@ -278,13 +273,12 @@
             touch-action: pinch-zoom pan-y;
             transform: translate3d(0, 0, 0);
             -webkit-transform: translate3d(0, 0, 0);
+            ul.slider-list {
+              li.slider-slide {
                 a.slider {
-                  color: -webkit-link;
-                  cursor: pointer;
-                  text-decoration: underline;
                   .camp-image {
                     background-position: center center;
-                    background-image: url(https://web-jp-assets.mercdn.net/_next/static/images/mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png);
+                    background-image: url("https://web-jp-assets.mercdn.net/_next/static/images/top-banner-super-exhibition-fes-1354ced….jpg");
                     position: relative;
                     height: 390px;
                     background-size: auto;
@@ -293,30 +287,29 @@
               }
             }
           }
-        }
-      }
-        .slider-controlleft {
-          position: absolute;
-          top: 50%;
-          left: 0;
-          transform: translateY(-50%);
-          -webkit-transform: translateY(-50%);
-          &__button {
-            background-color: transparent;
-            cursor: pointer;
-            height: 46px;
-            width: 31px;
-            -webkit-appearance: none;
-            background-image: url(https://web-jp-assets.mercdn.net/_next/static/images/carousel-prev-af7ca88….png);
-            border-width: initial;
-            border-style: none;
-            border-color: initial;
-            border-image: initial;
-            padding: 0px;
+          .slider-controlleft {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            &__button {
+              background-color: transparent;
+              cursor: pointer;
+              height: 46px;
+              width: 31px;
+              -webkit-appearance: none;
+              background-image: url(https://web-jp-assets.mercdn.net/_next/static/images/carousel-prev-af7ca88….png);
+              border-width: initial;
+              border-style: none;
+              border-color: initial;
+              border-image: initial;
+              padding: 0px;
+            }
           }
         }
-        .slider-controlright {
         }
+      }
         .popularity-category {
           background-color: rgb(255, 255, 255);
           left: 50%;
@@ -486,8 +479,7 @@
           }
         }
       }
-    } 
-  }
+    }
   .exhibit-button {
     position: fixed;
     text-align: center;
@@ -521,7 +513,7 @@
   }
   aside.downloadlink {
     color: rgb(255, 255, 255);
-    background: url(https://www.pakutaso.com/shared/img/thumb/amazonIMGL0450_TP_V.jpg) center center / cover;
+    background: url("https://www.pakutaso.com/shared/img/thumb/amazonIMGL0450_TP_V.jpg") center center / cover;
     background-position: center center;
     margin-top: auto;
     position: relative;
