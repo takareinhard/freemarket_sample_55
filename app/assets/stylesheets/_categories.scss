@@ -1,50 +1,554 @@
-.header {
-  background-color: white;
-  position: relative;
-  .header-contents {
-    width: 1020px;
-    margin: 0px auto;
-    padding: 8px 0px 0px;
-    .header-search {
-      display: flex;
-      -webkit-box-pack: justify;
-      justify-content: space-between;
-      &__icon {
-      -webkit-box-align: center;
-      align-items: center;
-      display: flex;
-      height: 40px;
-      margin-right: 45px;
-        a {
-        color: inherit;
-        text-decoration: none;
-          img {
-            height: 36px;
-            width: 134px;
+.maincontents {
+  background-color: rgb(245, 245, 245);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  .header {
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    position: relative;
+    z-index: 3;
+    .header-contents {
+      width: 1020px;
+      margin: 0px auto;
+      padding: 8px 0px 0px;
+      .header-search {
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        &__icon {
+          -webkit-box-align: center;
+          align-items: center;
+          display: flex;
+          height: 40px;
+          margin-right: 45px;
+          a {
+            color: inherit;
+            text-decoration: none;
+            img.mercari-icon {
+              height: 36px;
+              width: 134px;
+            }
+          }
+        }
+        &__form {
+          position: relative;
+          width: 100%;
+          input {
+            background-color: rgb(245, 245, 245);
+            font-size: 16px;
+            height: 40px;
+            line-height: 1.4em;
+            position: relative;
+            width: 100%;
+            -webkit-appearance: none;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(204, 204, 204);
+            border-image: initial;
+            border-radius: 4px;
+            outline: none;
+            padding: 0px 50px 0px 10px;
+            transition: all 0.3s ease-out 0s;
+          }
+          .form-button {
+            background-color: transparent;
+            cursor: pointer;
+            height: 40px;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 40px;
+            -webkit-appearance: none;
+            border-width: initial;
+            border-style: none;
+            border-color: initial;
+            border-image: initial;
+            border-radius: 0px 4px 4px 0px;
+            padding: 0px;
+            svg {
+              max-width: 100%;
+              max-height: 100%;
+              color: rgb(34, 34, 34);
+              height: 14px;
+              margin-top: 13px;
+              margin-left: 13px;
+              width: 14px;
+            }
           }
         }
       }
-      &__form {
-      position: relative;
-      width: 100%;
-        input {
-          background-color: rgb(245, 245, 245);
-          font-size: 16px;
-          height: 40px;
-          line-height: 1.4em;
-          position: relative;
-          width: 100%;
-          -webkit-appearance: none;
-          border-width: 1px;
-          border-style: solid;
-          border-color: rgb(204, 204, 204);
-          border-image: initial;
-          border-radius: 4px;
-          outline: none;
-          padding: 0px 50px 0px 10px;
-          transition: all 0.3s ease-out 0s;
+      .header-navi {
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        margin-top: 8px;
+        .header-leftlist {
+          display: flex;
+          margin-left: -12px;
+          &__category {
+            cursor: pointer;
+            height: 44px;
+            position: relative;
+            z-index: 3;
+            padding: 0px 10px;
+            a.categorybutton {
+              display: block;
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 36px;
+              white-space: nowrap;
+              svg.categorybutton {
+                max-width: 100%;
+                max-height: 100%;
+                color: rgb(234, 53, 45);
+                height: 12px;
+                margin-right: 4px;
+              }
+            }
+          }
+          &__brand {
+            cursor: pointer;
+            height: 44px;
+            position: relative;
+            z-index: 3;
+            padding: 0px 10px;
+            a {
+              display: block;
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 36px;
+              white-space: nowrap;
+              svg.brandbutton {
+                max-width: 100%;
+                max-height: 100%;
+                color: rgb(234, 53, 45);
+                height: 12px;
+                margin-right: 4px;
+              }
+            }
+          }
+        }
+        .header-rightlist {
+          ul.rightlist {
+            display: flex;
+            position: relative;
+            li.likelist {
+              padding-left: 0px;
+              padding: 0px 14px;
+              height: 44px;
+              display: block;
+              a.likelist {
+                -webkit-box-align: center;
+                align-items: center;
+                display: flex;
+                font-size: 14px;
+                height: 32px;
+                transform: scale(1);
+                transition: all 0.3s ease-out 0s;
+                svg.likelist {
+                  max-width: 100%;
+                  height: auto;
+                  max-height: 100%;
+                  color: rgb(204, 204, 204);
+                  margin-right: 10px;
+                  width: 19px;
+                }
+              }
+            }
+            li.noticelist {
+              padding: 0px 14px;
+              height: 44px;
+              position: relative;
+              a.noticelist {
+                -webkit-box-align: center;
+                align-items: center;
+                display: flex;
+                font-size: 14px;
+                height: 32px;
+                transform: scale(1);
+                transition: all 0.3s ease-out 0s;
+                svg.noticelist {
+                  max-width: 100%;
+                  height: auto;
+                  max-height: 100%;
+                  color: rgb(204, 204, 204);
+                  margin-right: 10px;
+                  width: 17px;
+                }
+                span {
+                  background-color: rgb(234, 53, 45);
+                  color: rgb(255, 255, 255);
+                  font-size: 12px;
+                  height: 20px;
+                  left: 6px;
+                  line-height: 20px;
+                  position: absolute;
+                  text-align: center;
+                  top: -2px;
+                  width: 20px;
+                  border-radius: 50%;
+                }
+              }
+            }
+            li.todolist {
+              height: 44px;
+              position: relative;
+              padding: 0px 14px;
+              a.todolist {
+                -webkit-box-align: center;
+                align-items: center;
+                display: flex;
+                font-size: 14px;
+                height: 32px;
+                transform: scale(1);
+                transition: all 0.3s ease-out 0s;
+                svg.todolist {
+                  max-width: 100%;
+                  height: auto;
+                  max-height: 100%;
+                  color: rgb(204, 204, 204);
+                  margin-right: 10px;
+                }
+              }
+            }
+            li.mypagelist {
+              padding-left: 14px;
+              height: 44px;
+              position: relative;
+              a.mypagelist {
+                -webkit-box-align: center;
+                align-items: center;
+                display: flex;
+                font-size: 14px;
+                height: 32px;
+                transform: scale(1);
+                transition: all 0.3s ease-out 0s;
+                img.mypagelist {
+                  margin-right: 10px;
+                  width: 32px;
+                  border-radius: 50%;
+                  overflow: hidden;
+                  vertical-align: middle;
+                }
+              }
+            }
+          }
         }
       }
     }
   }
-}
+  .categorycontents {
+    max-width: 1020px;
+    width: 100%;
+    margin: 0px auto;
+    padding: 0px;
+    .categorucontents-center {
+      position: relative;
+      .top-information {
+        height: 390px;
+        left: 50%;
+        margin-left: -50vw;
+        position: relative;
+        top: 0px;
+        width: 100vw;
+        overflow: hidden;
+        a.info {
+          color: -webkit-link;
+          cursor: pointer;
+          text-decoration: underline;
+        }
+        .slider-info {
+          box-sizing: border-box;
+          display: block;
+          height: auto;
+          position: relative;
+          visibility: inherit;
+          width: 100%;
+          .slider-frame {
+            box-sizing: border-box;
+            display: block;
+            height: 100%;
+            margin: 0px;
+            -moz-box-sizing: border-box;
+            -ms-transform: translate(0, 0);
+            overflow: hidden;
+            padding: 0;
+            position: relative;
+            touch-action: pinch-zoom pan-y;
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+                a.slider {
+                  color: -webkit-link;
+                  cursor: pointer;
+                  text-decoration: underline;
+                  .camp-image {
+                    background-position: center center;
+                    background-image: url(https://web-jp-assets.mercdn.net/_next/static/images/mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png);
+                    position: relative;
+                    height: 390px;
+                    background-size: auto;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+        .slider-controlleft {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          -webkit-transform: translateY(-50%);
+          &__button {
+            background-color: transparent;
+            cursor: pointer;
+            height: 46px;
+            width: 31px;
+            -webkit-appearance: none;
+            background-image: url(https://web-jp-assets.mercdn.net/_next/static/images/carousel-prev-af7ca88….png);
+            border-width: initial;
+            border-style: none;
+            border-color: initial;
+            border-image: initial;
+            padding: 0px;
+          }
+        }
+        .slider-controlright {
+        }
+        .popularity-category {
+          background-color: rgb(255, 255, 255);
+          left: 50%;
+          margin-left: -53vw;
+          position: relative;
+          top: 0px;
+          width: 100vw;
+          padding: 40px 20px 20px;
+          h2.category-text {
+            margin-bottom: 16px;
+            text-align: center;
+            font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.4em;
+            margin: 0;
+            padding: 0;
+          }
+        }
+        .category-productlist {
+          padding: 42px 0px 100px;
+          .category-productlists {
+            &__scroll {
+              margin-bottom: 16px;
+              align-items: flex-end;
+              display: flex;
+              -webkit-box-pack: justify;
+              justify-content: space-between;
+              h3 {
+                flex: 1 1 0%;
+                font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+                font-size: 24px;
+                font-weight: 600;
+                line-height: 1.4em;
+                margin: 0;
+                padding: 0;
+              }
+              a.seemore {
+                font-size: 14px;
+                padding: 5px 16px 5px 5px;
+                color: rgb(0, 149, 238);
+                display: block;
+                font-weight: 600;
+                position: relative;
+                &::before {
+                  bottom: 0px;
+                  content: "";
+                  height: 10px;
+                  position: absolute;
+                  right: 2px;
+                  top: 0px;
+                  transform: rotate(-45deg);
+                  width: 10px;
+                  border-bottom: 2px solid rgb(0, 149, 238);
+                  border-right: 2px solid rgb(0, 149, 238);
+                  margin: auto;
+                }
+              }
+            }
+            .category-products-area {
+              &__each {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 20px 20px;
+                display: grid;
+                .stylelink {
+                  a.stylelinks {
+                    cursor: pointer;
+                    display: inline-block;
+                    position: relative;
+                    text-decoration: none;
+                    vertical-align: top;
+                    width: 100%;
+                    height: 100%;
+                    &::after {
+                      border: 1px solid transparent;
+                      bottom: 0;
+                      -webkit-box-sizing: border-box;
+                      box-sizing: border-box;
+                      content: "";
+                      height: 100%;
+                      left: 0;
+                      position: absolute;
+                      right: 0;
+                      top: 0;
+                      -webkit-transition-duration: .1s;
+                      transition-duration: .1s;
+                      -webkit-transition-timing-function: ease-in-out;
+                      transition-timing-function: ease-in-out;
+                      width: 100%;
+                      z-index: 1;
+                    }
+                    figure.style_card {
+                      border: 1px solid transparent;
+                      bottom: 0;
+                      display: flex;
+                      align-items: center;
+                      -webkit-box-sizing: border-box;
+                      box-sizing: border-box;
+                      -webkit-box-align: center;
+                      content: "";
+                      height: 100%;
+                      left: 0;
+                      position: absolute;
+                      right: 0;
+                      top: 0;
+                      -webkit-transition-duration: .1s;
+                      transition-duration: .1s;
+                      -webkit-transition-timing-function: ease-in-out;
+                      transition-timing-function: ease-in-out;
+                      width: 100%;
+                      z-index: 1;
+                      figcaption {
+                        box-sizing: border-box;
+                        color: #222;
+                        font-size: 14px;
+                        height: 64px;
+                        line-height: 1.4em;
+                        padding: 0 12px;
+                        white-space: normal;
+                        word-break: break-word;
+                        span.style_cards {
+                          display: inline-block;
+                          height: 2.8em;
+                          overflow: hidden;
+                          position: relative;
+                          }
+                        }
+                      .style_description {
+                        height: 0;
+                        overflow: hidden;
+                        padding: 0 0 100%;
+                        position: relative;
+                        width: 100%;
+                        span.price {
+                          -webkit-box-align: center;
+                          align-items: center;
+                          background: rgba(0,0,0,.4);
+                          border-radius: 0 14px 14px 0;
+                          bottom: 8px;
+                          box-sizing: border-box;
+                          color: #fff;
+                          display: inline-flex;
+                          font-size: 17px;
+                          height: 28px;
+                          letter-spacing: .02em;
+                          margin: 0;
+                          padding: 0 12px;
+                          position: absolute;
+                          z-index: 2;
+                        }
+                        img {
+                          bottom: 0;
+                          position: absolute;
+                          top: 0;
+                          height: 100%;
+                          object-fit: cover;
+                          vertical-align: top;
+                          width: 100%;
+                          z-index: 1;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    } 
+  }
+  .exhibit-button {
+    position: fixed;
+    text-align: center;
+    z-index: 2;
+    bottom: 32px;
+    font-size: 22px;
+    height: 160px;
+    right: 32px;
+    width: 160px;
+    a.exhibit {
+      display: block;
+      .exhibit-contents {
+        width: 160px;
+        height: 137px;
+        padding-top: 26px;
+        background-color: rgb(234, 53, 45);
+        border-radius: 50%;
+        text-align: center;
+        &__text {
+          font-size: 22px;
+          color: white;
+        }
+        svg.cameraicon {
+          width: 60px;
+          height: 54px;
+          margin-top: 3px;
+          color: white;
+        }
+      }
+    }
+  }
+  aside.downloadlink {
+    color: rgb(255, 255, 255);
+    background: url(https://www.pakutaso.com/shared/img/thumb/amazonIMGL0450_TP_V.jpg) center center / cover;
+    background-position: center center;
+    margin-top: auto;
+    position: relative;
+    a.downloadlink {
+      -webkit-box-align: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.2);
+      color: rgb(255, 255, 255);
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15px 0px;
+      img.downloadlink {
+        height: 50px;
+        margin-right: 20px;
+        width: 50px;
+        vertical-align: middle;
+      }
+      .freedownload {
+        display: inline-flex;
+        flex-direction: column;
+        text-align: left;
+        &__text {
+          font-size: 20px;
+          margin-top: 8px;
+        }
+      }
+    }
+  }
