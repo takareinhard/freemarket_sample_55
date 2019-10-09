@@ -299,7 +299,7 @@
               height: 46px;
               width: 31px;
               -webkit-appearance: none;
-              background-image: url(https://web-jp-assets.mercdn.net/_next/static/images/carousel-prev-af7ca88….png);
+              background-image: url("https://web-jp-assets.mercdn.net/_next/static/images/carousel-prev-af7ca88….png");
               border-width: initial;
               border-style: none;
               border-color: initial;
@@ -308,8 +308,8 @@
             }
           }
         }
-        }
       }
+    }
         .popularity-category {
           background-color: rgb(255, 255, 255);
           left: 50%;
