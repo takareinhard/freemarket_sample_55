@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get "member_finish" => 'categories#member_finish' #完了
 
   #ログインページ
-  get "new_member_registration" => 'categories#new_member_registration' #新規会員登録ログインページ"
-  get "old_member_registration" => 'categories#old_member_registration' #既存メンバーのログインページ"
+  get "new_member_registration" => 'categories#new_member_registration' #新規会員登録ログインページ
+  get "old_member_registration" => 'categories#old_member_registration' #既存メンバーのログインページ
+
+  #マイページ
+  get "mypage" => 'categories#mypage' #マイページ"
 end
