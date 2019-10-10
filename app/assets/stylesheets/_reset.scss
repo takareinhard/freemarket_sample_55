@@ -46,7 +46,6 @@ td {
   border-color: initial;
   border-image: initial;
   font: inherit;
-
 }
 table {
   border-collapse:collapse;
@@ -117,4 +116,9 @@ select {
 /*because legend doesn't inherit in IE */
 legend {
   color:#000;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
