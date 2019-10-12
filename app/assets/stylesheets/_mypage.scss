@@ -1,12 +1,886 @@
-container {
+
+.maincontents {
+  background-color: rgb(245, 245, 245);
+  display: flex;
+  flex-direction: column;
+  min-height: 148px;
+  .header {
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    position: relative;
+    z-index: 3;
+    .header-contents {
+      width: 1020px;
+      margin: 0px auto;
+      padding: 8px 0px 0px;
+      .header-search {
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        &__icon {
+          -webkit-box-align: center;
+          align-items: center;
+          display: flex;
+          height: 40px;
+          margin-right: 45px;
+          a {
+            color: inherit;
+            text-decoration: none;
+            img.mercari-icon {
+              height: 36px;
+              width: 134px;
+            }
+          }
+        }
+        &__form {
+          position: relative;
+          width: 100%;
+          input {
+            background-color: rgb(245, 245, 245);
+            font-size: 16px;
+            height: 40px;
+            line-height: 1.4em;
+            position: relative;
+            width: 100%;
+            -webkit-appearance: none;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(204, 204, 204);
+            border-image: initial;
+            border-radius: 4px;
+            outline: none;
+            padding: 0px 50px 0px 10px;
+            transition: all 0.3s ease-out 0s;
+          }
+          .form-button {
+            background-color: transparent;
+            cursor: pointer;
+            height: 40px;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 40px;
+            -webkit-appearance: none;
+            border-width: initial;
+            border-style: none;
+            border-color: initial;
+            border-image: initial;
+            border-radius: 0px 4px 4px 0px;
+            padding: 0px;
+            svg {
+              max-width: 100%;
+              max-height: 100%;
+              color: rgb(34, 34, 34);
+              height: 14px;
+              margin-top: 13px;
+              margin-left: 13px;
+              width: 14px;
+            }
+          }
+        }
+      }
+      .header-navi {
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        margin-top: 8px;
+        .header-leftlist {
+          display: flex;
+          margin-left: -12px;
+          &__category {
+            cursor: pointer;
+            height: 44px;
+            position: relative;
+            z-index: 3;
+            padding: 0px 10px;
+            a.categorybutton {
+              display: block;
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 36px;
+              white-space: nowrap;
+              svg.categorybutton {
+                max-width: 100%;
+                max-height: 100%;
+                color: rgb(234, 53, 45);
+                height: 12px;
+                margin-right: 4px;
+              }
+            }
+          }
+          &__brand {
+            cursor: pointer;
+            height: 44px;
+            position: relative;
+            z-index: 3;
+            padding: 0px 10px;
+            a {
+              display: block;
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 36px;
+              white-space: nowrap;
+              svg.brandbutton {
+                max-width: 100%;
+                max-height: 100%;
+                color: rgb(234, 53, 45);
+                height: 12px;
+                margin-right: 4px;
+              }
+            }
+          }
+        }
+        .header-rightlist {
+          ul.rightlist {
+            display: flex;
+            position: relative;
+            li.likelist {
+              padding-left: 0px;
+              padding: 0px 14px;
+              height: 44px;
+              display: block;
+              a.likelist {
+                -webkit-box-align: center;
+                align-items: center;
+                display: flex;
+                font-size: 14px;
+                height: 32px;
+                transform: scale(1);
+                transition: all 0.3s ease-out 0s;
+                svg.likelist {
+                  max-width: 100%;
+                  height: auto;
+                  max-height: 100%;
+                  color: rgb(204, 204, 204);
+                  margin-right: 10px;
+                  width: 19px;
+                }
+              }
+            }
+            li.noticelist {
+              padding: 0px 14px;
+              height: 44px;
+              position: relative;
+              a.noticelist {
+                -webkit-box-align: center;
+                align-items: center;
+                display: flex;
+                font-size: 14px;
+                height: 32px;
+                transform: scale(1);
+                transition: all 0.3s ease-out 0s;
+                svg.noticelist {
+                  max-width: 100%;
+                  height: auto;
+                  max-height: 100%;
+                  color: rgb(204, 204, 204);
+                  margin-right: 10px;
+                  width: 17px;
+                }
+                span {
+                  background-color: rgb(234, 53, 45);
+                  color: rgb(255, 255, 255);
+                  font-size: 12px;
+                  height: 20px;
+                  left: 6px;
+                  line-height: 20px;
+                  position: absolute;
+                  text-align: center;
+                  top: -2px;
+                  width: 20px;
+                  border-radius: 50%;
+                }
+              }
+            }
+            li.todolist {
+              height: 44px;
+              position: relative;
+              padding: 0px 14px;
+              a.todolist {
+                -webkit-box-align: center;
+                align-items: center;
+                display: flex;
+                font-size: 14px;
+                height: 32px;
+                transform: scale(1);
+                transition: all 0.3s ease-out 0s;
+                svg.todolist {
+                  max-width: 100%;
+                  height: auto;
+                  max-height: 100%;
+                  color: rgb(204, 204, 204);
+                  margin-right: 10px;
+                }
+              }
+            }
+            li.mypagelist {
+              padding-left: 14px;
+              height: 44px;
+              position: relative;
+              a.mypagelist {
+                -webkit-box-align: center;
+                align-items: center;
+                display: flex;
+                font-size: 14px;
+                height: 32px;
+                transform: scale(1);
+                transition: all 0.3s ease-out 0s;
+                img.mypagelist {
+                  margin-right: 10px;
+                  width: 32px;
+                  border-radius: 50%;
+                  overflow: hidden;
+                  vertical-align: middle;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.exhibit-button {
+  position: fixed;
+  text-align: center;
+  z-index: 2;
+  bottom: 32px;
+  font-size: 22px;
+  height: 160px;
+  right: 32px;
+  width: 160px;
+  a.exhibit {
+    display: block;
+    .exhibit-contents {
+      width: 160px;
+      height: 137px;
+      padding-top: 26px;
+      background-color: rgb(234, 53, 45);
+      border-radius: 50%;
+      text-align: center;
+      &__text {
+        font-size: 22px;
+        color: white;
+      }
+      svg.cameraicon {
+        width: 60px;
+        height: 54px;
+        margin-top: 3px;
+        color: white;
+      }
+    }
+  }
+}
+
+.bread-crumbs {
+  margin: 0px auto;
+  position: relative;
+  border-top: 1px solid #eee;
+  background: #f5f5f5;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: #fff;
+  & li {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  }
+  & li:last-child {
+  font-weight: 600;
+  }
+  .fas.fa-chevron-right {
+  margin: 0 8px;
+  font-size: 9px;
+  color: #888;
+  }
+}
+
+.bread-crumbs ul {
+  overflow: visible;
+  width: 1020px;
+  margin: 0 auto;
+  padding: 16px 0;
+  white-space: normal;
+  a {
+  color: #333;
+  text-decoration: none;
+}
+}
+
+.l-container {
   margin: 40px auto 0;
   width: 1020px;
+  padding: 0 0 40px;
 }
 
 .l-content {
   float: right;
+  width: 700px;
 }
 
 .mypage-user-icon {
   height: 200px;
+  position: relative;
+  padding: 20px;
+  background: url(https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?39597161);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  a {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    color: #333;
+    text-decoration: none;
+  }
+  figure {
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+  h2 {
+    margin: 8px 0 0;
+    font-size: 14px;
+  }
+  .bold {
+  font-weight: 600;
+  }
+}
+
+img {
+  vertical-align: middle;
+}
+
+.mypage-number {
+  margin: 8px 0 0;
+  font-size: 0;
+  div {
+    display: inline-block;
+    font-size: 14px;
+  }
+  span {
+    margin: 0 0 0 8px;
+    font-size: 16px;
+  }
+  div+div {
+    margin: 0 0 0 16px;
+}
+}
+
+.mypage-tab-container-notification-todo {
+  margin: 0;
+  background: #fff;
+  a {
+    text-decoration: none;
+  }
+}
+
+.mypage-tabs li.active, .listing-tabs li.active, .review-history-tabs li.active {
+  background: #fff;
+}
+
+.mypage-tabs ul {
+  width: 50%;
+}
+
+.mypage-tabs li {
+  width: 50%;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.mypage-tabs li.active a {
+  border-top: 2px solid #ea352d;
+}
+
+.mypage-tabs, .listing-tabs, .review-history-tabs {
+  border: 0;
+  background: #eee;
+  font-size: 0;
+  a {
+  position: relative;
+  display: block;
+  color: #333;
+  font-size: 16px;
+  line-height: 72px;
+  }
+}
+
+.mypage-tabs li, .listing-tabs li, .review-history-tabs li {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+}
+
+.tab-content .tab-pane.active {
+  display: block;
+}
+
+
+.mypage-item-list li {
+  position: relative;
+  border-bottom: 1px solid #eee;
+  &:first-child{
+  border-bottom: 1px solid #eee;
+  }
+  &:last-child {
+    border: 0;
+  }
+  li.mypage-item-not-found {
+    border: 0;
+  }
+}
+
+.mypage-item-link {
+  display: block;
+  min-height: 80px;
+  padding: 16px;
+  color: #333;
+  figure {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 48px;
+    height: 48px;
+  }
+  img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+  }
+  .far.fa-clock {
+    display: inline-block;
+    color: #888;
+      }
+
+  }
+  
+
+.mypage-item-body {
+  margin: 0 40px 0 68px;
+}
+
+.mypage-item-text {
+  overflow: hidden;
+  display: block;
+  display: -webkit-box;
+  max-height: 4.4em;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+}
+
+.mypage-go-list {
+  padding: 16px;
+  a {
+  display: block;
+  height: 56px;
+  margin: 0 auto;
+  background: #eee;
+  color: #333;
+  line-height: 56px;
+  text-align: center;
+  }
+}
+
+.tab-content .tab-pane {
+  display: none;
+}
+
+.mypage-item-not-found {
+  padding: 160px 0 60px;
+  background: url(https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?39597161);
+  background-repeat: no-repeat;
+  background-position: center 40px;
+  background-size: 78px 85px;
+  text-align: center;
+  font-size: 16px;
+  color: #ccc;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  opacity: 0;
+  -webkit-transform: translate(0, -10px);
+  transform: translate(0, -10px);
+  img {
+  width: 100%;
+  }
+}
+
+.modal-banner {
+  text-align: center;
+  h2 {
+  font-size: 34px;
+  }
+  p {
+  font-size: 18px;
+  }
+}
+
+.modal-inner {
+  max-width: none;
+  width: 600px;
+  margin: 20px auto;
+  position: relative;
+  overflow: hidden;
+  width: 95%;
+  max-width: 375px;
+  margin: 8px auto;
+  background: #fff;
+  .icon-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.64);
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+.modal-banner-eye-catch {
+  height: 310px;
+  overflow: hidden;
+  position: relative;
+  background: url(https://www.mercari.com/jp/assets/img/common/common/bg-modal-app-banner.jpg?39597161);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+}
+
+.modal-banner-eye-catch img {
+  &:first-child {
+    width: auto;
+    height: 100%;
+    }
+  &:last-child {
+    top: 16px;
+    left: 16px;
+    width: 110px;
+    height: 29px;
+  }
+}
+
+.modal-banner-body {
+  padding: 16px 2.5%;
+}
+
+.modal-banner-app {
+  margin: 16px 0 0;
+  font-size: 0;
+  text-align: center;
+}
+
+.modal-banner-app-open {
+  display: block;
+  width: 100%;
+  margin: 32px 0 0;
+  background: #ea352d;
+  font-size: 16px;
+  color: #fff;
+  line-height: 50px;
+}
+
+.mypage-tab-container {
+  margin: 40px 0 0;
+  background: #fff;
+}
+
+.mypage-tab-head {
+  padding: 0 16px;
+  background: #fafafa;
+  font-size: 16px;
+  line-height: 72px;
+}
+
+.mypage-tabs a {
+  position: relative;
+  display: block;
+  color: #333;
+  font-size: 16px;
+  line-height: 72px;
+  li{
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  }
+}
+
+.tab-content .tab-pane.active {
+  display: block;
+}
+
+.mypage-item-list li.mypage-item-not-found {
+  border: 0;
+}
+
+
+.l-side {
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0;
+  
+}
+
+.mypage-nav-head {
+  margin: 40px 0 0;
+  font-size: 16px;
+}
+
+.mypage-nav-list li {
+  border-top: 1px solid #eee;
+  a {
+  text-decoration: none;
+  }
+  &:first-child {
+  border: 0;
+  }
+}
+
+.mypage-nav-list-item {
+  position: relative;
+  display: block;
+  min-height: 48px;
+  padding: 16px;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+  .fas.fa-chevron-right {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  color: #ccc;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  -webkit-transition: all ease-out .2s;
+  transition: all ease-out .2s;
+  }
+}
+
+.mypage-nav-list-item.active {
+  background: #eee;
+  font-weight: 600;
+  .fas.fa-chevron-right {
+  color: #333;
+  }
+}
+
+.mypage-nav-head+.mypage-nav-list {
+  margin: 8px 0 0;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.app-banner {
+  display: block;
+  background: url(https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?39597161);
+  background-position: center;
+  background-size: cover;
+}
+
+.app-banner-pc {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 750px;
+  height: 260px;
+  margin: 0 auto;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+  h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  p {
+    margin: 10px 0 0;
+    font-size: 35px;
+  }
+}
+
+.app-banner-pc-inner {
+  left: 0;
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+.app-banner-icon {
+  margin: 20px 0 0;
+  figure {
+  float: left;
+  }
+  img {
+  vertical-align: middle;
+  }
+  ul {
+  float: left;
+  margin: 0 0 0 24px;
+  line-height: 68px;
+  }
+  li {
+    float: left;
+  }
+  & li:last-child {
+    margin: 0 0 0 16px;
+  }
+}
+
+.app-banner-pc>figure {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  height: 100%;
+  img {
+  width: 100%;
+  }
+}
+
+.global-footer {
+  font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+  font-weight: 500;
+  padding: 0 20px 10px 20px;
+  background: #212121;
+  color: #fff;
+  nav {
+    width: 1020px;
+    margin: 0 auto;
+  }
+  a {
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+}
+
+.footer-cell {
+  display: block;
+  float: left;
+  margin-top: 18px;
+  padding-left: 10px;
+  width: 23%;
+  padding: 0 40px 0 0;
+  vertical-align: top;
+  &:first-child {
+  padding: 0 20px 0 0;
+  width: 20%;
+  }
+  & li:first-child {
+    margin: 16px 0 0;
+  }
+  a {
+  display: block;
+  opacity: .7;
+  text-decoration: none;
+  }
+  li {
+  margin: 14px 0 0;
+  color: #fff;
+  }
+  &.full-width {
+    margin-top: 18px;
+    padding: 0 40px 0 0;
+    width: 42%;
+  }
+}
+
+.footer-head {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.footer-social-link {
+  display: inline-block;
+  a {
+  opacity: 1;
+  }
+}
+
+.inner-footer-cell {
+  float: left;
+  padding-left: 10px;
+  vertical-align: top;
+  width: 50%;
+  &:first-of-type {
+  padding: 0 10px 0 0;
+  }
+}
+
+.footer-nav-lang {
+  width: auto;
+  margin-top: 18px;
+}
+
+.footer-bottom {
+  margin: 30px auto 20px;
+  width: 1020px;
+  small {
+  font-size: 12px;
+  }
+}
+
+.footer-logo {
+  display: inline-block;
+  margin-right: 10px;
+  width: auto;
+}
+
+.footer-copyright {
+  display: inline-block;
+  margin: 8px 0 0;
+  text-align: center;
+  vertical-align: sub;
+  width: 745px;
+}
+
+.fab.fa-twitter {
+  background: transparent;
+  margin: 16px 18px 0 0;
+  font-size: 30px;
+}
+
+.fab.fa-facebook-square {
+  font-size: 30px;
 }
