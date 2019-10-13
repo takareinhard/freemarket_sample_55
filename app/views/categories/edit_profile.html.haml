@@ -63,121 +63,24 @@
 
   %main.l-container.clearfix
     .l-content
-      %section.mypage-user-icon
-        %a{:href => "https://www.mercari.com/jp/u/167048340/"}
-          %figure
-            %img{:alt => "", :height => "60", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "60"}/
-          %h2.bold Unknown
-          .mypage-number
-            %div
-              評価
-              %span.bold 0
-            %div
-              出品数
-              %span.bold 0
-      %section.mypage-tab-container-notification-todo
-        %ul.mypage-tabs
-          %li.active
-            %h3
-              %a{"data-toggle" => "tab", :href => "#mypage-tab-notification"}
-                お知らせ
-          %li
-            %h3
-              %a{"data-toggle" => "tab", :href => "#mypage-tab-todo"}
-                やることリスト
-        .tab-content
-          %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
-            %li
-              %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
-                %figure
-                  %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
-                .mypage-item-body
-                  .mypage-item-text 事務局から個別メッセージ「Googleログイン通知」
-                  %time
-                    %i.far.fa-clock
-                    %span 10 分前
-                %i.icon-arrow-right
-            %li
-              %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
-                %figure
-                  %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
-                .mypage-item-body
-                  .mypage-item-text 《速報》今なら販売手数料が実質無料！出品が超お得♪
-                  %time
-                    %i.far.fa-clock
-                    %span 2 日前
-                %i.icon-arrow-right
-            %li
-              %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
-                %figure
-                  %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
-                .mypage-item-body
-                  .mypage-item-text 事務局から個別メッセージ「Googleログイン通知」
-                  %time
-                    %i.far.fa-clock
-                    %span 2 日前
-                %i.icon-arrow-right
-            %li
-              %a.mypage-item-link{"data-modal" => "banner", "data-open" => "modal", :href => ""}
-                %figure
-                  %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
-                .mypage-item-body
-                  .mypage-item-text 《今なら販売手数料実質無料！》詳しくはこちらから♪
-                  %time
-                    %i.far.fa-clock
-                    %span 4 日前
-                %i.icon-arrow-right
-            %li
-              %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/news/"}
-                %figure
-                  %img.lazyloaded{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png", :src => "//static.mercdn.net/images/mercari_profile.png"}/
-                .mypage-item-body
-                  .mypage-item-text 事務局から個別メッセージ「全国のセブン-イレブンでメルカリの梱包資材販売がスタートします♪」
-                  %time
-                    %i.far.fa-clock
-                    %span 5 日前
-                %i.icon-arrow-right
-            %li.mypage-go-list
-              %a{:href => "/jp/mypage/notification/"} 一覧を見る
-          %ul#mypage-tab-todo.mypage-item-list.tab-pane
-            %li.mypage-item-not-found.bold 現在、やることリストはありません
-      %aside.modal{"data-close" => "modal", "data-modal" => "banner"}
-        .modal-inner.modal-banner
-          .modal-banner-eye-catch
-            %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?2296184308"}/
-            %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"}/
-          .modal-banner-body
-            %h2 今すぐ無料ダウンロード！
-            %p.bold 全ての機能を使えるスマホアプリはこちら！
-            .modal-banner-app.clearfix
-              %a.pull-left{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
-                %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?2296184308"}/
-              %a.pull-left{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
-                %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?2296184308"}/
-            %a.modal-banner-app-open{"data-action" => "app/launch", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://", :href => ""}
-              アプリで開く
-          %i.icon-close{"data-close" => "modal"}
-      %section.mypage-tab-container
-        %h2.mypage-tab-head 購入した商品
-        %ul.mypage-tabs
-          %li.active
-            %h3
-              %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-now"}
-                取引中
-          %li
-            %h3
-              %a{"data-toggle" => "tab", :href => "#mypage-tab-transaction-old"}
-                過去の取引
-        .tab-content
-          %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
-            %li.mypage-item-not-found.bold 取引中の商品がありません
-          %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
-            %li.mypage-item-not-found.bold 過去に取引した商品がありません
+      %section.l-chapter-container
+        %h2.l-chapter-head プロフィール
+        %form{:action => "https://www.mercari.com/jp/mypage/profile/", :method => "POST"}
+          %input{:name => "__csrf_value", :type => "hidden", :value => "a424fecbd9280c6ae330dffd878cf379328bd6b52ed5c1b2c34c8c0f95d7ed73785f1640596d6a698a5f34db909732691636366b15c9ada2f0fc28e39d6c7da23"}/
+          .setting-profile-icon
+            %figure
+              %img{:height => "60", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "60"}/
+            %input.input-default{:name => "nickname", :placeholder => "例)AYA☆セール中", :type => "text", :value => "Unknown"}/
+          .setting-profile-content
+            %textarea.textarea-default{:name => "introduction", :placeholder => "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+            %input{:name => "after_save_callback", :type => "hidden", :value => "https://www.mercari.com/jp/mypage/profile/"}/
+            %button.btn-default.btn-red{:type => "submit"} 変更する
+
     .l-side
       %nav.mypage-nav
         %ul.mypage-nav-list
           %li
-            %a.mypage-nav-list-item.active{:href => "/jp/mypage/"}
+            %a.mypage-nav-list-item{:href => "/jp/mypage/"}
               マイページ
               %i.fas.fa-chevron-right
           %li
@@ -245,7 +148,7 @@
         %h3.mypage-nav-head 設定
         %ul.mypage-nav-list
           %li
-            %a.mypage-nav-list-item{:href => "/jp/mypage/profile/"}
+            %a.mypage-nav-list-item.active{:href => "/jp/mypage/profile/"}
               プロフィール
               %i.fas.fa-chevron-right
           %li

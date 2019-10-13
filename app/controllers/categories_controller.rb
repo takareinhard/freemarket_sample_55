@@ -26,4 +26,7 @@ class CategoriesController < ApplicationController
   def mypage
   end
   
+  def edit_profile
+  end
+  
 end
