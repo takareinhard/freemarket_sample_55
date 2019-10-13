@@ -12,15 +12,11 @@
 .select-wrap.half {
   display: inline-block;
   width: calc(50% - 2px);
-}
-
-.form-group .select-wrap {
+  .select-wrap {
   margin: 8px 0 0;
-}
-
-.select-wrap {
   position: relative;
   background: #fff;
+  }
   select {
   width: calc(100% - 38px);
   }

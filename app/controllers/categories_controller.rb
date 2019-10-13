@@ -28,5 +28,8 @@ class CategoriesController < ApplicationController
   
   def edit_profile
   end
+
+  def logout
+  end
   
 end

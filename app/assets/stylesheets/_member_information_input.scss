@@ -49,20 +49,6 @@ body {
   line-height: 1;
 }
 
-.single-header {
-  height: 128px;
-  text-align: center;
-  background: rgb(245, 245, 245);
-  img{
-    vertical-align: middle;
-    width: 122px;
-    height: 33px;
-    &:hover{
-      opacity: 0.8;
-    }
-  }
-}
-
 .signup-bar.progress-bar {
   padding: 16px 0;
   border-top: 1px solid #eee;
@@ -79,17 +65,31 @@ body {
   margin: 0 auto;
 }
 
-.progress-bar.signup-bar {
-    border-top: 1px solid #eee;
-}
-
 .progress-bar {
   font-size: 0;
   text-align: center;
-}
-
-.progress-bar ol {
+  .signup-bar {
+    border-top: 1px solid #eee;
+  }
+   ol {
   margin: 0;
+  }
+  li {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    min-width: 40px;
+    margin: 0 5% 0 0;
+    font-size: 12px;
+    color: #888;
+    &.active {
+      font-weight: 600;
+      color: #ea352d;
+      .progress-status {
+      background: #ea352d;
+      }
+    }
+  }
 }
 
 .ol {
@@ -125,7 +125,7 @@ body {
     .progress-status {
     background: #ea352d;
     }
-}
+  }
 }
 
 .progress-status::before {
@@ -174,10 +174,6 @@ body {
   padding: 16px;
 }
 
-.l-single-inner.registration-form {
-  padding: 24px 16px 40px;
-  background-color: #fff;
-}
 
 .l-single-head {
   padding: 24px 8px;
@@ -196,15 +192,15 @@ h2 {
   padding: 40px;
   .registration-form {
   padding: 24px 16px 40px;
-}
+  background-color: #fff;
+  }
 }
 
 .form-group {
   margin: 40px 0 0;
-}
-
-.form-group:first-child {
+  &:first-child {
   margin: 0;
+}
 }
 
 .form-group label {
@@ -308,28 +304,37 @@ button, input, select, textarea {
   padding: 0;
 }
 
-.birthday-select-wrap {
-  margin: 8px 0 0;
-  box-sizing: inherit;
-}
-
-.birthday-select-wrap .select-wrap {
+.birthday-select-wrap
+  .select-wrap {
   display: inline-block;
   width: calc(30% - 17px);
+  position: relative;
+  background: #fff;
+  .fas.fa-chevron-down {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    z-index: 2;
+    color: #888;
+    font-size: 16px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
 }
-
-.birthday-select-wrap .select-wrap:first-of-type {
-  width: calc(34% - 17px);
-}
-
 
 .select-default {
   padding: 0 10px;
 }
 
-.form-group select {
+.form-group
+  select {
   width: 100%;
 }
+
+.form-group .select-wrap {
+  margin: 8px 0 0;
+}
+
 .select-default {
   position: relative;
   z-index: 2;
@@ -348,8 +353,6 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-
-
 
 
 .rc-anchor-center-item {
@@ -408,10 +411,6 @@ p {
   padding: 0 0 250px;
 }
 
-.footer {
-  display: block;
-}
-
 .single-footer {
 position: absolute;
 right: 0;
@@ -421,30 +420,35 @@ z-index: 1;
 height: 250px;
 padding: 40px 0;
 text-align: center;
+  &-logo{
+  width: 80px;
+  height: 65px;
+  margin: 40px auto 0;
 }
-
-.single-footer ul {
-  font-size: 0;
-  display: block;
-  list-style-type: disc;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 40px;
-  margin: 0 0 40px 0;
-}
-
-.single-footer a {
+ a {
   display: block;
   color: #333;
-}
-
-.single-footer li {
+ }
+  li {
   margin: 16px 0 0;
   font-size: 12px;
   list-style: none;
   margin: 0 0 0 16px;
+  }
+  ul {
+    font-size: 0;
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    margin: 0 0 40px 0;
+  }
+  p {
+    margin: 8px 0 0;
+  }
 }
 
 nav ol, nav ul {
