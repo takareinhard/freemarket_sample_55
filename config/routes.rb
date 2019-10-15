@@ -14,9 +14,12 @@ Rails.application.routes.draw do
   get "old_member_registration" => 'categories#old_member_registration' #既存メンバーのログインページ
 
   #マイページ
-  get "mypage" => 'categories#mypage' #マイページ"
+  get "mypage" => 'categories#mypage' #マイページ
 
   #ユーザープロフィール編集ページ
-  get "edit_profile" => 'categories#edit_profile' #ユーザープロフィール編集ページ"
+  get "edit_profile" => 'categories#edit_profile' #ユーザープロフィール編集ページ
+
+  #ユーザーログアウトページ
+  get "logout" => 'categories#logout' #ユーザーログアウトページ
 
 end
