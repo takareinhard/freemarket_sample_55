@@ -22,4 +22,7 @@ Rails.application.routes.draw do
   #ユーザーログアウトページ
   get "logout" => 'categories#logout' #ユーザーログアウトページ
 
+  #ユーザー本人確認ページ
+  get "identification" => 'categories#identification' #ユーザー本人確認ページ
+
 end
