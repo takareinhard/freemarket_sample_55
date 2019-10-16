@@ -41,23 +41,6 @@
   transform: translate(0, -50%);
 }
 
-i[class^='icon-'], i[class*='icon-'] {
-  display: inline-block;
-  font-family: "Font Awesome 5 Free";
-  speak: none;
-  font-style: normal;
-  font-weight: 400;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-arrow-bottom:before {
-  content: '\e001';
-}
-
 .signup-seqcode {
   position: relative;
   margin: 8px 0 0;
