@@ -14,6 +14,48 @@
   font-size: 14px;
   color: #333;
   line-height: 1;
+.single-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  height: 250px;
+  padding: 40px 0;
+  text-align: center;
+    &-logo{
+    width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
+    a {
+    display: block;
+    color: #333;
+    }
+  }
+  li {
+  margin: 16px 0 0;
+  font-size: 12px;
+  list-style: none;
+  margin: 0 0 0 16px;
+  }
+  ul {
+    font-size: 0;
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    margin: 0 0 40px 0;
+  }
+  p {
+    margin: 8px 0 0;
+  }
+  nav ol, nav ul {
+    list-style: none;
+  }
+  }
 }
 
 .single-header {
@@ -270,49 +312,5 @@
   }
   .text-right {
     text-align: right;
-  }
-}
-
-
-.single-footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  height: 250px;
-  padding: 40px 0;
-  text-align: center;
-    &-logo{
-    width: 80px;
-    height: 65px;
-    margin: 40px auto 0;
-    a {
-    display: block;
-    color: #333;
-    }
-  }
-  li {
-  margin: 16px 0 0;
-  font-size: 12px;
-  list-style: none;
-  margin: 0 0 0 16px;
-  }
-  ul {
-    font-size: 0;
-    display: block;
-    list-style-type: disc;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-    margin: 0 0 40px 0;
-  }
-  p {
-    margin: 8px 0 0;
-  }
-  nav ol, nav ul {
-    list-style: none;
   }
 }

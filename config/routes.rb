@@ -25,4 +25,7 @@ Rails.application.routes.draw do
   #ユーザー本人確認ページ
   get "identification" => 'categories#identification' #ユーザー本人確認ページ
 
+  #商品購入確認ページ
+  get "product_purchase_confirmation" => 'categories#product_purchase_confirmation' #商品購入確認ページ
+
 end
