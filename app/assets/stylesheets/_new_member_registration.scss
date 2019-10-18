@@ -1,34 +1,58 @@
-
-.single-header img {
-  display: inline-block;
-  margin-top: auto;
-  width: 185px;
-  height: 49px;
-}
-
-.single-header {
-  text-align: center;
-}
-
-.single-header h1 {
-  margin: 40px 0 0;
-  display: inline-block;
-}
-
-.btn-mail {
-  color: #fff;
-  background-color: #ea352d;
-}
-
-.btn-sns-facebook {
-  margin: 16px 0 0;
-  background: #385185;
-  color: #fff;
-}
-
-.btn-sns-google {
-  margin: 16px 0 0;
-  background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
-  border: #979797 solid 1px;
-  color: #333;
+.l-single-inner.registration-form {
+  padding: 24px 16px 40px;
+  .l-single-content {
+    max-width: 343px;
+  }
+  .btn-default {
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+  }
+  .btn-mail {
+    color: #fff;
+    background-color: #ea352d;
+    position: relative;
+    .far.fa-envelope::before {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    color: #fff;
+    font-size: 16px;
+    }
+  }
+  .btn-sns {
+    position: relative;
+    &-facebook {
+    margin: 16px 0 0;
+    background: #385185;
+    color: #fff;
+    }
+  }
+  .fab.fa-facebook-square {
+    font-size: 14px;
+  }
+  .fab.fa-facebook-square::before {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    color: #fff;
+    font-size: 30px;
+  }
+  .btn-sns-google {
+    margin: 16px 0 0;
+    background: #fff url(https://www.mercari.com/jp/assets/img/common/common/google.svg) no-repeat 3px top;
+    border: #979797 solid 1px;
+    color: #333;
+  }
 }
