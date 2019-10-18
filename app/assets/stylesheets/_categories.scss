@@ -253,61 +253,66 @@
         top: 0px;
         width: 100vw;
         overflow: hidden;
-        .slider-info {
-          box-sizing: border-box;
-          display: block;
-          height: auto;
+        ul {
           position: relative;
-          visibility: inherit;
-          width: 100%;
-          .slider-frame {
-            box-sizing: border-box;
-            display: block;
-            height: 100%;
-            margin: 0px;
-            -moz-box-sizing: border-box;
-            -ms-transform: translate(0, 0);
-            overflow: hidden;
-            padding: 0;
-            position: relative;
-            touch-action: pinch-zoom pan-y;
-            transform: translate3d(0, 0, 0);
-            -webkit-transform: translate3d(0, 0, 0);
-            ul.slider-list {
-              li.slider-slide {
-                a.slider {
-                  .camp-image {
-                    background-position: center center;
-                    background-image: url("https://web-jp-assets.mercdn.net/_next/static/images/top-banner-super-exhibition-fes-1354ced….jpg");
-                    position: relative;
-                    height: 390px;
-                    background-size: auto;
-                  }
-                }
-              }
+          margin: 0px;
+          padding: 0px;
+          height: 390px;
+          width: 3498px;
+          li {
+            display: inline-block;
+            height: auto;
+            margin: auto 0px;
+            position: absolute;
+            width: 50%;
+            left: 150px;
+            img {
+              background-size: auto;
+              display: inline-block;
+              text-align: center;
+              height: 390px;
+              width: 50%;
+              align-items: center;
             }
           }
         }
         .slider-controlleft {
+          margin-left: 60px;
           position: absolute;
           top: 50%;
           left: 0;
-          transform: translateY(-50%);
-          -webkit-transform: translateY(-50%);
           &__button {
-            background-color: transparent;
-            cursor: pointer;
-            height: 46px;
-            width: 31px;
-            -webkit-appearance: none;
-            background-image: url("https://web-jp-assets.mercdn.net/_next/static/images/carousel-prev-af7ca88….png");
-            border-width: initial;
-            border-style: none;
-            border-color: initial;
-            border-image: initial;
-            padding: 0px;
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 25px;
+            height: 25px;
+            border-top: 3px solid #fff;
+            border-right: 3px solid #fff;
+            transform: rotate(-140deg);
+            margin-top: -5px;
           }
         }
+        .slider-controllright {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          margin-right: 60px;
+          &__button {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 25px;
+            height: 25px;
+            border-top: 3px solid #fff;
+            border-right: 3px solid #fff;
+            transform: rotate(45deg);
+            margin-top: -5px;
+          }
+        }
+        
       }
       .popularity-category {
         background-color: rgb(255, 255, 255);
@@ -372,13 +377,17 @@
             &__each {
               display: flex;
               flex-wrap: wrap;
+              width: 1020px;
+              margin: auto;
+              justify-content: space-between; 
               .product-card {
                 height: 252px;
                 width: 188px;
-                margin-right: 20px;
                 margin-bottom: 20px;
+                box-shadow: 0 2px 4px rgba(0,0,0,.18);
                 &__image-area {
                   height: 188px;
+                  position: relative;
                   img.card-image {
                     height: 188px;
                     width: 188px;
@@ -395,8 +404,6 @@
                     -webkit-box-sizing: border-box;
                     box-sizing: border-box;
                     color: #fff;
-                    display: -webkit-inline-box;
-                    display: -ms-inline-flexbox;
                     display: inline-flex;
                     font-size: 17px;
                     height: 32px;
@@ -406,11 +413,35 @@
                     padding: 0 12px;
                     position: absolute;
                     z-index: 2;
+                    left: 1px;
                   }
                 }
                 &__text-area {
-                  
+                  margin-top: 10px;
+                  box-sizing: border-box;
+                  color: #222;
+                  font-size: 14px;
+                  height: 64px;
+                  line-height: 1.4em;
+                  padding: 0 12px;
+                  white-space: normal;
+                  word-break: break-word;
                   height: calc(252px - 188px);
+                  span {
+                    display: inline-block;
+                    height: 2.8em;
+                    overflow: hidden;
+                    position: relative;
+                    &::after {
+                      background: linear-gradient(90deg,hsla(0,0%,10%,0),#fff 72%);
+                      bottom: 0;
+                      content: "";
+                      height: 50%;
+                      position: absolute;
+                      right: 0;
+                      width: 50%;
+                    }
+                  }
                 }
               }
             }
@@ -452,7 +483,7 @@
   }
   aside.downloadlink {
     color: rgb(255, 255, 255);
-    background: url("https://www.pakutaso.com/shared/img/thumb/amazonIMGL0450_TP_V.jpg") center center / cover;
+    background: url(https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?39597161) center center / cover;
     background-position: center center;
     margin-top: auto;
     position: relative;
@@ -472,13 +503,13 @@
         justify-content: center;
         width: 430px;
         .text-free {
-          color: #e73e3e;
+          color: white;
           font-size: 24px;
           font-weight: 600;
           margin-bottom: 15px;
         }
         .text-soon {
-          color: #e73e3e;
+          color: white;
           font-size: 35px;
           margin-bottom: 20px;
         }
@@ -520,11 +551,120 @@
     color: rgb(255, 255, 255);
     font-size: 12px;
     padding: 0px 20px 10px;
-    position: relative;
-    height: 389px;
-    width: 1166px;
     nav {
-      
+      width: 1020px;
+      margin: 0px auto;
+      .footer-cell {
+        display: inline-block;
+        margin-top: 18px;
+        padding-left: 0px;
+        width: auto;
+        padding: 0 40px 0 0;
+        vertical-align: top;
+        h2.footer-head {
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 1.4em;
+        }
+        .inner-footer-cell {
+          padding: 0px 20px 0px 0px;
+          vertical-align: top;
+          margin-top: 18px;
+          padding-right: 20px;
+          width: 43%;
+          display: inline-block;
+          &__left {
+            padding: 0 10px 0 0;
+            display: inline-block;
+            vertical-align: top;
+            width: 43%;
+            float: left;
+          }
+          &__right {
+            display: inline-block;
+            padding-left: 15px;
+            vertical-align: top;
+            width: 43%;
+            float: right;
+          }
+        }
+        &.footer-nav-lang {
+          width: auto;
+          margin-top: 18px;
+          vertical-align: top;
+          float: right;
+        }
+        &:first-child {
+        padding: 0 20px 0 0;
+        width: auto;
+        }
+        &.full-width {
+          margin-top: 18px;
+          padding: 0 20px 0 0;
+          width: 42%;
+        }
+        ul {
+          & li:first-child {
+            margin: 16px 0 0;
+          }
+          & li {
+            line-height: 1.4em;
+            margin: 16px 0px 0px;
+            a {
+              color: #fff;
+              font-size: 12px;
+              line-height: 1.5em;
+              text-decoration: none;
+              color: #fff;
+              font-size: 12px;
+              line-height: 1.5em;
+              display: block;
+              opacity: .7;
+            }
+          }
+          & li.footer-social-link {
+            color: white;
+            display: inline-block;
+            margin-top: 30px;
+            a {
+              opacity: 1.0;
+              i.fab.fa-twitter {
+                background: transparent;
+                margin: 16px 18px 0 0;
+                max-width: 100%;
+                height: auto;
+                max-height: 100%;
+                width: 30px;
+                margin-right: 20px;
+                font-size: 30px;
+              }
+              i.fab.fa-facebook-square {
+                font-size: 30px;
+                max-width: 100%;
+                height: auto;
+                max-height: 100%;
+                width: 26px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .footer-bottom {
+      width: 1020px;
+      margin: 30px auto 20px;
+      -webkit-box-align: center;
+      align-items: center;
+      display: flex;
+      span {
+        font-size: 12px;
+        text-align: center;
+        padding-left: 15px;
+        width: 75%;
+      }
+      a.footer-logo {
+        text-align: center;
+      }
     }
   }
 }
