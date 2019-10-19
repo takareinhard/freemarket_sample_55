@@ -28,4 +28,7 @@ Rails.application.routes.draw do
   #商品購入確認ページ
   get "product_purchase_confirmation" => 'categories#product_purchase_confirmation' #商品購入確認ページ
 
+  #ユーザークレジットカード登録ページ
+  get "user_credit_registration" => 'categories#user_credit_registration' #ユーザークレジットカード登録ページ
+
 end
