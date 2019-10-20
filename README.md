@@ -1,8 +1,8 @@
 ### userモデル
 |Column|Type|Options|
 |:------|:----|:-------|
-|email|string|null: false,unique: true|
-|password|string|null: false|
+|email|string|null: false,unique: true, default: ""|
+|encrypted_password|string|null: false, default: ""|
 |earnings|integer|default: 0|
 |points|integer|default: 0|
 |card_token|string||
