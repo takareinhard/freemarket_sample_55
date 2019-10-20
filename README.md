@@ -5,7 +5,7 @@
 |password|string|null: false|
 |earnings|integer|default: 0|
 |points|integer|default: 0|
-|card-token|string||
+|card_token|string||
 
 ### Association
 - has_many :administrators_message   [](運営からのメッセージ)
