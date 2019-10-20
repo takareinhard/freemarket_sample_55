@@ -2,7 +2,7 @@
 |Column|Type|Options|
 |:------|:----|:-------|
 |email|string|null: false,unique: true|
-|password|string||
+|password|string|null: false|
 |earnings|integer|default: 0|
 |points|integer|default: 0|
 |card-token|string||
