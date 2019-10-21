@@ -31,5 +31,4 @@ Rails.application.routes.draw do
 
   #ユーザークレジットカード登録ページ
   get "user_credit_registration" => 'categories#user_credit_registration' #ユーザークレジットカード登録ページ
-
 end
