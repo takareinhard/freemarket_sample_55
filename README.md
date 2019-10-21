@@ -23,6 +23,7 @@
 - has_many :buyer_sell_values, class_name: 'BuyValue', foreign_key: 'buyer_id'
 - has_many :seller_sell_values, class_name: 'SellValue', foreign_key: 'seller_id'
 - has_one :sms_authentication
+- has_one :credit_card
 - belong_to :profile
 
 ### profileモデル 
@@ -62,6 +63,8 @@
 |user_id|references|null: false, foreign_key: true|
 |customer_id|string|null: false|
 |card_id|string|null: false|
+### Association
+- belongs_to :user
 
 ### productモデル
 |Column|Type|Options|
