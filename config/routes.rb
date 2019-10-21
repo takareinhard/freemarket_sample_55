@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: "categories#index"
   resources :categories
   #新規会員登録のページ達
@@ -29,5 +30,8 @@ Rails.application.routes.draw do
 
   #商品出品ページ
   get "product_exhibit" => 'categories#product_exhibit'
+  
+  #ユーザークレジットカード登録ページ
+  get "user_credit_registration" => 'categories#user_credit_registration' #ユーザークレジットカード登録ページ
 
 end

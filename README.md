@@ -1,11 +1,11 @@
 ### userモデル
 |Column|Type|Options|
 |:------|:----|:-------|
-|email|string|null: false,unique: true|
-|password|string||
+|email|string|null: false,unique: true, default: ""|
+|encrypted_password|string|null: false, default: ""|
 |earnings|integer|default: 0|
 |points|integer|default: 0|
-|card-token|string||
+|card_token|string||
 
 ### Association
 - has_many :administrators_message   [](運営からのメッセージ)
@@ -29,13 +29,18 @@
 |Column|Type|Options|
 |:------|:----|:-------|
 |nickname|string|null: false|
-|name|string|null: false|
+|first_name|string|null: false,limit: 50|
+|last_name|string|null: false,limit: 50|
+|first_name_kana|string|null: false,limit: 50|
+|last_name_kana|string|null: false,limit: 50|
 |name_reading|string|null: false|
 |post_number|integer||
 |prefecture|integer||
 |city|string||
 |house_number|string||
 |building_name|string||
+|birthday|date|null: false|
+|tel_number|integer||
 |profile|text||
 |avatar|string||
 |user|references|null: false, foreign_key: true|
