@@ -32,4 +32,6 @@ class CategoriesController < ApplicationController
   def logout
   end
   
+  def product_exhibit
+  end
 end
