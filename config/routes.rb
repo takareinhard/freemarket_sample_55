@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root to: "categories#index"
   resources :categories
-
   #新規会員登録のページ達
   get "member_information_input" => 'categories#member_information_input' #会員情報入力
   get "sms_authentication" => 'categories#sms_authentication' #電話番号認証
@@ -27,5 +26,8 @@ Rails.application.routes.draw do
 
   #商品購入確認ページ
   get "product_purchase_confirmation" => 'categories#product_purchase_confirmation' #商品購入確認ページ
+
+  #商品出品ページ
+  get "product_exhibit" => 'categories#product_exhibit'
 
 end
