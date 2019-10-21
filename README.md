@@ -56,7 +56,7 @@
 ### Association
 - belongs_to :user
 
-### credit_cardsモデル
+### credit_cardモデル
 |Column|Type|Options|
 |:------|:----|:-------|
 |user_id|references|null: false, foreign_key: true|
