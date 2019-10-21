@@ -40,7 +40,7 @@
 |house_number|string||
 |building_name|string||
 |birthday|date|null: false|
-|tell_number|integer||
+|tel_number|integer||
 |profile|text||
 |avatar|string||
 |user|references|null: false, foreign_key: true|
