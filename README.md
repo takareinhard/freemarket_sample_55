@@ -34,7 +34,6 @@
 |last_name|string|null: false,limit: 50|
 |first_name_kana|string|null: false,limit: 50|
 |last_name_kana|string|null: false,limit: 50|
-|name_reading|string|null: false|
 |post_number|integer||
 |prefecture|integer||
 |city|string||
