@@ -24,7 +24,8 @@
 - has_many :seller_sell_values, class_name: 'SellValue', foreign_key: 'seller_id'
 - has_one :sms_authentication
 - has_one :credit_card
-- belong_to :profile
+- has_one :profile
+- accepts_nested_attributes_for :profile
 
 ### profileモデル 
 |Column|Type|Options|
