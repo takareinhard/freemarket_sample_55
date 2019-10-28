@@ -23,7 +23,9 @@
 - has_many :buyer_sell_values, class_name: 'BuyValue', foreign_key: 'buyer_id'
 - has_many :seller_sell_values, class_name: 'SellValue', foreign_key: 'seller_id'
 - has_one :sms_authentication
-- belong_to :profile
+- has_one :credit_card
+- has_one :profile
+- accepts_nested_attributes_for :profile
 
 ### profileモデル 
 |Column|Type|Options|
@@ -33,7 +35,6 @@
 |last_name|string|null: false,limit: 50|
 |first_name_kana|string|null: false,limit: 50|
 |last_name_kana|string|null: false,limit: 50|
-|name_reading|string|null: false|
 |post_number|integer||
 |prefecture|integer||
 |city|string||
@@ -53,6 +54,15 @@
 |:------|:----|:-------|
 |phone_number|integer|null: false|
 |user|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+
+### credit_cardモデル
+|Column|Type|Options|
+|:------|:----|:-------|
+|user_id|references|null: false, foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 ### Association
 - belongs_to :user
 
