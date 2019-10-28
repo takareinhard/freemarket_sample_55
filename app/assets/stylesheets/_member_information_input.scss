@@ -193,7 +193,12 @@
         box-sizing: inherit;
       }
     }
-  }
+    f.label {
+      font-weight: 600;
+    }
+    i.label {
+      font-weight: 600;
+    }
   h2 {
     font-size: 22px;
     line-height: 1.4;
@@ -313,4 +318,5 @@
   .text-right {
     text-align: right;
   }
+}
 }

@@ -1,10 +1,30 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'card/new'
+
+  get 'card/show'
+
+  
+
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+  
   root to: "categories#index"
   resources :categories
+
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
+  
   #新規会員登録のページ達
   get "member_information_input" => 'categories#member_information_input' #会員情報入力
-  get "sms_authentication" => 'categories#sms_authentication' #電話番号認証
+  get "sms_authentication" => 'users#sms_authentication' #電話番号認証
   get "profile" => 'categories#profile' #お届け先住所入力
   get "payment" => 'categories#payment' #支払い方法
   get "member_finish" => 'categories#member_finish' #完了
