@@ -9,6 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.integer :earnings,default: 0
       t.integer :points,default: 0
       t.string :card_token
+      t.string :password,null: false,
 
       ## Recoverable
       t.string   :reset_password_token

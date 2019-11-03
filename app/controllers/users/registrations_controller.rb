@@ -8,6 +8,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_profile
   end
 
+  # def after_sign_in_path_for(resource) 
+  #   sms_authentication_path
+  # end
+
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 

@@ -68,6 +68,7 @@
         %section.l-single-container
           %h2.l-chapter-head.registration 電話番号の確認
           %form.l-single-inner.registration-form{:action => "https://www.mercari.com/jp/signup/sms_confirmation/sms/", :method => "POST", :novalidate => "novalidate"}
+           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
             %input{:name => "after_save_callback", :type => "hidden", :value => ""}/
             .l-single-content
               .form-group
