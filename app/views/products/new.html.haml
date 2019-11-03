@@ -6,7 +6,7 @@
   .exhibit-main
     .single-containar
       .single-containar__head 商品の情報を入力
-      %form.sell-form
+      = form_for @product, html: {class: "sell-form"} do |f| 
         .upload-box
           %h3 出品画像
           %span 必須
@@ -23,12 +23,12 @@
             .name-form__text 商品名
             .name-form__icon 必須
             %div
-              %input.input-default{:placeholder => "商品名（必須 40文字まで)", :value => ""}/
+              = f.text_field :name, required: true, placeholder: "商品名（必須 40文字まで)", class: "input-default"
           .explain-form
             .explain-form__text 商品の説明
             .explain-form__icon 必須
             %div
-              %textarea{:placeholder => "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", :rows => "5"}
+              = f.text_area :detail, required: true, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", :rows => "5"
         .sell-product-details
           %h3 商品の詳細
           .details-form-box
@@ -38,8 +38,7 @@
               %div
                 .select-form
                   %i.fas.fa-chevron-down
-                  %select
-                    %option{:value => ""} ---
+                  = f.select :name, [["---"],["レディース", "レディース"],["メンズ", "メンズ"],["ベビー・キッズ", "ベビー・キッズ"],[]]
             .status-form
               .status-form__text 商品の状態
               .status-form__icon 必須
@@ -168,7 +167,7 @@
               また、出品をもちまして
               %a{:href => "/jp/seller_terms/"} 加盟店規約
               に同意したことになります。
-          %button{:type => "submit"} 出品する
+          = f.submit "出品する", class: "button" 
           %a.back-btn もどる
   %footer.exhibit-bottom
     %nav
