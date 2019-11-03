@@ -76,3 +76,6 @@ gem 'font-awesome-sass', '~> 5.11.2'
 gem "gretel"
 gem 'devise'
 gem 'payjp'
+gem 'twilio-ruby'
+gem 'dotenv-rails'
+gem 'pry-rails'
