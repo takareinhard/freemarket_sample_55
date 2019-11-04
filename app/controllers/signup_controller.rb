@@ -173,7 +173,7 @@ end
       #生成した整数を文章にしたsms送信
       client.api.account.messages.create(from: ENV["TWILLIO_NUMBER"], to: phone_number, body: sms_number)
     rescue
-      #失敗した場合ここが動く
+      #失敗した場合ここが動く。失敗しているのでここをsms_authenticationからadressに変更
       render "signup/address/"
       return false
     end
