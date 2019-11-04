@@ -159,7 +159,7 @@ end
   def sms_post
     @profile = Profile.new
     #パラメータが飛んでなかった場合ここでrender
-    render sms_confirmation_signup_index_path unless  profile_params[:tel_number].present?
+    render sms_authentication_signup_index_path unless  profile_params[:tel_number].present?
     #電話番号を+81~の国際書式に書き換え（そうしないと送れない）
     phone_number = profile_params[:tel_number].sub(/\A./,'+81')
     #ランダムに5桁の整数を生成
@@ -174,7 +174,7 @@ end
       client.api.account.messages.create(from: ENV["TWILLIO_NUMBER"], to: phone_number, body: sms_number)
     rescue
       #失敗した場合ここが動く
-      render "signup/sms_authentication"
+      render "signup/sms_confirmation"
       return false
     end
     #成功した場合、以下のコードが動き、smsの照合画面へと変遷する
