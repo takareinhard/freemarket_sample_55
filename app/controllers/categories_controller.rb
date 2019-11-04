@@ -1,8 +1,5 @@
 class CategoriesController < ApplicationController
-  def index
-    @categories = Categories.all
-  end
-
+  
   def member_information_input
     
   end
