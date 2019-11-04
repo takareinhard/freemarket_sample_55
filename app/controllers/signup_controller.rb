@@ -78,21 +78,25 @@ class SignupController < ApplicationController
   def sms_authentication
     @user = User.new
     @profile = Profile.new
+    @user.build_profile
   end
 
   def sms_confirmation
     @user = User.new
     @profile = Profile.new
+    @user.build_profile
   end
 
   def address
     @user = User.new
     @profile = Profile.new
+    @user.build_profile
   end
 
   def registration
     @user = User.new
     @profile = Profile.new
+    @user.build_profile
   end
 
   def create
@@ -124,10 +128,10 @@ class SignupController < ApplicationController
       building_name: session[:building],
     )
 
-  最後のフォームでクレジット認証を行なっているため、ここでカードの顧客情報を作り、userと紐づけてDBに保存する処理を行なっています
+  # 最後のフォームでクレジット認証を行なっているため、ここでカードの顧客情報を作り、userと紐づけてDBに保存する処理を行なっています
   Payjp.api_key = "sk_test_88a4b35f1038b2298666f28f"
   customer = Payjp::Customer.create(card: params[:payjp_token])
-  @credit_card = CreditCard.new(user: @user,customer_id: customer.id,card_id: customer.default_card)
+  @credit_card = CreditCard.new(user: @user, customer_id: customer.id)
   # カード情報まで保存に成功したら全sessionをリセットしてユーザーidのみsessionに預け、完了画面へリダイレクト
   if @credit_card.save
     reset_session
@@ -203,7 +207,7 @@ end
   end
 
   def profile_params
-    params.require(:profile).permit(:post_number,:house_number,:building_name,:nickname,:birthyear,:birthmonth,:birthday,:last_name,:first_name,:last_name_kana,:first_name_kana,:post_number,:prefecture,:city,:address,:building,:tel_number)
+    params.require(:profile).permit(:post_number,:house_number,:building_name,:nickname,:birthday,:last_name,:first_name,:last_name_kana,:first_name_kana,:post_number,:prefecture,:city,:address,:tel_number)
   end
 
   def credit_card_params
