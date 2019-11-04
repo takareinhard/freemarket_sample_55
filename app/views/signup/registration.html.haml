@@ -1,8 +1,7 @@
 !!!
 %html{:lang => "ja-JP"}
   %head
-    %script{:src => "https://www.google.com/recaptcha/api.js?hl=jp"}
-      %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     .single-container
       %header.single-header
         %h1
@@ -112,7 +111,7 @@
             .l-single-content
               %input{:name => "after_save_callback", :type => "hidden", :value => ""}/
               .form-group
-                .g-recaptcha{"data-sitekey" => "6Ld5Tr8UAAAAAHKOm5lafE4ZDCxUeZs_7wEQbGdN"}
+                = recaptcha_tags
               .form-group
                 %p.l-single-text.text-center
                   「次へ進む」のボタンを押すことにより、
