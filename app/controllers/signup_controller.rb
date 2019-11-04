@@ -159,7 +159,7 @@ end
   def sms_post
     @profile = Profile.new
     #パラメータが飛んでなかった場合ここでrender
-    render sms_authentication_signup_index_path unless  profile_params[:tel_number].present?
+    render sms_confirmation_signup_index_path unless  profile_params[:tel_number].present?
     #電話番号を+81~の国際書式に書き換え（そうしないと送れない）
     phone_number = profile_params[:tel_number].sub(/\A./,'+81')
     #ランダムに5桁の整数を生成
