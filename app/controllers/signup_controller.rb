@@ -15,7 +15,7 @@ class SignupController < ApplicationController
     session[:first_name] = profile_params[:first_name]
     session[:last_name_kana] = profile_params[:last_name_kana]
     session[:first_name_kana] = profile_params[:last_name_kana]
-    session[:birthday] = profile_params[:birthday]
+    session[:birthday] = Date.new(profile_params["birthday(1i)"].to_i,profile_params["birthday(2i)"].to_i,profile_params["birthday(3i)"].to_i)
     @user = User.new(
       email: session[:email],
       password: session[:password],
@@ -23,6 +23,7 @@ class SignupController < ApplicationController
     )
     @profile = Profile.new(
       user: @user,
+      nickname: session[:nickname],
       birthday: session[:birthday],
       last_name: session[:last_name],
       first_name: session[:first_name],
@@ -31,19 +32,22 @@ class SignupController < ApplicationController
       prefecture: '沖縄',
       city: '那覇市',
       house_number: 'テスト',
-      post_number: '888-8888'
+      # post_number: 808-0001,
+      building_name: '須崎ビル',
     )
 
     check_user_valid = @user.valid?
     check_profile_valid = @profile.valid?
-    #reCAPTCHA（私はロボットではありませんのアレ）とユーザー、プロフィールのバリデーション判定
-    # unless verify_recaptcha(model: @profile) && check_user_valid && check_profile_valid
-    #   render 'signup/registration' 
-    # else
+    # reCAPTCHA（私はロボットではありませんのアレ）とユーザー、プロフィールのバリデーション判定
+    unless verify_recaptcha(model: @profile) && check_user_valid && check_profile_valid
+      binding.pry
+      render 'signup/registration' 
+    else
       # 問題がなければsession[:through_first_valid]を宣言して次のページへリダイレクト
       session[:through_first_valid] = "through_first_valid"
       redirect_to sms_authentication_signup_index_path
   end
+end
 
   def second_validation
     session[:post_number] = profile_params[:post_number]
@@ -174,7 +178,7 @@ end
       client.api.account.messages.create(from: ENV["TWILLIO_NUMBER"], to: phone_number, body: sms_number)
     rescue
       #失敗した場合ここが動く。失敗しているのでここをsms_authenticationからadressに変更
-      render "signup/address/"
+      render "signup/authentication/"
       return false
     end
     #成功した場合、以下のコードが動き、smsの照合画面へと変遷する
