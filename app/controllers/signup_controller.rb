@@ -174,7 +174,7 @@ end
       client.api.account.messages.create(from: ENV["TWILLIO_NUMBER"], to: phone_number, body: sms_number)
     rescue
       #失敗した場合ここが動く
-      render "signup/sms_confirmation"
+      render "signup/address/"
       return false
     end
     #成功した場合、以下のコードが動き、smsの照合画面へと変遷する
