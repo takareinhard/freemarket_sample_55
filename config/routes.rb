@@ -67,7 +67,7 @@ Rails.application.routes.draw do
   get "identification" => 'categories#identification' #ユーザー本人確認ページ
 
   #商品購入確認ページ
-  get "product_purchase_confirmation" => 'categories#product_purchase_confirmation' #商品購入確認ページ
+  get "product_purchase_confirmation" => 'products#product_purchase_confirmation' #商品購入確認ページ
 
   #商品出品ページ
  
@@ -76,5 +76,5 @@ Rails.application.routes.draw do
   get "user_credit_registration" => 'categories#user_credit_registration' #ユーザークレジットカード登録ページ
 
   #商品詳細ページ
-  get "product_detail" => 'categories#product_detail'
+  get "product_detail" => 'products#product_detail'
 end
