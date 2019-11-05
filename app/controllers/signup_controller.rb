@@ -40,7 +40,6 @@ class SignupController < ApplicationController
     check_profile_valid = @profile.valid?
     # reCAPTCHA（私はロボットではありませんのアレ）とユーザー、プロフィールのバリデーション判定
     unless verify_recaptcha(model: @profile) && check_user_valid && check_profile_valid
-      binding.pry
       render 'signup/registration' 
     else
       # 問題がなければsession[:through_first_valid]を宣言して次のページへリダイレクト
@@ -123,16 +122,17 @@ end
       last_name: session[:last_name],
       first_name: session[:first_name],
       last_name_kana: session[:last_name_kana],
-      first_name_kana: session[:personal_name_kana],
+      first_name_kana: session[:first_name_kana],
       prefecture: session[:prefecture],
       city: session[:city],
       house_number: session[:house_number],
       post_number: session[:post_number],
       tel_number: session[:tel_number],
-      building_name: session[:building],
+      building_name: session[:building_name],
     )
 
   # 最後のフォームでクレジット認証を行なっているため、ここでカードの顧客情報を作り、userと紐づけてDBに保存する処理を行なっています
+  binding.pry
   Payjp.api_key = "sk_test_88a4b35f1038b2298666f28f"
   customer = Payjp::Customer.create(card: params[:payjp_token])
   @credit_card = CreditCard.new(user: @user, customer_id: customer.id)

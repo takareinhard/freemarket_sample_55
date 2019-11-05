@@ -12,6 +12,6 @@ class Profile < ApplicationRecord
   validates :prefecture,              presence: true, length: {maximum: 100}
   validates :city,                    presence: true, length: {maximum: 50}
   validates :house_number,                 presence: true, length: {maximum: 100}
-  validates :building_name,                presence: true, length: {maximum: 100}
+  validates :building_name,                                 length: {maximum: 100}
   validates :tel_number,                                     length: {maximum: 100}
 end
