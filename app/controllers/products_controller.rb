@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   
   def index
-    @product = Products.all
+    # @product = Products.all
   end
 
   def new

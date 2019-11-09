@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root to: "products#index"
+  resources :products
   
   devise_for :users, skip: :all
   devise_scope :user do
@@ -27,10 +30,10 @@ Rails.application.routes.draw do
     end
   end
 
-  
-  root to: "categories#index"
-  resources :categories
-
+  resources :categories, only:[:show, :index] do
+    collection do
+    end
+  end
 
   # resources :card, only: [:new, :show] do
   #   collection do
@@ -40,8 +43,6 @@ Rails.application.routes.draw do
   #   end
   # end
   
-  resources :products, only: [:new, :create]
-
 
   #ログインページ
   get "old_member_registration" => 'categories#old_member_registration' #既存メンバーのログインページ
