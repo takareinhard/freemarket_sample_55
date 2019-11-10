@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
   def destroy
   end
 
-  private
+  def get_delivery
+  end
   
 end
