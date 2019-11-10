@@ -1,8 +1,9 @@
 class CategoriesController < ApplicationController
-  def index
-    @categories = Category.all
-  end
 
+  def index
+    @parents = Category.all.order("ancestry ASC, id ASC").limit(13)
+  end
+  
   def member_information_input
     
   end

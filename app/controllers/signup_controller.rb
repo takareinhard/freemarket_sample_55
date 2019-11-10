@@ -15,7 +15,7 @@ class SignupController < ApplicationController
     session[:first_name] = profile_params[:first_name]
     session[:last_name_kana] = profile_params[:last_name_kana]
     session[:first_name_kana] = profile_params[:last_name_kana]
-    session[:birthday] = profile_params[:birthday]
+    session[:birthday] = Date.new(profile_params["birthday(1i)"].to_i,profile_params["birthday(2i)"].to_i,profile_params["birthday(3i)"].to_i)
     @user = User.new(
       email: session[:email],
       password: session[:password],
@@ -23,6 +23,7 @@ class SignupController < ApplicationController
     )
     @profile = Profile.new(
       user: @user,
+      nickname: session[:nickname],
       birthday: session[:birthday],
       last_name: session[:last_name],
       first_name: session[:first_name],
@@ -31,19 +32,21 @@ class SignupController < ApplicationController
       prefecture: '沖縄',
       city: '那覇市',
       house_number: 'テスト',
-      post_number: '888-8888'
+      # post_number: 808-0001,
+      building_name: '須崎ビル',
     )
 
     check_user_valid = @user.valid?
     check_profile_valid = @profile.valid?
-    #reCAPTCHA（私はロボットではありませんのアレ）とユーザー、プロフィールのバリデーション判定
-    # unless verify_recaptcha(model: @profile) && check_user_valid && check_profile_valid
-    #   render 'signup/registration' 
-    # else
+    # reCAPTCHA（私はロボットではありませんのアレ）とユーザー、プロフィールのバリデーション判定
+    unless verify_recaptcha(model: @profile) && check_user_valid && check_profile_valid
+      render 'signup/registration' 
+    else
       # 問題がなければsession[:through_first_valid]を宣言して次のページへリダイレクト
       session[:through_first_valid] = "through_first_valid"
       redirect_to sms_authentication_signup_index_path
   end
+end
 
   def second_validation
     session[:post_number] = profile_params[:post_number]
@@ -78,21 +81,25 @@ class SignupController < ApplicationController
   def sms_authentication
     @user = User.new
     @profile = Profile.new
+    @user.build_profile
   end
 
   def sms_confirmation
     @user = User.new
     @profile = Profile.new
+    @user.build_profile
   end
 
   def address
     @user = User.new
     @profile = Profile.new
+    @user.build_profile
   end
 
   def registration
     @user = User.new
     @profile = Profile.new
+    @user.build_profile
   end
 
   def create
@@ -115,19 +122,20 @@ class SignupController < ApplicationController
       last_name: session[:last_name],
       first_name: session[:first_name],
       last_name_kana: session[:last_name_kana],
-      first_name_kana: session[:personal_name_kana],
+      first_name_kana: session[:first_name_kana],
       prefecture: session[:prefecture],
       city: session[:city],
       house_number: session[:house_number],
       post_number: session[:post_number],
       tel_number: session[:tel_number],
-      building_name: session[:building],
+      building_name: session[:building_name],
     )
 
-  最後のフォームでクレジット認証を行なっているため、ここでカードの顧客情報を作り、userと紐づけてDBに保存する処理を行なっています
+  # 最後のフォームでクレジット認証を行なっているため、ここでカードの顧客情報を作り、userと紐づけてDBに保存する処理を行なっています
+  binding.pry
   Payjp.api_key = "sk_test_88a4b35f1038b2298666f28f"
   customer = Payjp::Customer.create(card: params[:payjp_token])
-  @credit_card = CreditCard.new(user: @user,customer_id: customer.id,card_id: customer.default_card)
+  @credit_card = CreditCard.new(user: @user, customer_id: customer.id)
   # カード情報まで保存に成功したら全sessionをリセットしてユーザーidのみsessionに預け、完了画面へリダイレクト
   if @credit_card.save
     reset_session
@@ -169,8 +177,8 @@ end
       #生成した整数を文章にしたsms送信
       client.api.account.messages.create(from: ENV["TWILLIO_NUMBER"], to: phone_number, body: sms_number)
     rescue
-      #失敗した場合ここが動く
-      render "signup/sms_authentication"
+      #失敗した場合ここが動く。失敗しているのでここをsms_authenticationからadressに変更
+      render "signup/authentication/"
       return false
     end
     #成功した場合、以下のコードが動き、smsの照合画面へと変遷する
@@ -203,7 +211,7 @@ end
   end
 
   def profile_params
-    params.require(:profile).permit(:post_number,:house_number,:building_name,:nickname,:birthyear,:birthmonth,:birthday,:last_name,:first_name,:last_name_kana,:first_name_kana,:post_number,:prefecture,:city,:address,:building,:tel_number)
+    params.require(:profile).permit(:post_number,:house_number,:building_name,:nickname,:birthday,:last_name,:first_name,:last_name_kana,:first_name_kana,:post_number,:prefecture,:city,:address,:tel_number)
   end
 
   def credit_card_params

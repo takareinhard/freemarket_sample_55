@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
-  get 'card/new'
 
-  get 'card/show'
-
+  root to: "products#index"
+  resources :products
   
 
   # devise_for :users, controllers: { registrations: 'users/registrations' }
@@ -39,9 +37,21 @@ Rails.application.routes.draw do
   get "profile" => 'categories#profile' #お届け先住所入力
   get "payment" => 'categories#payment' #支払い方法
   get "member_finish" => 'categories#member_finish' #完了
+  resources :categories, only:[:show, :index] do
+    collection do
+    end
+  end
+
+  # resources :card, only: [:new, :show] do
+  #   collection do
+  #     post 'show', to: 'card#show'
+  #     post 'pay', to: 'card#pay'
+  #     post 'delete', to: 'card#delete'
+  #   end
+  # end
+  
 
   #ログインページ
-  get "new_member_registration" => 'categories#new_member_registration' #新規会員登録ログインページ
   get "old_member_registration" => 'categories#old_member_registration' #既存メンバーのログインページ
 
   #マイページ
@@ -57,14 +67,11 @@ Rails.application.routes.draw do
   get "identification" => 'categories#identification' #ユーザー本人確認ページ
 
   #商品購入確認ページ
-  get "product_purchase_confirmation" => 'categories#product_purchase_confirmation' #商品購入確認ページ
+  get "product_purchase_confirmation" => 'products#product_purchase_confirmation' #商品購入確認ページ
 
-  #商品出品ページ
- 
-  
   #ユーザークレジットカード登録ページ
   get "user_credit_registration" => 'categories#user_credit_registration' #ユーザークレジットカード登録ページ
 
   #商品詳細ページ
-  get "product_detail" => 'categories#product_detail'
+  get "product_detail" => 'products#product_detail'
 end

@@ -1,8 +1,7 @@
 class ProductsController < ApplicationController
   
   def index
-    @product = Products.all
-    binding.pry
+    # @product = Products.all
   end
 
   def new

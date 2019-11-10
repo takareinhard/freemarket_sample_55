@@ -45,58 +45,104 @@
               %a.mypagelist
                 %img.mypagelist{:alt => "", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png"}/
                 マイページ
-    %nav.bread-crumbs
-      %ul
-        %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
-          %a{:href => "https://www.mercari.com/jp/", :itemprop => "url"}
-            %span{:itemprop => "title"} メルカリ
-          %i.fas.fa-chevron-right
-        %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
-
-          %span{:itemprop => "title"} カテゴリー一覧
-
-  .body-image
-    .category-index.l-single-container
-      .visible-sp
-        %section.search-category
-          .gray.clearfix
-            %h2 カテゴリー一覧
-            .category-list-nav.slide-nav-parent.text-center.clearfix
-              - @parents.each do |parent|
-                %a.white.category-root-category-link-name
-                  = parent.name
-          - @parents.each do |parent|
-            .category-wrapper
-              .category-list-individual-box
-                .category-list-individual-box-root-category-name
-                  = parent.name
-                .category-list-individual-box-inner-box
-                  - parent.children.each do |child|
-                    .category-list-individual-box-sub-category-name
-                      = child.name
-                    .clearfix.category-list-individual-box-sub-sub-category-box
-                      - child.children.each do |grandchild|
-                        .category-list-individual-box-sub-sub-category-name
-                          =grandchild.name
-
-  %aside.app-banner
-    .app-banner-pc
-      .app-banner-pc-inner
-        %h2 スマホでかんたんフリマアプリ
-        %p 今すぐ無料ダウンロード！
-        .app-banner-icon.clearfix
-          %figure
-            %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?3466462615", :width => "68"}/
-          %ul.clearfix
-            %li
-              %a{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
-                %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?3466462615", :width => "133"}/
-            %li
-              %a{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
-                %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?3466462615", :width => "133"}/
-      %figure
-        %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?3466462615"}/
-
+  .categorycontents
+    .categorycontents-center
+      .top-information
+        %ul
+          %li
+            %img{:alt => "メルカリな1ら新品も中古もお得！キャンプ用品 大特集！", :src => "//www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?3795178681"}/
+        .slider-controlleft{:style => "position:absolute;top:50%;left:0;transform:translateY(-50%);-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%)"}
+          .slider-controlleft__button
+        .slider-controllright
+          .slider-controllright__button
+      .popularity-category
+        %h2.category-text 全ての商品一覧
+      .category-productlist
+        .category-productlists
+          .category-productlists__scroll
+            %h3 商品一覧
+            %a.seemore もっと見る
+          .category-products-area
+            .category-products-area__each
+              .product-card
+                .product-card__image-area
+                  %img.card-image{:alt => "Thumbnail of \"状態◎！レイカズン   アシンメトリースカート\"", :src => "https://static.mercdn.net/thumb/photos/m12868605354_1.jpg?1567332863"}/
+                  %span.price-area{"aria-label" => "Price"} ¥4,800
+                .product-card__text-area
+                  %span  　状態◎！レイカズン   アシンメトリースカート
+              .product-card
+                .product-card__image-area
+                  %img.card-image{:alt => "Thumbnail of \"状態◎！レイカズン   アシンメトリースカート\"", :src => "https://static.mercdn.net/thumb/photos/m12868605354_1.jpg?1567332863"}/
+                  %span.price-area{"aria-label" => "Price"} ¥4,800
+                .product-card__text-area
+                  %span  　状態◎！レイカズン   アシンメトリースカート
+              .product-card
+                .product-card__image-area
+                  %img.card-image{:alt => "Thumbnail of \"状態◎！レイカズン   アシンメトリースカート\"", :src => "https://static.mercdn.net/thumb/photos/m12868605354_1.jpg?1567332863"}/
+                  %span.price-area{"aria-label" => "Price"} ¥4,800
+                .product-card__text-area
+                  %span  　状態◎！レイカズン   アシンメトリースカート
+              .product-card
+                .product-card__image-area
+                  %img.card-image{:alt => "Thumbnail of \"状態◎！レイカズン   アシンメトリースカート\"", :src => "https://static.mercdn.net/thumb/photos/m12868605354_1.jpg?1567332863"}/
+                  %span.price-area{"aria-label" => "Price"} ¥4,800
+                .product-card__text-area
+                  %span  　状態◎！レイカズン   アシンメトリースカート
+              .product-card
+                .product-card__image-area
+                  %img.card-image{:alt => "Thumbnail of \"状態◎！レイカズン   アシンメトリースカート\"", :src => "https://static.mercdn.net/thumb/photos/m12868605354_1.jpg?1567332863"}/
+                  %span.price-area{"aria-label" => "Price"} ¥4,800
+                .product-card__text-area
+                  %span  　状態◎！レイカズン   アシンメトリースカート
+              .product-card
+                .product-card__image-area
+                  %img.card-image{:alt => "Thumbnail of \"状態◎！レイカズン   アシンメトリースカート\"", :src => "https://static.mercdn.net/thumb/photos/m12868605354_1.jpg?1567332863"}/
+                  %span.price-area{"aria-label" => "Price"} ¥4,800
+                .product-card__text-area
+                  %span  　状態◎！レイカズン   アシンメトリースカート
+              .product-card
+                .product-card__image-area
+                  %img.card-image{:alt => "Thumbnail of \"状態◎！レイカズン   アシンメトリースカート\"", :src => "https://static.mercdn.net/thumb/photos/m12868605354_1.jpg?1567332863"}/
+                  %span.price-area{"aria-label" => "Price"} ¥4,800
+                .product-card__text-area
+                  %span  　状態◎！レイカズン   アシンメトリースカート
+              .product-card
+                .product-card__image-area
+                  %img.card-image{:alt => "Thumbnail of \"状態◎！レイカズン   アシンメトリースカート\"", :src => "https://static.mercdn.net/thumb/photos/m12868605354_1.jpg?1567332863"}/
+                  %span.price-area{"aria-label" => "Price"} ¥4,800
+                .product-card__text-area
+                  %span  　状態◎！レイカズン   アシンメトリースカート
+              .product-card
+                .product-card__image-area
+                  %img.card-image{:alt => "Thumbnail of \"状態◎！レイカズン   アシンメトリースカート\"", :src => "https://static.mercdn.net/thumb/photos/m12868605354_1.jpg?1567332863"}/
+                  %span.price-area{"aria-label" => "Price"} ¥4,800
+                .product-card__text-area
+                  %span  　状態◎！レイカズン   アシンメトリースカート
+              .product-card
+                .product-card__image-area
+                  %img.card-image{:alt => "Thumbnail of \"状態◎！レイカズン   アシンメトリースカート\"", :src => "https://static.mercdn.net/thumb/photos/m12868605354_1.jpg?1567332863"}/
+                  %span.price-area{"aria-label" => "Price"} ¥4,800
+                .product-card__text-area
+                  %span  　状態◎！レイカズン   アシンメトリースカート
+  .exhibit-button
+    %a.exhibit
+      .exhibit-contents
+        .exhibit-contents__text 出品
+        %svg.cameraicon{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 18 16", :width => "18"}
+          %path{:d => "M6.3 0L4.653 1.778H1.8c-.99 0-1.8.8-1.8 1.778v10.666C0 15.2.81 16 1.8 16h14.4c.99 0 1.8-.8 1.8-1.778V3.556c0-.978-.81-1.778-1.8-1.778h-2.853L11.7 0H6.3zM9 13.333c-2.484 0-4.5-1.99-4.5-4.444 0-2.453 2.016-4.445 4.5-4.445s4.5 1.992 4.5 4.445c0 2.453-2.016 4.444-4.5 4.444zm0-1.6c1.59 0 2.88-1.273 2.88-2.844S10.59 6.044 9 6.044c-1.59 0-2.88 1.274-2.88 2.845 0 1.57 1.29 2.844 2.88 2.844z", :fill => "currentColor", "fill-rule" => "nonzero"}
+  %aside.downloadlink
+    .contents-area
+      .contents-area__download
+        .text-free スマホでかんたんフリマアプリ
+        .text-soon 今すぐ無料ダウンロード！
+        .download-icon
+          %img.mercari{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png"}/
+          %a.appstore
+            %img.appstore{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"}/
+          %a.googlestore
+            %img.googlestore{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg"}/
+      %figure.smartphone
+        %img.smartphone{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/download_app_pc-a4418175e8be071827ac88d073f40e4a.png"}/
   %footer.global-footer
     %nav.clearfix
       .footer-cell
@@ -140,7 +186,7 @@
             %a{:href => "https://www.mercari.com/jp/box/"} メルカリボックス
       .footer-cell.full-width
         %h2.footer-head プライバシーと利用規約
-        .inner-footer-cell
+        .inner-footer-cell__left
           %ul
             %li
               %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
@@ -150,7 +196,7 @@
               %a{:href => "https://www.mercari.com/jp/tos_smartphone_support/"} あんしんスマホサポート制度に関する利用特約
             %li
               %a{:href => "https://www.mercari.com/jp/compliance/"} コンプライアンスポリシー
-        .inner-footer-cell
+        .inner-footer-cell__right
           %ul
             %li
               %a{:href => "https://www.mercari.com/jp/data_security/"} 個人データの安全管理に係る基本方針
@@ -172,4 +218,3 @@
         %img{:alt => "mercari", :height => "33", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?3466462615", :width => "124"}/
       %span.footer-copyright
         %small © 2019 Mercari
-
