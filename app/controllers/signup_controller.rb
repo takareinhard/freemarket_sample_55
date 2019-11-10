@@ -135,7 +135,7 @@ end
   binding.pry
   Payjp.api_key = "sk_test_88a4b35f1038b2298666f28f"
   customer = Payjp::Customer.create(card: params[:payjp_token])
-  @credit_card = CreditCard.new(user: @user, customer_id: customer.id)
+  @credit_card = CreditCard.new(user: @user, customer_id: customer.id, card_id: customer.default_card)
   # カード情報まで保存に成功したら全sessionをリセットしてユーザーidのみsessionに預け、完了画面へリダイレクト
   if @credit_card.save
     reset_session
