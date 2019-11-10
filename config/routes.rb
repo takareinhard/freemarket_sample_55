@@ -9,27 +9,27 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  resources :signup ,only: [:index,:create] do
-      collection do
-        get 'registration'                               # 図①  
-        post 'registration' => 'signup#first_validation' # 図❶
-        #中略
-        #電話番号入力フォーム
-        get 'sms_authentication' 
-        #入力された番号へのSMS送信、送信した文字列の保持
-        post 'sms_authentication' => 'signup#sms_post'
-        #受信した値の入力フォーム
-        get 'sms_confirmation' 
-        #値の照合
-        post 'sms_confirmation' => 'signup#sms_check'
-        #一致したら下のパスに飛んで登録画面が続く
-        get 'address'                                    # 図④
-        post 'address' => 'signup#second_validation'     # 図❹
-        get 'credit_card'
-        post 'credit_card' => 'signup#create' 
-        get 'done'                                       # 図⑥
-      end
-    end
+  resources :signup ,only: [:index,:create] do
+    collection do
+      get 'registration'                               # 図①  
+      post 'registration' => 'signup#first_validation' # 図❶
+      #中略
+      #電話番号入力フォーム
+      get 'sms_authentication' 
+      #入力された番号へのSMS送信、送信した文字列の保持
+      post 'sms_authentication' => 'signup#sms_post'
+      #受信した値の入力フォーム
+      get 'sms_confirmation' 
+      #値の照合
+      post 'sms_confirmation' => 'signup#sms_check'
+      #一致したら下のパスに飛んで登録画面が続く
+      get 'address'                                    # 図④
+      post 'address' => 'signup#second_validation'     # 図❹
+      get 'credit_card'
+      post 'credit_card' => 'signup#create' 
+      get 'done'                                       # 図⑥
+    end
+  end
 
   resources :card, only: [:new, :show] do
     collection do
