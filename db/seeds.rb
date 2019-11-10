@@ -336,6 +336,6 @@ others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
 
 #都道府県
-CSV.foreach('db/prefecture.csv') do |row|
+CSV.foreach('db/prefectures.csv') do |row|
   Prefecture.find_or_create_by(prefecture: row[0])
 end
