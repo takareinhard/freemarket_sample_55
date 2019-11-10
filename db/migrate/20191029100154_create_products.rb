@@ -10,7 +10,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.integer :shipping_area, null:false #発送元地域
       t.integer :shipping_days, null:false #発送までの日数
       t.integer :deal, default: 0 #取引状態
-      t.references :category, null:false, forign_key: true
+      t.references :category, null:false, foreign_key: true
       t.references :user, null:false, foreign_key: true
       t.timestamps
     end

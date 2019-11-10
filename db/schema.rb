@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191103071649) do
-ActiveRecord::Schema.define(version: 20191103075720) do
+ActiveRecord::Schema.define(version: 20191105113812) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -26,6 +25,12 @@ ActiveRecord::Schema.define(version: 20191103075720) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
+  end
+
+  create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "prefecture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -50,8 +55,10 @@ ActiveRecord::Schema.define(version: 20191103075720) do
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.string   "image",                                   null: false
+    t.integer  "prefecture_id",                           null: false
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["name"], name: "index_products_on_name", using: :btree
+    t.index ["prefecture_id"], name: "index_products_on_prefecture_id", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
