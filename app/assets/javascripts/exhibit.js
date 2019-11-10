@@ -3,6 +3,5 @@ $(function (){
     var file = e.target.file[0],
         reader = new FileReaer(),
         $preview = $(".");
-  })
-  
+  });  
 });
