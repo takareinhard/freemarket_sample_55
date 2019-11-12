@@ -60,13 +60,15 @@
   }
   .buy-accordion {
     margin: 16px 0 0;
+    background: #ea352d;
+    color: #fff;
     &.not-have {
       background: #ccc;
     }
     .accordion-toggle {
       cursor: default;
       padding: 16px;
-      border: 1px solid #ccc;
+      // border: 1px solid #ccc;
     }
   }
   .buy-price-table {
@@ -111,6 +113,7 @@
     border: 1px solid transparent;
     -webkit-transition: all ease-out .3s;
     transition: all ease-out .3s;
+    
     cursor: pointer;
     text-align: center;
     &:disabled {
