@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "products#index"
   resources :products
   
-  # devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
@@ -39,12 +39,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products, only: [:new, :create, :index] do
+  resources :products, only: [:new, :create, :index, :update] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_size', defaults: { format: 'json' }
       get 'get_delivery'
+      get 'product_purchase_confirmation'
+      post 'product_purchase_confirmation' => 'products#product_purchase_confirmation'
     end
   end
 
@@ -68,8 +70,9 @@ Rails.application.routes.draw do
   #ユーザー本人確認ページ
   get "identification" => 'categories#identification' #ユーザー本人確認ページ
 
-  #商品購入確認ページ
-  get "product_purchase_confirmation" => 'products#product_purchase_confirmation' #商品購入確認ページ
+  # #商品購入確認ページ
+  # get "product_purchase_confirmation" => 'products#product_purchase_confirmation' #商品購入確認ページ
+  # post "product_purchase_confirmation" => 'products#product_purchase_confirmation' #商品購入確認ページ
 
   #ユーザークレジットカード登録ページ
   get "user_credit_registration" => 'categories#user_credit_registration' #ユーザークレジットカード登録ページ

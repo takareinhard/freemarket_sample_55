@@ -59,12 +59,14 @@
               %input{:name => "address2_base64", :type => "hidden", :value => ""}/
               %input{:name => "telephone_base64", :type => "hidden", :value => ""}/
               %input{:name => "__csrf_value", :type => "hidden", :value => "2b070435ddf7af4ec89ed407780000e0b6fd37e6dfc8a4fdd7670f7972d339b060d097a318d3cf4682f8d791b307ab34a2ec6a3e9853c45e263cb409473271894"}/
-              %p.has-error-text
-                配送先と支払い方法の入力を完了してください。
-              %ul.buy-accordion.not-have
+              -# %p.has-error-text
+              -#   配送先と支払い方法の入力を完了してください。
+              %ul.buy-accordion
                 %li.accordion-parent
                   .accordion-toggle
-                    購入する
+                    = form_tag(action: :product_purchase_confirmation_products_path, method: :post) do
+                      %script.payjp-button{"data-key" => "pk_test_37274ff92b215ff40baeb33c", :src => "https://checkout.pay.jp", :type => "text/javascript"}
+                  購入する
               %input#is_yuu_yuu_mercari_bin{:type => "hidden"}/
               .buy-detail-open-app{"data-action" => "item/openDetail", "data-key" => "id=m98179719637", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
                 アプリで購入
@@ -93,10 +95,8 @@
           .buy-content-inner
             %h3 支払い方法
             %p.buy-user-info-text
-              %br/
+              %br
               \/
-            %figure
-              %img{:alt => "", :height => "", :src => "", :width => ""}/
             %p
             %a.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/card/m98179719637/"}
               %span 変更する
