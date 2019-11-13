@@ -13,7 +13,7 @@
           %p 最大10枚までアップロードできます
           .drop-box
             .drop-box__upload
-              %input#file{multiple: "multiple", name: "image", type: "file"}/
+              %input{multiple: "multiple", name: "image", type: "file", id: "file-upload"}/
               %p
                 ドラッグアンドドロップ 
                 %br/
@@ -46,7 +46,7 @@
                 .select-form
                   %i.fas.fa-chevron-down
                   = f.select(:condition,[["新品、未使用", 1],["未使用に近い", 2],["目立った傷や汚れなし", 3],["やや傷や汚れあり", 4],["傷や汚れあり", 5],["全体的に状態が悪い", 6]], {prompt: "---"})
-        .delivery-details
+        .delivery-details{id: 'delivery-detail'}
           %h3 配送について
           %a{:target => "_blank"} ?
           .details-form-box
@@ -56,7 +56,14 @@
               %div
                 .select-form
                   %i.fas.fa-chevron-down
-                  = f.select(:postage_payer,[["送料込み(出品者負担)", 1],["着払い(購入者負担)", 2]], {prompt: "---"})
+                  = f.select(:postage_payer,[["送料込み(出品者負担)", 1],["着払い(購入者負担)", 2]], {prompt: "---"},{id: 'delivery_fee'})
+            .delivery-method-form{id: 'method-form'}
+              .delivery-method-form__text 配送の方法
+              .delivery-method-form__icon 必須
+              %div
+                .select-form
+                  %i.fas.fa-chevron-down
+                  = f.select(:shipping_method,[["---", 0],["未定", 1],["らくらくメルカリ便", 2],["ゆうメール", 3],["レターパック", 4],["普通郵便(定形、定形外)", 5],["クロネコヤマト", 6],["ゆうパック", 7],["クリックポスト", 8],["ゆうパケット", 9]],{id: 'delivery_method'})
             .delivery-area-form
               .delivery-area-form__text 発送元の地域
               .delivery-area-form__icon 必須
