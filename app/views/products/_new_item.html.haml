@@ -1,0 +1,18 @@
+
+.productList
+  = link_to product_path(product), data: {turbolinks: :false} do
+    -if product.deal != 'sale'
+      .soldout--small
+      .soldoutText--small 売り切れ
+    %figure.productList--img
+      -# = image_tag product.product_image.images[0]
+    .productList--body
+      %h3.name
+        = product.name
+      .details
+        %ul
+          %li
+            ¥#{product.price}
+          %li
+            -# = fa_icon "heart", class: "likeIcon", text: "hoge"
+        %p (税込)

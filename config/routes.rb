@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root to: "products#index"
-  resources :products
   
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
@@ -31,14 +30,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :card, only: [:new, :show] do
-    collection do
-      post 'show', to: 'card#show'
-      post 'pay', to: 'card#pay'
-      post 'delete', to: 'card#delete'
-    end
-  end
-
   resources :products, only: [:new, :create, :index, :update] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -46,19 +37,14 @@ Rails.application.routes.draw do
       get 'get_size', defaults: { format: 'json' }
       get 'get_delivery'
       get 'product_purchase_confirmation'
-      post 'product_purchase_confirmation' => 'products#product_purchase_confirmation'
+      post 'product_purchase_confirmation' => 'products#purchase'
     end
   end
 
-  resources :categories, only:[:show, :index] do
-    collection do
-    end
-  end
+  resources :categories, only: [:index, :show]
 
-  #ログインページ
-  get "old_member_registration" => 'categories#old_member_registration' #既存メンバーのログインページ
+  get "old_member_registration" => 'categories#old_member_registration'
 
-  #マイページ
   get "mypage" => 'categories#mypage' #マイページ
 
   #ユーザープロフィール編集ページ
@@ -69,10 +55,6 @@ Rails.application.routes.draw do
 
   #ユーザー本人確認ページ
   get "identification" => 'categories#identification' #ユーザー本人確認ページ
-
-  # #商品購入確認ページ
-  # get "product_purchase_confirmation" => 'products#product_purchase_confirmation' #商品購入確認ページ
-  # post "product_purchase_confirmation" => 'products#product_purchase_confirmation' #商品購入確認ページ
 
   #ユーザークレジットカード登録ページ
   get "user_credit_registration" => 'categories#user_credit_registration' #ユーザークレジットカード登録ページ
