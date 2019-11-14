@@ -134,8 +134,7 @@ end
   # 最後のフォームでクレジット認証を行なっているため、ここでカードの顧客情報を作り、userと紐づけてDBに保存する処理を行なっています
   Payjp.api_key = "sk_test_88a4b35f1038b2298666f28f"
   customer = Payjp::Customer.create(card: params["payjp-token"])
-  @credit_card = CreditCard.new(user: @user, customer_id: customer.id, card_id: customer.default_card,card_token: params["payjp-token"])
-  binding.pry
+  @credit_card = CreditCard.new(user: @user, customer_id: customer.id, card_id: customer.default_card, card_token: params["payjp-token"])
   # カード情報まで保存に成功したら全sessionをリセットしてユーザーidのみsessionに預け、完了画面へリダイレクト
   if @credit_card.save
     reset_session
