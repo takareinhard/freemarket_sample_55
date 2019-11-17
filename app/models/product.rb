@@ -7,6 +7,7 @@ class Product < ApplicationRecord
   has_one :product_option_brand
   has_one :dealing
   belongs_to :user
+  belongs_to :profile
   belongs_to :category
   belongs_to :prefecture
 end

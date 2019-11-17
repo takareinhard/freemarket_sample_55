@@ -24,8 +24,6 @@
   .category-list-nav a {
     float: left;
     display: block;
-  }
-  .category-root-category-link-name {
     border-radius: 4px;
     min-width: 80px;
     height: 40px;
@@ -36,10 +34,9 @@
     color: #333;
     font-size: 16px;
     line-height: 40px;
-    }
-    .white {
-      background-color: #fff;
-   }
+    background-color: #fff;
+    
+  }
    .category-wrapper {
     margin: 30px auto;
    }
@@ -51,6 +48,9 @@
     margin-bottom: 40px;
   &-inner-box {
     background-color:white;
+    }
+    a {
+      color: #0099e8;
     }
   }
 

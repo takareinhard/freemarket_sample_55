@@ -28,12 +28,9 @@
               -# %p.has-error-text
               -#   配送先と支払い方法の入力を完了してください。
               %ul.buy-accordion
-                %li.accordion-parent
-                  .accordion-toggle
-                  = link_to "購入する", "", method: "POST", class:"btn-default"
-              %input#is_yuu_yuu_mercari_bin{:type => "hidden"}/
-              .buy-detail-open-app{"data-action" => "item/openDetail", "data-key" => "id=m98179719637", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
-                アプリで購入
+              =link_to product_purchase_confirmation_product_path(@product),class:"btn-default",method: :post do
+                .buy-detail-open-app{"data-action" => "item/openDetail", "data-key" => "id=m98179719637", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
+                購入する
               %p アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
               %br/
               %div
