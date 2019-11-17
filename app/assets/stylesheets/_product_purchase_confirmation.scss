@@ -1,11 +1,18 @@
 .buy-item-container {
   width: 700px;
   margin: 0 auto;
+  background: #fff;
   .l-single-head {
-    padding: 16px;
+    padding: 24px 8px;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
     font-size: 22px;
     display: block;
     font-weight: bold;
+  }
+  .l-single-container {
+    background: #fff;
   }
   .buy-content {
     margin: 40px 0 0;
@@ -113,16 +120,15 @@
     border: 1px solid transparent;
     -webkit-transition: all ease-out .3s;
     transition: all ease-out .3s;
-    
+    background: #ea352d;
     cursor: pointer;
     text-align: center;
     &:disabled {
-      border: 1px solid #888;
-      background: #888;
+      // border: 1px solid #888;
       color: #fff;
     }
-    border: 1px solid #888;
-    background: #888;
+    // border: 1px solid #888;
+    // background: #888;
     color: #fff;
   }
   [data-toggle='open-app'] {

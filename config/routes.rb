@@ -36,6 +36,8 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_size', defaults: { format: 'json' }
       get 'get_delivery'
+    end
+    member do
       get 'product_purchase_confirmation'
       post 'product_purchase_confirmation' => 'products#purchase'
     end
