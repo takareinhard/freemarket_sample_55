@@ -161,7 +161,7 @@
 ### product_sizeモデル 
 |Column|Type|Options|
 |:------|:----|:-------|
-|size|integer|null: false|
+|size|string|null: false|
 |product|references|null: false, foreign_key: true|
 
 ### Association
