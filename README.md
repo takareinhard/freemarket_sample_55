@@ -265,7 +265,7 @@
 |Column|Type|Options|
 |:------|:----|:-------|
 |rate|string|-------|
-|user_id|integer|null: false|foreign_key: true|
+|user|references|null: false, foreign_key: true|
 |comment|text|-------|
 現実装はここまで
 |dealing_id|integer|null: false|foreign_key: true|
