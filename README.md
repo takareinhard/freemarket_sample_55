@@ -267,7 +267,7 @@
 |rate|string|-------|
 |user_id|integer|null: false|foreign_key: true|
 |comment|text|-------|
-#|dealing_id|integer|null: false|foreign_key: true|
+|dealing_id|integer|null: false|foreign_key: true|
 
 ### Association
 - belongs_to :user
