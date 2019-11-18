@@ -151,7 +151,7 @@
 ### brandsモデル
 |Column|Type|Options|
 |:------|:----|:-------|
-|name|string|null: false|
+|name|string|null: false, default: ""|
 
 ### Association
 - has_many :products
