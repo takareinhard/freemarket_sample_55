@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one  :credit_card,    dependent: :destroy
   has_one  :profile,       dependent: :destroy
+  has_many :rates
   accepts_nested_attributes_for :profile
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
