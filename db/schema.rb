@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191118121114) do
+ActiveRecord::Schema.define(version: 20191120151619) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       default: "", null: false
@@ -34,6 +34,10 @@ ActiveRecord::Schema.define(version: 20191118121114) do
     t.datetime "updated_at",                null: false
     t.string   "card_token"
     t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
+  end
+
+  create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "prefecture"
   end
 
   create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
