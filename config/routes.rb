@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root to: "products#index"
-  resources :products
   
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
@@ -39,7 +38,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products, only: [:new, :create, :index, :update] do
+  resources :products, only: [:new, :show, :index, :destroy, :edit] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -50,17 +49,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories, only:[:show, :index] do
-    collection do
-    end
-  end
 
   #ログインページ
   get "old_member_registration" => 'categories#old_member_registration' #既存メンバーのログインページ
 
   #マイページ
   get "mypage" => 'categories#mypage' #マイページ
-
   #ユーザープロフィール編集ページ
   get "edit_profile" => 'categories#edit_profile' #ユーザープロフィール編集ページ
 

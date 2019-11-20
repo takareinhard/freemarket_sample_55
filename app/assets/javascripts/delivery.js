@@ -26,36 +26,4 @@ $(function(){
       $detail.css("height", "320px");
     }
   });
-  
-  // function delivery_form_style(){
-    
-  //   $(fee_val).click(function(){
-  //     var method_val = document.getElementById('method-form');
-  //     $(method_val).style.display ="none";
-    
-      
-  //   });
-  // }
-  // return delivery_form_style;
-  
-
-
-
-
-
-
-
-
-
-  // $("delivery-fee-form").change(function() {
-  //   $("#delivery_method option[value='1']").remove();
-  //   $("#delivery_method option[value='2']").remove();
-  //   $("#delivery_method option[value='3']").remove();
-  //   $("#delivery_method option[value='6']").remove();
-  //   $("#delivery_method option[value='7']").remove();
-  //   $("#delivery_method option[value='10']").remove();
-  //   $("#delivery_method option[value='11']").remove();
-  // })
 });
-
-//delivery-method-formの値の名前を変える

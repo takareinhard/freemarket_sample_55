@@ -20,7 +20,7 @@
                 またはクリックしてファイルをダウンロード
         .sell-product-content
           .name-form
-            .name-form__text 商品名
+            .name-for__text 商品名
             .name-form__icon 必須
             %div
               = f.text_field :name, required: true, placeholder: "商品名（必須 40文字まで)", class: "input-default"
@@ -38,7 +38,7 @@
               %div
                 .select-form
                   %i.fas.fa-chevron-down
-                  = f.collection_select :category_id, Category.all, :id, :name, {prompt: "---"}
+                  = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
             .status-form
               .status-form__text 商品の状態
               .status-form__icon 必須
@@ -92,10 +92,10 @@
                     = f.text_field :price, required: true, placeholder: "例）1,000", id: "input_price"
               %li.fee
                 .left-content 販売手数料(10%)
-                .right-content -
+                .right-content{id: 'mercari-margin'} -
               %li.profit
                 .left-content 販売利益
-                .right-content -
+                .right-content{id: 'saler-profit'} -
         .exhibit-btn-box
           %div
             %p

@@ -21,11 +21,11 @@ ActiveRecord::Schema.define(version: 20191112100759) do
   end
 
   create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",                  null: false
-    t.string   "customer_id",              null: false
-    t.string   "card_id",     default: "", null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "user_id",                   null: false
+    t.string   "customer_id",               null: false
+    t.string   "card_id",     default: "0", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "card_token"
     t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
   end
@@ -81,10 +81,8 @@ ActiveRecord::Schema.define(version: 20191112100759) do
     t.integer  "tel_number"
     t.text     "profile",         limit: 65535
     t.string   "avator"
-    t.integer  "user_id",                       null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -98,9 +96,7 @@ ActiveRecord::Schema.define(version: 20191112100759) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "password",               default: "", null: false
-    t.string   "provider"
-    t.string   "uid"
+    t.string   "password",                            null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -108,5 +104,4 @@ ActiveRecord::Schema.define(version: 20191112100759) do
   add_foreign_key "credit_cards", "users"
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "users"
-  add_foreign_key "profiles", "users"
 end
