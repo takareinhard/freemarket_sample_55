@@ -27,19 +27,13 @@ ActiveRecord::Schema.define(version: 20191118121114) do
   end
 
   create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",                  null: false
-    t.string   "customer_id",              null: false
-    t.string   "card_id",     default: "", null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "user_id",                   null: false
+    t.string   "customer_id",               null: false
+    t.string   "card_id",     default: "0", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "card_token"
     t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
-  end
-
-  create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "prefecture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -71,35 +65,11 @@ ActiveRecord::Schema.define(version: 20191118121114) do
     t.integer  "user_id",                                   null: false
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
-    t.string   "image",                                     null: false
-    t.integer  "prefecture_id",                             null: false
     t.string   "shipping_method",                           null: false
     t.integer  "brand_id"
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["name"], name: "index_products_on_name", using: :btree
-    t.index ["prefecture_id"], name: "index_products_on_prefecture_id", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
-  end
-
-  create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "nickname",                      null: false
-    t.string   "first_name",      limit: 50,    null: false
-    t.string   "last_name",       limit: 50,    null: false
-    t.string   "first_name_kana", limit: 50,    null: false
-    t.string   "last_name_kana",  limit: 50,    null: false
-    t.integer  "post_number"
-    t.integer  "prefecture"
-    t.string   "city"
-    t.string   "house_number"
-    t.string   "building_name"
-    t.date     "birthday",                      null: false
-    t.integer  "tel_number"
-    t.text     "profile",         limit: 65535
-    t.string   "avator"
-    t.integer  "user_id",                       null: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
   create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -123,8 +93,6 @@ ActiveRecord::Schema.define(version: 20191118121114) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "password",               default: "", null: false
-    t.string   "provider"
-    t.string   "uid"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -132,7 +100,7 @@ ActiveRecord::Schema.define(version: 20191118121114) do
   add_foreign_key "credit_cards", "users"
   add_foreign_key "product_images", "products"
   add_foreign_key "product_sizes", "products"
+  add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
-  add_foreign_key "profiles", "users"
   add_foreign_key "rates", "users"
 end
