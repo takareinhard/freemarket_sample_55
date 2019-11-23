@@ -10,8 +10,9 @@
         %section.buy-content.buy-item
           .buy-content-inner
             %h3.buy-item-image
-              %img.lazyloaded{:alt => "", "data-src" => "https://static.mercdn.net/thumb/photos/m98179719637_1.jpg?1571227515", :src => "https://static.mercdn.net/thumb/photos/m98179719637_1.jpg?1571227515"}/
-            %p.buy-item-name.bold オールドコーチ ショルダーバッグ
+              %img.lazyloaded{alt:"", src:"/assets/#{@product.product_image.image}/"}
+            %p.buy-item-name.bold 
+              =@product.name
             %form.buy-form
               %p.buy-price-ja.bold
                 ¥#{@product.price}
