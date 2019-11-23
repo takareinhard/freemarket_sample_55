@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191120151619) do
+ActiveRecord::Schema.define(version: 20191121122442) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       default: "", null: false
@@ -71,9 +71,31 @@ ActiveRecord::Schema.define(version: 20191120151619) do
     t.datetime "updated_at",                                null: false
     t.string   "shipping_method",                           null: false
     t.integer  "brand_id"
+    t.integer  "prefecture_id"
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["name"], name: "index_products_on_name", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
+  end
+
+  create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "nickname",                      null: false
+    t.string   "first_name",      limit: 50,    null: false
+    t.string   "last_name",       limit: 50,    null: false
+    t.string   "first_name_kana", limit: 50,    null: false
+    t.string   "last_name_kana",  limit: 50,    null: false
+    t.integer  "post_number"
+    t.integer  "prefecture"
+    t.string   "city"
+    t.string   "house_number"
+    t.string   "building_name"
+    t.date     "birthday",                      null: false
+    t.integer  "tel_number"
+    t.text     "profile",         limit: 65535
+    t.string   "avator"
+    t.integer  "user_id",                       null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
   create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -106,5 +128,6 @@ ActiveRecord::Schema.define(version: 20191120151619) do
   add_foreign_key "product_sizes", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "rates", "users"
 end

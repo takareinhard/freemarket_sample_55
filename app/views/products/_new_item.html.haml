@@ -6,7 +6,7 @@
         .soldoutText--small 売り切れ
       .product-card__image-area
         .card-image
-          =image_tag product.image,size: "188x188"
+          = image_tag product.product_image.image, size: "188x188"
           %span.price-area ¥#{product.price}
       .product-card__text-area
         %h3.name

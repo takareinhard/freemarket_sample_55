@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   has_many :likes
-  has_many :product_images
+  has_one :product_image
   has_one :sell_values
   has_one :buy_values
   has_one :product_option_size
@@ -37,6 +37,13 @@ class Product < ApplicationRecord
   #   list = ["未定","らくらくメルカリ便","ゆうメール","レターパック","普通郵便（定形・定形外）","クロネコヤマト","ゆうパック","クリックポスト","ゆうパケット"]
   #   return list[self.shipping_method]
   # end
-
+  
+  def self.get_items_category(category_id,products,limit)  ### category_idを渡すとそれに属している商品を配列で返す
+    new_items = []
+    count = 0
+    category = Category.find(category_id);
+    new_items = products.where(category_id: category.leaves.ids).limit(limit)
+    return new_items
+  end
 
 end

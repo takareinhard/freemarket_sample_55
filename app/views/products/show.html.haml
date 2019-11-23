@@ -49,42 +49,42 @@
     %h1.product-name
       =@product.name
     .product-detail-contents
-      .product-photo
+      .product-photo#test
         .photo-area
           .photo-area-main
             .photo-area-slider
               .photo-area-slider__active
                 .photo-area-adjust
-                  %img{:alt => "ITS' DEMO ブラウス トップス カットソー", "data-src" => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_1.jpg?1569929398", :src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_1.jpg?1569929398", :style => "opacity: 1;"}/
+                  = image_tag @product.product_image.image, size: "300x285",class:"bigimg",id:"bigimage",data:{"image": @product.product_image.image}
           .sub-photos
-            .sub-photo.active
-              %span
-              .sub-photo-inner
-                %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_1.jpg?1569929398"}/
-            .sub-photo
-              %span
-              .sub-photo-inner
-                %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_2.jpg?1569929398"}/
-            .sub-photo
-              %span
-              .sub-photo-inner
-                %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_3.jpg?1569929398"}/
-            .sub-photo
-              %span
-              .sub-photo-inner
-                %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_4.jpg?1569929398"}/
-            .sub-photo
-              %span
-              .sub-photo-inner
-                %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_5.jpg?1569929398"}/
-            .sub-photo
-              %span
-              .sub-photo-inner
-                %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_6.jpg?1569929398"}/
-            .sub-photo
-              %span
-              .sub-photo-inner
-                %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_7.jpg?1569929398"}/
+            %ul
+              %li
+                - @products.pluck("image").each.with_index(0) do |image,i|
+                  = image_tag "#{image}", size: "75x75", class:"mini-image",data:{"image": image}
+            -# .sub-photo
+            -#   %span
+            -#   .sub-photo-inner
+            -#     = image_tag @product.product_images[1].image, size: "300x285"
+            -# .sub-photo
+            -#   %span
+            -#   .sub-photo-inner
+            -#     = image_tag @product.product_images[2].image, size: "300x285"
+            -# .sub-photo
+            -#   %span
+            -#   .sub-photo-inner
+            -#     = image_tag @product.product_images[3].image, size: "300x285"
+            -# .sub-photo
+            -#   %span
+            -#   .sub-photo-inner
+            -#     %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_5.jpg?1569929398"}/
+            -# .sub-photo
+            -#   %span
+            -#   .sub-photo-inner
+            -#     %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_6.jpg?1569929398"}/
+            -# .sub-photo
+            -#   %span
+            -#   .sub-photo-inner
+            -#     %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_7.jpg?1569929398"}/
       %table.product-detail
         %tbody
           %tr
@@ -367,3 +367,4 @@
         %img{:alt => "mercari", :height => "33", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?3466462615", :width => "124"}/
       %span.footer-copyright
         %small © 2019 Mercari
+        = javascript_include_tag 'product_images.js'
