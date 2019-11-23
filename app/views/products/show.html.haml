@@ -61,30 +61,6 @@
               %li
                 - @products.pluck("image").each.with_index(0) do |image,i|
                   = image_tag "#{image}", size: "75x75", class:"mini-image",data:{"image": image}
-            -# .sub-photo
-            -#   %span
-            -#   .sub-photo-inner
-            -#     = image_tag @product.product_images[1].image, size: "300x285"
-            -# .sub-photo
-            -#   %span
-            -#   .sub-photo-inner
-            -#     = image_tag @product.product_images[2].image, size: "300x285"
-            -# .sub-photo
-            -#   %span
-            -#   .sub-photo-inner
-            -#     = image_tag @product.product_images[3].image, size: "300x285"
-            -# .sub-photo
-            -#   %span
-            -#   .sub-photo-inner
-            -#     %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_5.jpg?1569929398"}/
-            -# .sub-photo
-            -#   %span
-            -#   .sub-photo-inner
-            -#     %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_6.jpg?1569929398"}/
-            -# .sub-photo
-            -#   %span
-            -#   .sub-photo-inner
-            -#     %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_7.jpg?1569929398"}/
       %table.product-detail
         %tbody
           %tr
@@ -172,6 +148,12 @@
         %a.safety-content
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み
+  .listing-item-change-box
+    - if user_signed_in? && current_user.id == @product.user_id
+      .listing-item-destroy-box
+        %button.btn-default.btn-gray
+          = link_to "この商品を削除する", "/products/#{@product.id}", method: :delete, data: { confirm: 'この商品を削除しますか？' } 
+
   .product-comment-box
     .comment-content
       %form.message-form{:action => "https://www.mercari.com/jp/comment/add/", :method => "POST"}
@@ -202,7 +184,8 @@
   .other-products
     .other-products__area
       %h2.name-text
-        %a{:href => "https://www.mercari.com/jp/u/823658594/"} sampleさんのその他の出品
+        %a{:href => "https://www.mercari.com/jp/u/823658594/"} 
+          = "#{Profile.find(@product.user_id).nickname}さんのその他の出品"
       .products-box-area
         .product-card
           %a

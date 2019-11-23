@@ -4,9 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one  :credit_card,    dependent: :destroy
-  has_one  :profile,       dependent: :destroy
+  has_one  :credit_card
+  has_one  :profile
   has_many :rates
+  has_many :products
   accepts_nested_attributes_for :profile
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

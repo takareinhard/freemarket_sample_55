@@ -26,6 +26,10 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    product = Product.find(params[:id])
+    if product.user_id == current_user.id
+      product.destroy
+    end
   end
 
   def get_delivery
