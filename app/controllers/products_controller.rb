@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
     @goods = Rate.where(rate: 1, user_id: @user.id)
     @normals = Rate.where(rate: 2, user_id: @user.id)
     @bads = Rate.where(rate: 3, user_id: @user.id)
+    @products = ProductImage.where(params[:id])
   end
 
   def search
