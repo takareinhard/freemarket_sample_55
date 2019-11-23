@@ -37,6 +37,7 @@ class ProductsController < ApplicationController
 
   def product_purchase_confirmation
     @product = Product.find(params[:id])
+    @user = current_user.profile
   end
   
   require 'payjp'
