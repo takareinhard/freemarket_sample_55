@@ -10,7 +10,8 @@
         %section.buy-content.buy-item
           .buy-content-inner
             %h3.buy-item-image
-              %img.lazyloaded{alt:"", src:"/assets/#{@product.product_image.image}/"}
+              .lazyloaded
+                = image_tag @product.product_image.image
             %p.buy-item-name.bold 
               =@product.name
             %form.buy-form
