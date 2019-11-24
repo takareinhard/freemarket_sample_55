@@ -1,12 +1,12 @@
 class Product < ApplicationRecord
   has_many :likes
-  has_one :product_image
+  has_one :product_image,  foreign_key: :product_id,  dependent: :destroy
   has_one :sell_values
   has_one :buy_values
   has_one :product_option_size
   has_one :product_option_brand
   has_one :dealing
-  has_one :product_size
+  has_one :product_size,  foreign_key: :product_id,  dependent: :destroy
   belongs_to :user
   belongs_to :profile
   belongs_to :category
