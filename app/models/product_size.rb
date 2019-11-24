@@ -1,3 +1,3 @@
 class ProductSize < ApplicationRecord
-  belongs_to :product
+  belongs_to :product,  foreign_key: :product_id,  dependent: :destroy
 end

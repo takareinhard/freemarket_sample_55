@@ -29,6 +29,7 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
     if product.user_id == current_user.id
       product.destroy
+      redirect_to root_path, notice: "商品の削除が完了しました"
     end
   end
 

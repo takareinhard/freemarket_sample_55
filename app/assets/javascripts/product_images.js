@@ -1,5 +1,6 @@
 'use strict';
 const miniimages = document.querySelectorAll('.mini-image');
+console.log(miniimages);
 miniimages.forEach(function(item, index) {
   console.log(item);
   item.onclick = function() {
