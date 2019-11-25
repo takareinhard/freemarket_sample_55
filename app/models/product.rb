@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   has_one :dealing
   has_one :product_size,  foreign_key: :product_id,  dependent: :destroy
   belongs_to :user
-  belongs_to :profile
+  belongs_to :profile, optional: true
   belongs_to :category
   belongs_to :prefecture
   belongs_to :brand
