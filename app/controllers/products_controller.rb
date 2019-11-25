@@ -23,6 +23,18 @@ class ProductsController < ApplicationController
      @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  def get_size
+    selected_grandchild = Category.find("#{params[:grandchild_id]}") #孫カテゴリーを取得
+    if related_size_parent = selected_grandchild.products_sizes[0] #孫カテゴリーと紐付くサイズ（親）があれば取得
+       @sizes = related_size_parent.children #紐づいたサイズ（親）の子供の配列を取得
+    else
+       selected_child = Category.find("#{params[:grandchild_id]}").parent #孫カテゴリーの親を取得
+       if related_size_parent = selected_child.products_sizes[0] #孫カテゴリーの親と紐付くサイズ（親）があれば取得
+          @sizes = related_size_parent.children #紐づいたサイズ（親）の子供の配列を取得
+       end
+    end
+  end
+  
   require 'payjp'
 
   def show

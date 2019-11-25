@@ -3,6 +3,12 @@ $(function(){
     var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
+
+  function appendSizeOption(size){
+    var html = `<option value="${size.id}">${size.size}</option>`;
+    return html;
+  }
+
   function appendChildrenBox(insertHTML){
     var childSelectHtml = "";
     childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
@@ -29,6 +35,24 @@ $(function(){
     </div>
   </div>`;
   $('.category-form').append(grandchildSelectHtml);
+  }
+
+  function appendSizeBox(insertHTML){
+    var sizeSelectHtml = '';
+    sizeSelectHtml = `<div class="listing-product-detail__size" id= 'size_wrapper'>
+                        <label class="category-form__text" for="サイズ">サイズ</label>
+                        <span class='category-form__icon'>必須</span>
+                        <div class='listing-select-wrapper__added--size'>
+                          <div class='listing-select-wrapper__box'>
+                            <select class="listing-select-wrapper__box--select" id="size" name="products_size_id">
+                              <option value="---">---</option>
+                              ${insertHTML}
+                            <select>
+                            <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
+                          </div>
+                        </div>
+                      </div>`;
+    $('.category-form').append(sizeSelectHtml);
   }
 
   $("#parent_category").on('change',function(){
@@ -74,8 +98,7 @@ $(function(){
         if (grandchildren.length != 0) {
           $('#grandchildren_wrapper').remove(); 
           $('#size_wrapper').remove();
-          $('#brand_wrapper').remove();
-          $('.sell-product-details').css('height', '280px');
+          $('.sell-product-details').css('height', '270px');
           var insertHTML = '';
           grandchildren.forEach(function(grandchild){
             insertHTML += appendOption(grandchild);
@@ -89,8 +112,37 @@ $(function(){
     }else{
       $('#grandchildren_wrapper').remove();
       $('#size_wrapper').remove();
-      $('#brand_wrapper').remove();
       $('.sell-product-details').css('height', '220px');
     }
   });
-})
+
+  $('.category-form').on('change', '#grandchild_category', function(){
+    var grandchildId = $('#grandchild_category option:selected').data('category'); //選択された孫カテゴリーのidを取得
+    if (grandchildId != "---"){
+    $.ajax({
+      url: '/products/get_size',
+      type: 'GET',
+      data: { grandchild_id: grandchildId },
+      dataType: 'json'
+    })
+    .done(function(sizes){
+      $('.sell-product-details').css('height', '360px');
+      $('#size_wrapper').remove(); 
+      if (sizes.length != 0) {
+      var insertHTML = '';
+        sizes.forEach(function(size){
+          insertHTML += appendSizeOption(size);
+        });
+        appendSizeBox(insertHTML);
+    }
+    })
+    .fail(function(){
+      alert('サイズ取得に失敗しました');
+    })
+    } else {
+      $('#size_wrapper').remove();
+      $('.sell-product-details').css('height', '270px');
+    }
+  });
+});
+
