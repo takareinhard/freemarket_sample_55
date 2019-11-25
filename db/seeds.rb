@@ -1,56 +1,5 @@
 
 
-
-if Rails.env == "production"
-  (1..10).each do |i|
-    User.create!(email: "testabc#{i}@example.com", password: "K4nZtE6F", password_confirmation: "K4nZtE6F")
-  end
-end
-
-if Rails.env == "production"
-  (1..10).each do |i|
-    Profile.create!(nickname: "test#{i}", first_name: "雄二", last_name: "鈴木", first_name_kana: "ユウジ", last_name_kana: "スズキ", post_number: "#{i}23-4567", prefecture: "#{i}", city: "福岡市", house_number: "#{i}00", building_name: "福岡アパート", birthday: "2000-10-10", tel_number: "080-9999-9999", profile: "test", avator: "", user_id: "#{i}" )
-  end
-end
-
-
-if Rails.env == "production"
-  (1..10).each do |i|
-    CreditCard.create!(user_id: "#{i}", customer_id: "cus_eb#{i}2097e73108cce49c267b6d9da", card_id: "car_eed1415b1780ef96740abfc5d3#{i}d", card_token: "tok_d0d43b00e5e1c7ccf3472932d5#{i}d")
-  end
-end
-
-if Rails.env == "production"
-  (1..10).each do |i|
-    Brand.create!(name: "ハワイ産#{i}")
-  end
-end
-
-if Rails.env == "production"
-  (1..10).each do |i|
-    Product.create!(name: "パンケーキ", price: "#{i}000", detail: "TESTTEST", condition: "1", postage_payer: "1", shipping_area: "1", shipping_days: "1", deal: "0", category_id: "#{i}", user_id: "#{i}", shipping_method: "郵送", brand_id: "1", prefecture_id:  "#{i}")
-  end
-end
-
-if Rails.env == "production"
-  (1..10).each do |i|
-    ProductImage.create!(image: "kaira.jpg", product_id: "#{i}")
-  end
-end
-
-if Rails.env == "production"
-  (1..10).each do |i|
-    ProductSize.create!(size: "3", product_id: "#{i}")
-  end
-end
-
-if Rails.env == "production"
-  (1..3).each do |i|
-    Rate.create!(rate: "#{i}", user_id: "#{i}", comment: "GOOD BAD FUNNY")
-  end
-end
-
-
 # レディース
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
@@ -379,6 +328,41 @@ others_8 = others.children.create(name: "事務/店舗用品")
 others_8.children.create([{name: "オフィス用品一般"},{name: "オフィス家具"},{name: "店舗用品"},{name: "OA機器"},{name: "ラッピング/包装"},{name: "その他"}])
 others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
+
+
+
+(1..10).each do |i|
+  User.create!(email: "test#{i}@example.com", password: "K4nZtE6F", password_confirmation: "K4nZtE6F")
+end
+
+(1..10).each do |i|
+  Profile.create!(nickname: "test#{i}", first_name: "雄二", last_name: "鈴木", first_name_kana: "ユウジ", last_name_kana: "スズキ", post_number: "#{i}23-4567", prefecture: "#{i}", city: "福岡市", house_number: "#{i}00", building_name: "福岡アパート", birthday: "2000-10-10", tel_number: "080-9999-9999", profile: "test", avator: "", user_id: "#{i}" )
+end
+
+
+(1..10).each do |i|
+  CreditCard.create!(user_id: "#{i}", customer_id: "cus_eb#{i}2097e73108cce49c267b6d9da", card_id: "car_eed1415b1780ef96740abfc5d3#{i}d", card_token: "tok_d0d43b00e5e1c7ccf3472932d5#{i}d")
+end
+
+(1..10).each do |i|
+  Brand.create!(name: "ハワイ産#{i}")
+end
+
+(1..10).each do |i|
+  Product.create!(name: "パンケーキ", price: "#{i}000", detail: "TESTTEST", condition: "1", postage_payer: "1", shipping_area: "1", shipping_days: "1", deal: "0", category_id: "10", user_id: "#{i}", shipping_method: "郵送", brand_id: "1", prefecture_id:  "#{i}")
+end
+
+(1..10).each do |i|
+  ProductImage.create!(image: "kaira.jpg", product_id: "#{i}")
+end
+
+(1..10).each do |i|
+  ProductSize.create!(size: "3", product_id: "#{i}")
+end
+
+(1..3).each do |i|
+  Rate.create!(rate: "#{i}", user_id: "#{i}", comment: "GOOD BAD FUNNY")
+end
 
 
 #都道府県
