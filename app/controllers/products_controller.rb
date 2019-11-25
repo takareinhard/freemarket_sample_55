@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   
   def index
-    # @product = Products.all
+    @products = Product.includes(:category).order(id: "DESC").limit(10)
   end
 
   def new
@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
     @goods = Rate.where(rate: 1, user_id: @user.id)
     @normals = Rate.where(rate: 2, user_id: @user.id)
     @bads = Rate.where(rate: 3, user_id: @user.id)
-    @products = ProductImage.where(params[:id])
+    @products = ProductImage.where(product_id: params[:id])
   end
 
   def search
