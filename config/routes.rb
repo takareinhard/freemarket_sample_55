@@ -58,9 +58,4 @@ Rails.application.routes.draw do
   #ユーザー本人確認ページ
   get "identification" => 'categories#identification' #ユーザー本人確認ページ
 
-  #ユーザークレジットカード登録ページ
-  get "user_credit_registration" => 'categories#user_credit_registration' #ユーザークレジットカード登録ページ
-
-  #商品詳細ページ
-  get "product_detail" => 'products#product_detail'
 end
