@@ -6,6 +6,13 @@ class SignupController < ApplicationController
     @profile = Profile.new
   end
 
+  def registration
+    @user = User.new
+    @profile = Profile.new
+    @user.build_profile
+  end
+
+
   def first_validation
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -35,12 +42,11 @@ class SignupController < ApplicationController
       # post_number: 808-0001,
       building_name: '須崎ビル',
     )
-
     check_user_valid = @user.valid?
     check_profile_valid = @profile.valid?
     # reCAPTCHA（私はロボットではありませんのアレ）とユーザー、プロフィールのバリデーション判定
     unless verify_recaptcha(model: @profile) && check_user_valid && check_profile_valid
-      render 'signup/registration' 
+      render 'signup/registration', notion:@user.errors.full_messages
     else
       # 問題がなければsession[:through_first_valid]を宣言して次のページへリダイレクト
       session[:through_first_valid] = "through_first_valid"
@@ -91,12 +97,6 @@ end
   end
 
   def address
-    @user = User.new
-    @profile = Profile.new
-    @user.build_profile
-  end
-
-  def registration
     @user = User.new
     @profile = Profile.new
     @user.build_profile
