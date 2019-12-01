@@ -1,0 +1,68 @@
+
+.l-single-container-signup {
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  .registration {
+    font-size: 22px;
+    padding: 32px;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: bold;
+  }
+  .registration-form {
+    padding: 24px 16px 40px;
+  }
+  .l-single-content {
+    max-width: 343px;
+    margin: 0 auto;
+  }
+  .btn-default {
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+  }
+  .btn-mail {
+    color: #fff;
+    background-color: #ea352d;
+    padding: 0;
+    position: relative;
+  }
+  .btn-sns-facebook {
+    position: relative;
+    margin: 16px 0 0;
+    background: #385185;
+    color: #fff;
+  }
+  .btn-sns-google {
+    margin: 16px 0 0;
+    background: #fff url("https://www.mercari.com/jp/assets/img/common/common/google.svg") no-repeat 3px top;
+    border: #979797 solid 1px;
+    color: #333;
+  }
+  .far.fa-envelope {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    color: #fff;
+    font-size: 20px;
+  }
+  .fab.fa-facebook-square {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    color: #fff;
+    font-size: 30px;
+  }
+}

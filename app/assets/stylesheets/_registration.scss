@@ -12,6 +12,9 @@
   font-size: 14px;
   color: #333;
   line-height: 1;
+.l-single-inner.registration-form {
+  border-top: 1px solid #f5f5f5;
+}
 .single-footer {
   position: absolute;
   right: 0;
@@ -140,20 +143,17 @@
     color: #0099e8;
     text-decoration: none;
     }
+    .new_user {
+      max-width: 343px;
+      margin: 0 auto;
+    }
   .l-single-head {
     padding: 24px 8px;
     font-size: 18px;
     line-height: 1.5;
     text-align: center;
   }
-  .l-single-inner {
-    padding: 24px 16px 40px;
-    border-top: 1px solid #f5f5f5;
-  }
-  .l-single-content {
-    max-width: 343px;
-    margin: 0 auto;
-  }
+
   .l-single-head.registration, .l-chapter-head.registration {
     background-color: #fff;
     padding: 16px;
@@ -225,13 +225,6 @@
     font-size: 22px;
     line-height: 1.4;
   }
-  .l-single-inner {
-    padding: 40px;
-    .registration-form {
-    padding: 24px 16px 40px;
-    background-color: #fff;
-    }
-  }
   .form-require#must {
     background: #ea352d;
     margin: 0 0 0 8px;
@@ -289,7 +282,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: -2rem;
+    left: -1.5rem;
     right: 0;
     margin: auto 0;
     z-index: 5;
