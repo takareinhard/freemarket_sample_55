@@ -56,7 +56,7 @@ end
 
   def second_validation
     session[:post_number] = profile_params[:post_number]
-    session[:prefecture] = profile_params[:prefecture]
+    session[:prefecture] = profile_params[:id]
     session[:city] = profile_params[:city]
     session[:house_number] = profile_params[:house_number]
     session[:building_name] = profile_params[:building_name]
@@ -80,6 +80,7 @@ end
     )
       check_user_valid = @user.valid?
       check_profile_valid = @profile.valid?
+    binding.pry
       session[:through_second_valid] = "through_second_valid"
       redirect_to credit_card_signup_index_path
   end
@@ -210,11 +211,15 @@ end
   end
 
   def profile_params
-    params.require(:profile).permit(:post_number,:house_number,:building_name,:nickname,:birthday,:last_name,:first_name,:last_name_kana,:first_name_kana,:post_number,:prefecture,:city,:address,:tel_number)
+    params.require(:profile).permit(:id,:post_number,:house_number,:building_name,:nickname,:birthday,:last_name,:first_name,:last_name_kana,:first_name_kana,:post_number,:prefecture,:city,:address,:tel_number)
   end
 
   def credit_card_params
     params.require(:credit_card).permit(:user_id,:customer_id,:card_id)
+  end
+
+  def prefecture_params
+    params.require(:prefecture).permit(:id,:prefecture)
   end
 
    # 前のpostアクションで定義されたsessionがなかった場合登録ページトップへリダイレクト

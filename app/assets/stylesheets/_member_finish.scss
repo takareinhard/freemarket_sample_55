@@ -1,15 +1,115 @@
-.thankyou {
-  text-align: center
-}
 
-.merucali_image {
-  display: block;
-  margin-top: 30px;
-  margin: 30px auto;
-}
+.l-single-container-finish {
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  
+  .registration {
+    font-size: 22px;
+    padding: 32px;
+    font-weight: 600;
+    text-align:center;
+  }
+  aside.downloadlink {
+    color: rgb(255, 255, 255);
+    background: url(https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?39597161) center center / cover;
+    background-position: center center;
+    margin-top: auto;
+    position: relative;
+    height: 260px;
+    width: 100%;
+    .contents-area {
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      width: 100%;
+      margin: 50px auto;
+      height: 260px;
+      &__download {
+        display: flex;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        justify-content: center;
+        text-align:center;
+        width: 430px;
+        .text-free {
+          color: white;
+          font-size: 24px;
+          font-weight: 600;
+          margin-bottom: 15px;
+        }
+        .text-soon {
+          color: white;
+          font-size: 30px;
+          margin-bottom: 20px;
+        }
+        .download-icon {
+          img.mercari {
+            height: 48px;
+            width: 48px;
+          }
+          a.appstore {
+            img.appstore {
+              height: 40px;
+              width: 144px;
+            }
+          a.googlestore {
+            img.googlestore {
+              height: 20px;
+              width: 144px;
+            }
+          }
+          }
+        }
+      }
+      figure.smartphone {
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        display: block;
+        margin-top: 0;
+        margin-right: 1rem;
+        img.smartphone {
+          height: 260px;
+          width: 300px;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  #charge-form {
+    padding: 32px;
+  }
+  .new_profile {
+  padding: 40px 40px 64px;
+  }
+  .l-single-content {
+    margin: 0 auto;
+    max-width: 343px;
+  }
+  span {
+    margin-left:10px;
+  }
+  p {
+    margin-top: 32px;
+    text-align: center
+  }
+  .btn-default {
+    margin-top: 32px;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+  }
+  
 
-.single-footer li {
-  margin: 16px 0 0;
-  font-size: 12px;
-  margin: 0 0 0 16px;
 }
