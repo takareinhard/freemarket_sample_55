@@ -13,14 +13,15 @@
           %p 最大10枚までアップロードできます
           .drop-box
             .drop-box__upload
-              %input{multiple: "multiple", name: "image", type: "file", id: "file-upload"}/
+              = f.file_field :image, multiple: true, direct_upload: true, accept: 'image/jpg,image/png', id: 'photo_upload'
               %p
                 ドラッグアンドドロップ 
                 %br/
                 またはクリックしてファイルをダウンロード
+            #preview__image
         .sell-product-content
           .name-form
-            .name-for__text 商品名
+            .name-form__text 商品名
             .name-form__icon 必須
             %div
               = f.text_field :name, required: true, placeholder: "商品名（必須 40文字まで)", class: "input-default"

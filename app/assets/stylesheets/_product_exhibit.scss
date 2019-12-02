@@ -65,6 +65,7 @@
             width: 620px;
             margin: 10px auto 0;
             height: 162px;
+            position: relative;
             &__upload {
               width:620px;
               margin-left: 0;
@@ -94,6 +95,10 @@
                 white-space: pre-wrap;
                 word-wrap: break-word;
                 font-family: monospace,monospace;
+              }
+              #preview__image {
+                height: 110px;
+                width: 110px;
               }
             }
           }
@@ -782,5 +787,14 @@
         text-align: center;
       }
     }
+  }
+}
+#post_img ,#post_img_last{
+  height: 100%;
+  width: 100%;
+  display:none;
+  opacity: 0;
+  &_last {
+    display:block;
   }
 }

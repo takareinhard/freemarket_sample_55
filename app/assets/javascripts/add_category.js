@@ -68,6 +68,7 @@ $(function(){
       .done(function(children){
         $('#children_wrapper').remove();
         $('#grandchildren_wrapper').remove();
+        $('#size_wrapper').remove();
         $('.sell-product-details').css('height', '220px');
         var insertHTML = '';
         children.forEach(function(child){
@@ -81,6 +82,7 @@ $(function(){
     } else {
       $('#children_wrapper').remove();
       $('#grandchildren_wrapper').remove();
+      $('#size_wrapper').remove();
       $('.sell-product-details').css('height', '190px');
     }
   });
@@ -134,6 +136,9 @@ $(function(){
           insertHTML += appendSizeOption(size);
         });
         appendSizeBox(insertHTML);
+    } else {
+      $('#size_wrapper').remove();
+      $('.sell-product-details').css('height', '270px');
     }
     })
     .fail(function(){
@@ -142,7 +147,7 @@ $(function(){
     } else {
       $('#size_wrapper').remove();
       $('.sell-product-details').css('height', '270px');
-    }
+    } 
   });
 });
 

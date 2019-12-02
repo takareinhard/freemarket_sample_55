@@ -27,9 +27,9 @@ class CategoriesController < ApplicationController
   end
 
   def mypage
-  end
+  endΩ
   
-  def edit_profile
+  def edit_profilepロフィェ
   end
 
   def logout
