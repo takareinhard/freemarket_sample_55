@@ -45,16 +45,20 @@
               %a.mypagelist
                 %img.mypagelist{:alt => "", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png"}/
                 マイページ
+  .special-issue-image
+    .top__banners
+      =image_tag "top-banner1.jpg"
+      =image_tag "top-banner2.jpg"
+      =image_tag "top-banner3.jpg"
+    .select__btn__arrow
+      =image_tag "https://web-jp-assets.mercdn.net/_next/static/images/carousel-prev-af7ca886ce42c4c02610cd15421ddcad.png",class:'slider-control__left'
+      =image_tag "https://web-jp-assets.mercdn.net/_next/static/images/carousel-next-bc3a1438a1435e953bc67d720cd05c61.png",class:'slider-control__right'
+    .top__indicators
+      %span.top-banner__btn
+      %span.top-banner__btn
+      %span.top-banner__btn
   .categorycontents
     .categorycontents-center
-      .top-information
-        %ul
-          %li
-            %img{:alt => "メルカリな1ら新品も中古もお得！キャンプ用品 大特集！", :src => "//www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?3795178681"}/
-        .slider-controlleft{:style => "position:absolute;top:50%;left:0;transform:translateY(-50%);-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%)"}
-          .slider-controlleft__button
-        .slider-controllright
-          .slider-controllright__button
       .popularity-category
         %h2.category-text 全ての商品一覧
       .category-productlist
@@ -159,3 +163,4 @@
         %img{:alt => "mercari", :height => "33", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?3466462615", :width => "124"}/
       %span.footer-copyright
         %small © 2019 Mercari
+        = javascript_include_tag 'toppage_banner.js'
