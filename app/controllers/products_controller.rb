@@ -45,14 +45,6 @@ class ProductsController < ApplicationController
     @products = ProductImage.where(product_id: params[:id])
   end
   
-  require 'payjp'
-
-  def show
-  end
-
-  def update
-  end
-
   def destroy
     product = Product.find(params[:id])
     if product.user_id == current_user.id
