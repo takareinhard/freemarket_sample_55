@@ -22,6 +22,7 @@
 - has_many :seller_dealings, class_name: 'Dealing', foreign_key: 'seller_id'
 - has_many :buyer_sell_values, class_name: 'BuyValue', foreign_key: 'buyer_id'
 - has_many :seller_sell_values, class_name: 'SellValue', foreign_key: 'seller_id'
+- has_many :rates
 - has_one :sms_authentication
 - has_one :credit_card
 - has_one :profile
@@ -85,8 +86,8 @@
 - has_many :product_images
 - has_one :sell_values
 - has_one :buy_values
-- has_one :product_option_size
-- has_one :product_option_brand
+- has_one :product_size
+- has_one :brand
 - has_one :dealing
 - belongs_to :user
 - belongs_to :category
@@ -150,7 +151,7 @@
 ### brandsモデル
 |Column|Type|Options|
 |:------|:----|:-------|
-|name|string|null: false|
+|name|string|null: false, default: ""|
 
 ### Association
 - has_many :products
@@ -160,7 +161,7 @@
 ### product_sizeモデル 
 |Column|Type|Options|
 |:------|:----|:-------|
-|size|integer|null: false|
+|size|string|null: false|
 |product|references|null: false, foreign_key: true|
 
 ### Association
@@ -203,6 +204,7 @@
 - belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
 - has_many :dealing_chat_messages
 - has_many :todos
+- has_many :rates
 
 [](取引チャットのメッセージを入れておくテーブル)
 ### dealing_chat_messagesモデル 
@@ -257,3 +259,17 @@
 ### Association
 - belongs_to :dealing
 - belongs_to :user
+
+
+### ratesテーブル
+|Column|Type|Options|
+|:------|:----|:-------|
+|rate|string|-------|
+|user|references|null: false, foreign_key: true|
+|comment|text|-------|
+現実装はここまで
+|dealing_id|integer|null: false|foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :dealing

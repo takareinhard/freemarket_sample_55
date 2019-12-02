@@ -45,15 +45,10 @@
               %a.mypagelist
                 %img.mypagelist{:alt => "", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png"}/
                 マイページ
-    %nav.bread-crumbs
-      %ul
-        %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
-          %a{:href => "https://www.mercari.com/jp/", :itemprop => "url"}
-            %span{:itemprop => "title"} メルカリ
-          %i.fas.fa-chevron-right
-        %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
-
-          %span{:itemprop => "title"} カテゴリー一覧
+    %bread-crumbs
+      .breadcrumbs_list
+        - breadcrumb :categories
+        = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
 
   .body-image
     .category-index.l-single-container
@@ -63,21 +58,25 @@
             %h2 カテゴリー一覧
             .category-list-nav.slide-nav-parent.text-center.clearfix
               - @parents.each do |parent|
-                %a.white.category-root-category-link-name
-                  = parent.name
+                = link_to categories_path(parent) do
+                  %white.category-root-category-link-name
+                    = parent.name
           - @parents.each do |parent|
             .category-wrapper
               .category-list-individual-box
                 .category-list-individual-box-root-category-name
                   = parent.name
                 .category-list-individual-box-inner-box
+                  = link_to "すべて", categories_path(parent)
                   - parent.children.each do |child|
                     .category-list-individual-box-sub-category-name
                       = child.name
                     .clearfix.category-list-individual-box-sub-sub-category-box
-                      - child.children.each do |grandchild|
-                        .category-list-individual-box-sub-sub-category-name
-                          =grandchild.name
+                      .category-wrapper__child--grandchildren-grandchild
+                        = link_to "すべて", categories_path(child)
+                          - child.children.each do |grandchild|
+                          .category-list-individual-box-sub-sub-category-name
+                            = link_to "#{grandchild.name}", category_path(grandchild)
 
   %aside.app-banner
     .app-banner-pc

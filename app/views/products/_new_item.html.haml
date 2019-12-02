@@ -1,0 +1,15 @@
+.product-card
+  .productList
+    = link_to product_path(product), data: {turbolinks: :false} do
+      -if product.deal != 'sale'
+        .soldout--small
+        .soldoutText--small 売り切れ
+      .product-card__image-area
+        .card-image
+          = image_tag product.product_image.image, size: "188x188"
+          %span.price-area ¥#{product.price}
+      .product-card__text-area
+        %h3.name
+          = product.name
+        .details
+        -# = fa_icon "heart", class: "likeIcon", text: "hoge"

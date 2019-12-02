@@ -1,8 +1,4 @@
 %body
-  / Google Tag Manager (noscript)
-  %noscript
-    %iframe{:height => "0", :src => "https://www.googletagmanager.com/ns.html?id=GTM-KLPT5L5", :style => "display:none;visibility:hidden", :width => "0"}
-  / End Google Tag Manager (noscript)
   .single-container
     %header.single-header
       %h1
@@ -14,11 +10,13 @@
         %section.buy-content.buy-item
           .buy-content-inner
             %h3.buy-item-image
-              %img.lazyloaded{:alt => "", "data-src" => "https://static.mercdn.net/thumb/photos/m98179719637_1.jpg?1571227515", :src => "https://static.mercdn.net/thumb/photos/m98179719637_1.jpg?1571227515"}/
-            %p.buy-item-name.bold オールドコーチ ショルダーバッグ
-            %form.buy-form{:action => "https://www.mercari.com/jp/transaction/buy/done/m98179719637/", :method => "POST", :novalidate => "novalidate"}
+              .lazyloaded
+                = image_tag @product.product_image.image
+            %p.buy-item-name.bold 
+              =@product.name
+            %form.buy-form
               %p.buy-price-ja.bold
-                ¥6,500
+                ¥#{@product.price}
                 %span.item-shipping-fee.f14.bold 送料込み
               %ul.buy-accordion.not-have
                 %li.accordion-parent
@@ -28,48 +26,13 @@
                 %li.buy-price-row.buy-you-pay.bold
                   .buy-price-cell 支払い金額
                   .buy-price-cell
-                    %span{"data-buy-pay" => "6500"} ¥6,500
-              %input{:name => "seller_id", :type => "hidden", :value => "527750501"}/
-              %input{:name => "payment_fee", :type => "hidden", :value => "0"}/
-              %input{:name => "payment_amount", :type => "hidden", :value => "6500"}/
-              %input{:name => "price", :type => "hidden", :value => "6500"}/
-              %input{:name => "category_id", :type => "hidden", :value => "214"}/
-              %input{:name => "item_condition", :type => "hidden", :value => "5"}/
-              %input{:name => "shipping_payer", :type => "hidden", :value => "2"}/
-              %input{:name => "shipping_method", :type => "hidden", :value => "17"}/
-              %input{:name => "shipping_duration", :type => "hidden", :value => "3"}/
-              %input{:name => "shipping_class", :type => "hidden", :value => "0"}/
-              %input{:name => "zip_code1", :type => "hidden", :value => "787"}/
-              %input{:name => "zip_code2", :type => "hidden", :value => "0446"}/
-              %input{:name => "paid_method", :type => "hidden", :value => "card"}/
-              %input{:name => "checksum", :type => "hidden", :value => "449aadc633f016f9013c2db8c3ba5244"}/
-              %input{:name => "payment_card_sequence_no", :type => "hidden", :value => ""}/
-              %input{:name => "payment_use_last_card_base64", :type => "hidden", :value => "eWVz"}/
-              %input{:name => "item_name_base64", :type => "hidden", :value => "44Kq44O844Or44OJ44Kz44O844OBIOOCt+ODp+ODq+ODgOODvOODkOODg+OCsA=="}/
-              %input{:name => "description_base64", :type => "hidden", :value => "44Kz44O844OB44Gu44K344On44Or44OA44O844OQ44OD44Kw44Gn44GZ44CCCuWPpOedgOWxi+OBpzEwMDAw5YaG44Gn6LO85YWl44GX44G+44GX44Gf44CCCuOCquODvOODq+ODieOCs+ODvOODgeOBjOWlveOBjeOBquaWueOBq+OCquOCueOCueODoeOBp+OBmeOAgg=="}/
-              %input{:name => "brand_name_base64", :type => "hidden", :value => "NTM5"}/
-              %input{:name => "shipping_from_area_base64", :type => "hidden", :value => "Mjg="}/
-              %input{:name => "family_name_base64", :type => "hidden", :value => "5byY55Sw"}/
-              %input{:name => "first_name_base64", :type => "hidden", :value => "5pyX"}/
-              %input{:name => "family_name_kana_base64", :type => "hidden", :value => "44OS44Ot44K/"}/
-              %input{:name => "first_name_kana_base64", :type => "hidden", :value => "44K/44Kr44Op"}/
-              %input{:name => "prefecture_base64", :type => "hidden", :value => "6auY55+l55yM"}/
-              %input{:name => "city_base64", :type => "hidden", :value => "5Zyf5L2Q5riF5rC05biC"}/
-              %input{:name => "address1_base64", :type => "hidden", :value => "NTYw"}/
-              %input{:name => "address2_base64", :type => "hidden", :value => ""}/
-              %input{:name => "telephone_base64", :type => "hidden", :value => ""}/
-              %input{:name => "__csrf_value", :type => "hidden", :value => "2b070435ddf7af4ec89ed407780000e0b6fd37e6dfc8a4fdd7670f7972d339b060d097a318d3cf4682f8d791b307ab34a2ec6a3e9853c45e263cb409473271894"}/
+                    %span{"data-buy-pay" => "6500"} ¥#{@product.price}
               -# %p.has-error-text
               -#   配送先と支払い方法の入力を完了してください。
               %ul.buy-accordion
-                %li.accordion-parent
-                  .accordion-toggle
-                    = form_tag(action: :product_purchase_confirmation_products_path, method: :post) do
-                      %script.payjp-button{"data-key" => "pk_test_37274ff92b215ff40baeb33c", :src => "https://checkout.pay.jp", :type => "text/javascript"}
-                  購入する
-              %input#is_yuu_yuu_mercari_bin{:type => "hidden"}/
-              .buy-detail-open-app{"data-action" => "item/openDetail", "data-key" => "id=m98179719637", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
-                アプリで購入
+              =link_to product_purchase_confirmation_product_path(@product),class:"btn-default",method: :post do
+                .buy-detail-open-app{"data-action" => "item/openDetail", "data-key" => "id=m98179719637", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
+                購入する
               %p アプリをお持ちでない方は以下よりインストールしてご利用いただけます。
               %br/
               %div
@@ -81,12 +44,14 @@
           .buy-content-inner
             %h3 配送先
             %address.buy-user-info-text
-              〒810-0001
+              = "〒#{@user.post_number.to_s.insert(3, "-")}"
               %br/
-              福岡県 福岡市 中央区
-              134
+              = Prefecture.find(@user.prefecture).prefecture
+              = @user.city
+              = @user.building_name
+              = @user.house_number
               %br/
-              山田 太郎
+              = "#{@user.last_name} #{@user.first_name}"
             %p.buy-user-info-text
             %a.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/address/m98179719637/"}
               %span 変更する
@@ -115,38 +80,3 @@
       %p
         %small © 2019 Mercari
   %script{:src => "//www-mercari-jp.akamaized.net/assets/js/app.js?599063363"}
-  :javascript
-    window.dataLayer = window.dataLayer || []
-    dataLayer.push({
-      'event': 'dynamic_cart',
-      'ecomm_pagetype': 'cart',
-      'ecomm_prodid': 'm98179719637',
-      'ecomm_totalvalue': '6500',
-      'uid': '167048340'
-    });
-  / Google Tag Manager
-  :javascript
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KLPT5L5');
-  / End Google Tag Manager
-  %div{:style => "display: none; visibility: hidden;"}
-    :javascript
-      !function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1964320460558899");fbq("track","PageView");
-      fbq("track","AddToCart",{content_type:"product",content_ids:"m98179719637",value:"6500",currency:"JPY"});
-    %noscript
-  %div{:style => "display: none; visibility: hidden;"}
-    :javascript
-      var yahoo_ss_retargeting_id=1000300638,yahoo_sstag_custom_params=window.yahoo_sstag_params,yahoo_ss_retargeting=!0;
-    %script{:src => "https://s.yimg.jp/images/listing/tool/cv/conversion.js", :type => "text/javascript"}
-    %noscript
-  %script{:id => "", :src => "https://s.yimg.jp/images/listing/tool/cv/ytag.js", :type => "text/javascript"}
-  %div{:style => "display: none; visibility: hidden;"}
-    :javascript
-      !function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","1964320460558899");fbq("track","PageView");
-    %noscript
-  %script{:id => "", :type => "text/javascript"}
-    :cdata
-      window.yjDataLayer=window.yjDataLayer||[];function ytag(){yjDataLayer.push(arguments)}ytag({type:"ycl_cookie"});

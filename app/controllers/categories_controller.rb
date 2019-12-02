@@ -3,38 +3,20 @@ class CategoriesController < ApplicationController
   def index
     @parents = Category.all.order("ancestry ASC, id ASC").limit(13)
   end
-  
-  def member_information_input
-    
-  end
-  
-  def sms_authentication
+
+  def show
+    @category = Category.find(params[:id])
+    @products = Product.where(category_id: @category).page(params[:page]).per(8).order("created_at DESC")
   end
 
-  def profile
-  end
+  private
 
-  def payment
-  end
-
-  def member_finish
-  end
-
-  def new_member_registration
-  end
-
-  def old_member_registration
-  end
-
-  def mypage
-  endΩ
-  
-  def edit_profilepロフィェ
-  end
-
-  def logout
+  def product_params
+    params.require(:product).permit(:name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :deal, :category_id, user_id).merge(user_id:current_user.id)
   end
   
-  def product_exhibit
+  def product_image_params
+    params.require(:product_image).permit(:name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :deal, :category_id, user_id).merge(user_id:current_user.id)
   end
+
 end

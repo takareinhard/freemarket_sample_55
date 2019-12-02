@@ -6,6 +6,13 @@ class SignupController < ApplicationController
     @profile = Profile.new
   end
 
+  def registration
+    @user = User.new
+    @profile = Profile.new
+    @user.build_profile
+  end
+
+
   def first_validation
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -35,12 +42,11 @@ class SignupController < ApplicationController
       # post_number: 808-0001,
       building_name: '須崎ビル',
     )
-
     check_user_valid = @user.valid?
     check_profile_valid = @profile.valid?
     # reCAPTCHA（私はロボットではありませんのアレ）とユーザー、プロフィールのバリデーション判定
     unless verify_recaptcha(model: @profile) && check_user_valid && check_profile_valid
-      render 'signup/registration' 
+      render 'signup/registration', notion:@user.errors.full_messages
     else
       # 問題がなければsession[:through_first_valid]を宣言して次のページへリダイレクト
       session[:through_first_valid] = "through_first_valid"
@@ -50,7 +56,7 @@ end
 
   def second_validation
     session[:post_number] = profile_params[:post_number]
-    session[:prefecture] = profile_params[:prefecture]
+    session[:prefecture] = profile_params[:id]
     session[:city] = profile_params[:city]
     session[:house_number] = profile_params[:house_number]
     session[:building_name] = profile_params[:building_name]
@@ -74,6 +80,7 @@ end
     )
       check_user_valid = @user.valid?
       check_profile_valid = @profile.valid?
+    binding.pry
       session[:through_second_valid] = "through_second_valid"
       redirect_to credit_card_signup_index_path
   end
@@ -91,12 +98,6 @@ end
   end
 
   def address
-    @user = User.new
-    @profile = Profile.new
-    @user.build_profile
-  end
-
-  def registration
     @user = User.new
     @profile = Profile.new
     @user.build_profile
@@ -134,8 +135,7 @@ end
   # 最後のフォームでクレジット認証を行なっているため、ここでカードの顧客情報を作り、userと紐づけてDBに保存する処理を行なっています
   Payjp.api_key = "sk_test_88a4b35f1038b2298666f28f"
   customer = Payjp::Customer.create(card: params["payjp-token"])
-  @credit_card = CreditCard.new(user: @user, customer_id: customer.id, card_id: customer.default_card,card_token: params["payjp-token"])
-  binding.pry
+  @credit_card = CreditCard.new(user: @user, customer_id: customer.id, card_id: customer.default_card, card_token: params["payjp-token"])
   # カード情報まで保存に成功したら全sessionをリセットしてユーザーidのみsessionに預け、完了画面へリダイレクト
   if @credit_card.save
     reset_session
@@ -211,11 +211,15 @@ end
   end
 
   def profile_params
-    params.require(:profile).permit(:post_number,:house_number,:building_name,:nickname,:birthday,:last_name,:first_name,:last_name_kana,:first_name_kana,:post_number,:prefecture,:city,:address,:tel_number)
+    params.require(:profile).permit(:id,:post_number,:house_number,:building_name,:nickname,:birthday,:last_name,:first_name,:last_name_kana,:first_name_kana,:post_number,:prefecture,:city,:address,:tel_number)
   end
 
   def credit_card_params
     params.require(:credit_card).permit(:user_id,:customer_id,:card_id)
+  end
+
+  def prefecture_params
+    params.require(:prefecture).permit(:id,:prefecture)
   end
 
    # 前のpostアクションで定義されたsessionがなかった場合登録ページトップへリダイレクト

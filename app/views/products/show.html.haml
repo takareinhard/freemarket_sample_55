@@ -46,120 +46,95 @@
                 %img.mypagelist{:alt => "", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png"}/
                 マイページ
   .product-detail-box
-    %h1.product-name ITS' DEMO ブラウス トップス カットソー
+    %h1.product-name
+      =@product.name
     .product-detail-contents
-      .product-photo
+      .product-photo#test
         .photo-area
           .photo-area-main
             .photo-area-slider
               .photo-area-slider__active
                 .photo-area-adjust
-                  %img{:alt => "ITS' DEMO ブラウス トップス カットソー", "data-src" => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_1.jpg?1569929398", :src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_1.jpg?1569929398", :style => "opacity: 1;"}/
+                  = image_tag @product.product_image.image, size: "300x285",class:"bigimg",id:"bigimage",data:{"image": @product.product_image.image}
           .sub-photos
-            .sub-photo.active
-              %span
-              .sub-photo-inner
-                %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_1.jpg?1569929398"}/
-            .sub-photo
-              %span
-              .sub-photo-inner
-                %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_2.jpg?1569929398"}/
-            .sub-photo
-              %span
-              .sub-photo-inner
-                %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_3.jpg?1569929398"}/
-            .sub-photo
-              %span
-              .sub-photo-inner
-                %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_4.jpg?1569929398"}/
-            .sub-photo
-              %span
-              .sub-photo-inner
-                %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_5.jpg?1569929398"}/
-            .sub-photo
-              %span
-              .sub-photo-inner
-                %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_6.jpg?1569929398"}/
-            .sub-photo
-              %span
-              .sub-photo-inner
-                %img{:src => "https://static.mercdn.net/item/detail/orig/photos/m93020510979_7.jpg?1569929398"}/
+            %ul
+              %li
+                - @products.pluck("image").each.with_index(0) do |image,i|
+                  = image_tag "#{image}", size: "75x75", class:"mini-image",data:{"image": image}
       %table.product-detail
         %tbody
           %tr
             %th 出品者
             %td
-              %a sample
+              %a 
+              =@product.user.profile.nickname
               %div
                 .product-rate
                   %i.fas.fa-laugh
-                  %span 1000
+                  %span #{@goods.count}
                 .product-rate
                   %i.fas.fa-meh
-                  %span 190
+                  %span #{@normals.count}
                 .product-rate
                   %i.fas.fa-frown
-                  %span 21
+                  %span #{@bads.count}
           %tr
             %th カテゴリー 
             %td
               %a
-                %div レディース
+                %div
+                .main-category
+                = link_to "#{@product.category.parent.parent.name}", category_path(@product.category.parent.parent)
               %a
                 .sub-category
                   %i.fas.fa-chevron-right
-                  トップス
+                  = link_to "#{@product.category.parent.name}", category_path(@product.category.parent)
               %a
                 .sub-sub-category
                   %i.fas.fa-chevron-right
-                  シャツ/ブラウス(七分/長袖)
+                  = link_to "#{@product.category.name}", category_path(@product.category.id)
           %tr
             %th ブランド
             %td
               %a
-                %div ブランド名
+                %div 
+                  = link_to @product.brand.name, class: "products-link_to"
           %tr
             %th 商品のサイズ
-            %td M
+            %td 
+              = @product.display_size
           %tr
             %th 商品の状態
-            %td 新品、未使用
+            %td 
+              = @product.display_condition
           %tr
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td 
+              = @product.display_postage_payer
           %tr
             %th 配送の方法
-            %td ゆうゆうメルカリ便
+            %td 
+              = @product.shipping_method
           %tr
             %th 配送元地域
             %td
-              %a 大阪府
+              %a 
+              = link_to "#{Prefecture.find(@product.prefecture_id).prefecture}", ""
           %tr
             %th 配送日の目安
-            %td 2~3日で発送
+            %td 
+              = @product.display_shipping_days
     .price-text-box
-      %span.text ¥1,000
+      %span.text ¥#{@product.price}
       %span.tax (税込)
-      %span.delivery-fee 送料込み
-    %a.product-buy-btn 購入画面に進む
+      %span.delivery-fee
+        送料込み
+      = link_to product_purchase_confirmation_product_url(@product), data: {turbolinks: :false} do
+        .product-buy-btn  購入画面に進む
     %p.delivery-explain この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
     .product-description
       %p.product-description-text
-        新品、未使用、タグ付き
-        %br
-        ITS' DEMO
-        プルオーバー ブラウス カットソー
-        ダークグリーン
-        サイズ 38
-        %br 定価 2,990円＋税
-        身幅 約47㎝（脇の下）
-        着丈 約50㎝（襟ぐり〜、前）
-        約57㎝（襟ぐり〜、後ろ）
-        平置き、素人採寸ですので、多少の誤差はご了承下さい。
-        %br 
-        裾に向かってAラインに広がっています。
-        22㎝ほど切り込みが入っているお袖はヒラヒラとした個性的なデザインになっています。
-        %br 自宅保管ですので、ご理解のある方のみよろしくお願い致します。
+        = simple_format(@product.detail)
     .product-bottom-btn
       .left-btn
         %button.like-button{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m93020510979", "data-toggle" => "like", :name => "like!", :type => "button"}
@@ -173,6 +148,12 @@
         %a.safety-content
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み
+  .listing-item-change-box
+    - if user_signed_in? && current_user.id == @product.user_id
+      .listing-item-destroy-box
+        %button.btn-default.btn-gray
+          = link_to "この商品を削除する", "/products/#{@product.id}", method: :delete, data: { confirm: 'この商品を削除しますか？' } 
+
   .product-comment-box
     .comment-content
       %form.message-form{:action => "https://www.mercari.com/jp/comment/add/", :method => "POST"}
@@ -203,7 +184,8 @@
   .other-products
     .other-products__area
       %h2.name-text
-        %a{:href => "https://www.mercari.com/jp/u/823658594/"} sampleさんのその他の出品
+        %a{:href => "https://www.mercari.com/jp/u/823658594/"} 
+          = "#{Profile.find(@product.user_id).nickname}さんのその他の出品"
       .products-box-area
         .product-card
           %a
@@ -278,7 +260,8 @@
           %span メルカリ
         %i.fas.fa-chevron-right
       %li
-        %span ITS' DEMO ブラウス トップス カットソー
+        %span 
+          =@product.name
   %aside.downloadlink
     .contents-area
       .contents-area__download
@@ -367,3 +350,4 @@
         %img{:alt => "mercari", :height => "33", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?3466462615", :width => "124"}/
       %span.footer-copyright
         %small © 2019 Mercari
+      = javascript_include_tag 'product_images.js'

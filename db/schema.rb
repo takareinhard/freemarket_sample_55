@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191125035713) do
+ActiveRecord::Schema.define(version: 20191121122442) do
+
+  create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       default: "", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -40,9 +46,7 @@ ActiveRecord::Schema.define(version: 20191125035713) do
   end
 
   create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "prefecture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "prefecture"
   end
 
   create_table "product_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -51,6 +55,14 @@ ActiveRecord::Schema.define(version: 20191125035713) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_product_images_on_product_id", using: :btree
+  end
+
+  create_table "product_sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "size",       null: false
+    t.integer  "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_product_sizes_on_product_id", using: :btree
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -66,12 +78,11 @@ ActiveRecord::Schema.define(version: 20191125035713) do
     t.integer  "user_id",                                   null: false
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
-    t.string   "image",                                     null: false
-    t.integer  "prefecture_id",                             null: false
     t.string   "shipping_method",                           null: false
+    t.integer  "brand_id"
+    t.integer  "prefecture_id"
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["name"], name: "index_products_on_name", using: :btree
-    t.index ["prefecture_id"], name: "index_products_on_prefecture_id", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
@@ -102,6 +113,15 @@ ActiveRecord::Schema.define(version: 20191125035713) do
     t.datetime "updated_at",                    null: false
   end
 
+  create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "rate"
+    t.integer  "user_id",                  null: false
+    t.text     "comment",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["user_id"], name: "index_rates_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -113,12 +133,16 @@ ActiveRecord::Schema.define(version: 20191125035713) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "password",                            null: false
+    t.string   "password",               default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "credit_cards", "users"
   add_foreign_key "product_images", "products"
+  add_foreign_key "product_sizes", "products"
+  add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "rates", "users"
 end
