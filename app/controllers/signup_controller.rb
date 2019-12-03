@@ -80,7 +80,7 @@ end
     )
       check_user_valid = @user.valid?
       check_profile_valid = @profile.valid?
-    binding.pry
+
       session[:through_second_valid] = "through_second_valid"
       redirect_to credit_card_signup_index_path
   end
