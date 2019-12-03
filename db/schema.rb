@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191121122442) do
+ActiveRecord::Schema.define(version: 20191203115043) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       default: "", null: false
@@ -87,11 +87,14 @@ ActiveRecord::Schema.define(version: 20191121122442) do
   end
 
   create_table "products_sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "size"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "category_id"
+    t.integer  "product_id"
     t.string   "ancestry"
-    t.index ["ancestry"], name: "index_products_sizes_on_ancestry", using: :btree
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "size"
+    t.index ["category_id"], name: "index_products_sizes_on_category_id", using: :btree
+    t.index ["product_id"], name: "index_products_sizes_on_product_id", using: :btree
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -109,8 +112,10 @@ ActiveRecord::Schema.define(version: 20191121122442) do
     t.integer  "tel_number"
     t.text     "profile",         limit: 65535
     t.string   "avator"
+    t.integer  "user_id",                       null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
   create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -143,6 +148,8 @@ ActiveRecord::Schema.define(version: 20191121122442) do
   add_foreign_key "product_sizes", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
+  add_foreign_key "products_sizes", "categories"
+  add_foreign_key "products_sizes", "products"
   add_foreign_key "profiles", "users"
   add_foreign_key "rates", "users"
 end

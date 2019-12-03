@@ -37,6 +37,8 @@ class ProductsController < ApplicationController
           @sizes = related_size_parent.children #紐づいたサイズ（親）の子供の配列を取得
        end
     end
+  end
+  
   def show
     @product = Product.find(params[:id])
     @user = @product.user
