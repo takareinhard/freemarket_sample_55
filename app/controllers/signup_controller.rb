@@ -7,6 +7,7 @@ class SignupController < ApplicationController
   end
 
   def registration
+    reset_session
     @user = User.new
     @profile = Profile.new
     @user.build_profile
@@ -77,6 +78,7 @@ end
       city: session[:city],
       house_number: session[:house_number],
       post_number: session[:post_number],
+      tel_number: session[:tel_number],
     )
       check_user_valid = @user.valid?
       check_profile_valid = @profile.valid?
@@ -115,7 +117,7 @@ end
       redirect_to signup_index_path
       return
     end
-
+    
     @profile = Profile.create(
       user: @user,
       nickname: session[:nickname],
@@ -131,6 +133,7 @@ end
       tel_number: session[:tel_number],
       building_name: session[:building_name],
     )
+    binding.pry
 
   # 最後のフォームでクレジット認証を行なっているため、ここでカードの顧客情報を作り、userと紐づけてDBに保存する処理を行なっています
   Payjp.api_key = "sk_test_88a4b35f1038b2298666f28f"
