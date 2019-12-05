@@ -1,58 +1,9 @@
 .maincontents
-  .header
-    .header-contents
-      .header-search
-        .header-search__icon
-          %a
-            %img.mercari-icon{:alt => "Mercari", :src => "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}/
-        .header-search__form
-          %form
-            %input{:name => "keyword", :placeholder => "何かお探しですか？", :type => "search", :value => ""}/
-            .form-button
-              %svg.searchbutton{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 16 16", :width => "16"}
-                %path{:d => "M11.435 10.063h-.723l-.256-.247a5.92 5.92 0 0 0 1.437-3.87 5.946 5.946 0 1 0-5.947 5.947 5.92 5.92 0 0 0 3.87-1.437l.247.256v.723L14.637 16 16 14.637l-4.565-4.574zm-5.489 0A4.111 4.111 0 0 1 1.83 5.946 4.111 4.111 0 0 1 5.946 1.83a4.111 4.111 0 0 1 4.117 4.116 4.111 4.111 0 0 1-4.117 4.117z", :fill => "currentColor", "fill-rule" => "nonzero"}
-      .header-navi
-        .header-leftlist
-          .header-leftlist__category
-            %a.categorybutton
-              %svg.categorybutton{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 20 16", :width => "20"}
-                %path{:d => "M18.799 15.25h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zM2 16a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", :fill => "currentColor", "fill-rule" => "nonzero"}
-              カテゴリーから探す
-          .header-leftlist__brand
-            %a.brandbutton
-              %svg.brandbutton{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 23 16", :width => "23"}
-                %path{:d => "M6.315 0L4.473 1.806 2.833.019.73 1.977l1.69 1.84L1.198 5.02c-1.594 1.594-1.594 4.188-.01 5.772L6.3 16h13.272a3.08 3.08 0 0 0 3.077-3.077V3.076A3.08 3.08 0 0 0 19.57 0H6.315zm13.46 12.925a.211.211 0 0 1-.205.205H7.504L3.227 8.771a1.226 1.226 0 0 1-.01-1.71L4.38 5.92l1.28 1.371a2.68 2.68 0 1 0 2.13-1.93L6.433 3.907 7.49 2.87h12.082a.211.211 0 0 1 .206.205v9.848h-.002z", :fill => "currentColor", "fill-rule" => "nonzero"}
-              ブランドから探す
-        .header-rightlist
-          %ul.rightlist
-            %li.likelist
-              %a.likelist
-                %svg.likelist{"aria-hidden" => "true", :height => "15", :viewbox => "0 0 16 15", :width => "16"}
-                  %path{:d => "M8.08 12.711l-.08.082-.08-.082C4.112 9.188 1.6 6.858 1.6 4.496c0-1.635 1.2-2.861 2.8-2.861 1.232 0 2.432.81 2.856 1.929h1.496c.416-1.12 1.616-1.93 2.848-1.93 1.6 0 2.8 1.227 2.8 2.862 0 2.362-2.512 4.692-6.32 8.215M11.6 0C10.208 0 8.872.662 8 1.708 7.128.662 5.792 0 4.4 0 1.936 0 0 1.978 0 4.496c0 3.09 2.72 5.608 6.84 9.433L8 15l1.16-1.079C13.28 10.104 16 7.586 16 4.496 16 1.978 14.064 0 11.6 0", :fill => "currentColor", "fill-rule" => "evenodd"}
-                いいね！一覧
-            %li.noticelist
-              %a.noticelist
-                %svg.noticelist{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 14 16", :width => "14"}
-                  %path{:d => "M6.592 16c.89 0 1.632-.734 1.632-1.632H4.928c0 .898.742 1.632 1.664 1.632zm4.896-4.928V6.976c-.008-2.521-1.345-4.63-3.712-5.184v-.576C7.79.55 7.241 0 6.56 0c-.68 0-1.23.55-1.216 1.216v.576c-2.36.554-3.704 2.654-3.712 5.184v4.096L0 12.704v.832h13.12v-.832l-1.632-1.632zm-1.632.832h-6.56V6.976c0-2.024 1.238-3.68 3.296-3.68 2.026 0 3.264 1.656 3.264 3.68v4.928z", :fill => "currentColor", "fill-rule" => "nonzero"}
-                お知らせ
-                %span
-            %li.todolist
-              %a.todolist
-                %svg.todolist{"aria-hidden" => "true", :height => "16", :viewbox => "0 0 21 16", :width => "21"}
-                  %path{:d => "M6.682 12.657L1.67 7.642 0 9.313 6.682 16 21 1.672 19.33 0z", :fill => "currentColor", "fill-rule" => "nonzero"}
-                やることリスト
-            %li.mypagelist
-              %a.mypagelist
-                %img.mypagelist{:alt => "", :src => "https://static.mercdn.net/images/member_photo_noimage_thumb.png"}/
-                マイページ
-    %nav.bread-crumbs
-      %ul
-        %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
-          %a{:href => "https://www.mercari.com/jp/", :itemprop => "url"}
-            %span{:itemprop => "title"} メルカリ
-          %i.fas.fa-chevron-right
-        %li{:itemscope => "", :itemtype => "http://data-vocabulary.org/Breadcrumb"}
-          %span{:itemprop => "title"} マイページ  
+  = render "products/headers"
+  .bread-crumbs
+    .bread-crumbs_list
+      - breadcrumb :mypage
+      = breadcrumbs separator: " &nbsp;&nbsp;&#12297;&nbsp; "
 
   .exhibit-button
     %a.exhibit
@@ -245,7 +196,7 @@
         %h3.mypage-nav-head 設定
         %ul.mypage-nav-list
           %li
-            %a.mypage-nav-list-item{:href => "/jp/mypage/profile/"}
+            %a.mypage-nav-list-item{:href => "/profile/"}
               プロフィール
               %i.fas.fa-chevron-right
           %li
@@ -273,96 +224,5 @@
               ログアウト
               %i.fas.fa-chevron-right
 
-  %aside.app-banner
-    .app-banner-pc
-      .app-banner-pc-inner
-        %h2 スマホでかんたんフリマアプリ
-        %p 今すぐ無料ダウンロード！
-        .app-banner-icon.clearfix
-          %figure
-            %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?3466462615", :width => "68"}/
-          %ul.clearfix
-            %li
-              %a{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
-                %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?3466462615", :width => "133"}/
-            %li
-              %a{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
-                %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?3466462615", :width => "133"}/
-      %figure
-        %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?3466462615"}/
-
-  %footer.global-footer
-    %nav.clearfix
-      .footer-cell
-        %h2.footer-head メルカリについて
-        %ul
-          %li
-            %a{:href => "https://about.mercari.com/"} 会社概要（運営会社）
-          %li
-            %a{:href => "https://www.mercari.com/jp/jobs/"} 採用情報
-          %li
-            %a{:href => "https://about.mercari.com/press/news/"} プレスリリース
-          %li
-            %a{:href => "https://jp-news.mercari.com/", :target => "_blank"} 公式ブログ
-          %li
-            %a{:href => "https://www.mercari.com/jp/logo-guidelines/"} メルカリロゴ利用ガイドライン
-          %li.footer-social-link
-            %a{:href => "https://twitter.com/mercari_jp", :target => "_blank"}
-              %i.fab.fa-twitter
-          %li.footer-social-link
-            %a{:href => "https://www.facebook.com/mercarijp", :target => "_blank"}
-              %i.fab.fa-facebook-square
-              
-      .footer-cell
-        %h2.footer-head ヘルプ＆ガイド
-        %ul
-          %li
-            %a{:href => "https://www.mercari.com/jp/help_center/"} メルカリガイド
-          %li
-            %a{:href => "https://www.mercari.com/jp/rakuraku-mercari/"} らくらくメルカリ便
-          %li
-            %a{:href => "https://www.mercari.com/jp/yuyu-mercari/"} ゆうゆうメルカリ便
-          %li
-            %a{:href => "https://www.mercari.com/jp/rakuraku-ogata/"} 大型メルカリ便
-          %li
-            %a{:href => "https://www.mercari.com/jp/guide/car/"} 車体取引ガイド
-          %li
-            %a{:href => "https://www.mercari.com/jp/safe/description/"} メルカリあんしん・あんぜん宣言！
-          %li
-            %a{:href => "https://www.mercari.com/jp/authenticity/"} 偽ブランド品撲滅への取り組み
-          %li
-            %a{:href => "https://www.mercari.com/jp/box/"} メルカリボックス
-      .footer-cell.full-width
-        %h2.footer-head プライバシーと利用規約
-        .inner-footer-cell
-          %ul
-            %li
-              %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
-            %li
-              %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
-            %li
-              %a{:href => "https://www.mercari.com/jp/tos_smartphone_support/"} あんしんスマホサポート制度に関する利用特約
-            %li
-              %a{:href => "https://www.mercari.com/jp/compliance/"} コンプライアンスポリシー
-        .inner-footer-cell
-          %ul
-            %li
-              %a{:href => "https://www.mercari.com/jp/data_security/"} 個人データの安全管理に係る基本方針
-            %li
-              %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
-            %li
-              %a{:href => "https://www.mercari.com/jp/shikin_kessai/"} 資金決済法に基づく表示
-            %li
-              %a{:href => "https://about.mercari.com/csr/safety/"} 法令順守と犯罪抑止のために
-      .footer-cell.footer-nav-lang
-        %h2.footer-head 国
-        %ul
-          %li
-            %a.active{:href => "https://www.mercari.com/jp/"} 日本
-          %li
-            %a{:href => "https://www.mercari.com/"} United States
-    .footer-bottom
-      %a.footer-logo{:href => "https://www.mercari.com/jp/"}
-        %img{:alt => "mercari", :height => "33", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?3466462615", :width => "124"}/
-      %span.footer-copyright
-        %small © 2019 Mercari
+  = render "products/app_banner"
+  = render "products/footers"

@@ -7,6 +7,12 @@ crumb :categories do
   parent :root
 end
 
+crumb :mypage do
+  link "マイページ", mypage_path
+  parent :root
+end
+
+
 crumb :category_show do |category|
   link "#{category.name}", categories_path(category)
   parent :categories
