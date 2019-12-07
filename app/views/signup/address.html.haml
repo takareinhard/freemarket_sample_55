@@ -59,17 +59,4 @@
                 %span.form-require#no-need 任意
                 = f.text_field :tel_number, placeholder: '例) 09012345678'
               = f.submit '次へ進む', class: 'btn-red'
-      %footer.single-footer
-        %nav
-          %ul.clearfix
-            %li
-              %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
-            %li
-              %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
-            %li
-              %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
-        %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
-          %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3761641567", :width => "80"}/
-        %p
-          %small © 2019 Mercari
-    %script{:src => "//www-mercari-jp.akamaized.net/assets/js/app.js?4246962500"}
+      = render "signup/footer"

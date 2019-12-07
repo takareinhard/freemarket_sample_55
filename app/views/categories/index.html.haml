@@ -25,7 +25,7 @@
                       = child.name
                     .clearfix.category-list-individual-box-sub-sub-category-box
                       .category-wrapper__child--grandchildren-grandchild
-                        = link_to "すべて", categories_path(child)
+                        = link_to "", categories_path(child)
                           - child.children.each do |grandchild|
                           .category-list-individual-box-sub-sub-category-name
                             = link_to "#{grandchild.name}", category_path(grandchild)

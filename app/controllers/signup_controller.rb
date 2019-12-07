@@ -133,7 +133,6 @@ end
       tel_number: session[:tel_number],
       building_name: session[:building_name],
     )
-    binding.pry
 
   # 最後のフォームでクレジット認証を行なっているため、ここでカードの顧客情報を作り、userと紐づけてDBに保存する処理を行なっています
   Payjp.api_key = "sk_test_88a4b35f1038b2298666f28f"
