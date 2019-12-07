@@ -35,32 +35,5 @@
                 <br>ありがとうございます。</br>
                 会員登録が完了しました。
               %a.btn-default.btn-red{type: "submit", class: 'btn-red', :href => "/"} メルカリをはじめる
-          %aside.downloadlink
-            .contents-area
-              .contents-area__download
-                .text-free スマホでかんたんフリマアプリ
-                .text-soon 今すぐ無料ダウンロード！
-                .download-icon
-                  %img.mercari{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png"}/
-                  %a.appstore
-                    %img.appstore{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg"}/
-                  %a.googlestore
-                    %img.googlestore{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg"}/
-              %figure.smartphone
-                %img.smartphone{:alt => "", :src => "https://web-jp-assets.mercdn.net/_next/static/images/download_app_pc-a4418175e8be071827ac88d073f40e4a.png"}/
-
-
-      %footer.single-footer
-        %nav
-          %ul.clearfix
-            %li
-              %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
-            %li
-              %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
-            %li
-              %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
-        %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
-          %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3761641567", :width => "80"}/
-        %p
-          %small © 2019 Mercari
-    %script{:src => "//www-mercari-jp.akamaized.net/assets/js/app.js?4246962500"}
+          = render "products/app_banner"
+      = render "signup/footer"

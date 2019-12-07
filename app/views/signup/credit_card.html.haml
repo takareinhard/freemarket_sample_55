@@ -101,25 +101,8 @@
                   .signup-seqcode-text{"data-js" => "show-tips-toggle"}
                     %span.form-question> ?
                     カード裏面の番号とは？
-                  -# .signup-seqcode-info{"data-js" => "show-tips-content"}
-                  -#   カードの裏面をご参照ください。
-                  -#   %br/
-                  -#   %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?3761641567", :width => "240"}/
               #card_token
               = submit_tag "次へ進む", id: "token_submit"
               
-      %footer.single-footer
-        %nav
-          %ul.clearfix
-            %li
-              %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
-            %li
-              %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
-            %li
-              %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
-        %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
-          %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3761641567", :width => "80"}/
-        %p
-          %small © 2019 Mercari
+      = render "signup/footer"
       = javascript_include_tag 'payjp.js'
-    / Google Tag Manager

@@ -42,6 +42,7 @@ Rails.application.routes.draw do
       post 'product_purchase_confirmation' => 'products#purchase'
     end
   end
+  
 
   resources :categories, only: [:index, :show]
 
@@ -60,5 +61,8 @@ Rails.application.routes.draw do
 
   #ユーザー本人確認ページ
   get "identification" => 'categories#identification' #ユーザー本人確認ページ
+
+  #ユーザークレジット確認ページ
+  get "user_credit_registration" => 'categories#user_credit_registration' #ユーザー本人確認ページ
 
 end
