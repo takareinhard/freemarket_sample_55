@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   
   def index
-    @product = Products.all
+    @products = Product.includes(:category).order(id: "DESC").limit(10)
   end
 
   def new
@@ -13,13 +13,9 @@ class ProductsController < ApplicationController
     @products = Product.includes(:category).order(id: "DESC").limit(10)
   end
 
-  def new
-  end
-     # 親カテゴリーが選択された後に動くアクション
   def get_category_children
       #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
       @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-      # binding.pry
   end
 
    # 子カテゴリーが選択された後に動くアクション
@@ -38,6 +34,8 @@ class ProductsController < ApplicationController
        end
     end
   end
+
+  
   
   def show
     @product = Product.find(params[:id])

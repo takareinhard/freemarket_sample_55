@@ -82,3 +82,4 @@ gem 'pry-rails'
 gem 'recaptcha', require: "recaptcha/rails"
 gem 'ancestry'
 gem 'kaminari'
+gem 'gon'
