@@ -57,7 +57,7 @@
               .form-group
                 %label{:for => "tel_number"} 電話
                 %span.form-require#no-need 任意
-                = f.text_field :building_name, placeholder: '例) 09012345678'
+                = f.text_field :tel_number, placeholder: '例) 09012345678'
               = f.submit '次へ進む', class: 'btn-red'
       %footer.single-footer
         %nav

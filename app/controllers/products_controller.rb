@@ -35,8 +35,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  
-  
   def show
     @product = Product.find(params[:id])
     @user = @product.user
@@ -46,14 +44,6 @@ class ProductsController < ApplicationController
     @products = ProductImage.where(product_id: params[:id])
   end
   
-  require 'payjp'
-
-  def show
-  end
-
-  def update
-  end
-
   def destroy
     product = Product.find(params[:id])
     if product.user_id == current_user.id
@@ -76,6 +66,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     Payjp.api_key = 'sk_test_88a4b35f1038b2298666f28f'
     Payjp::Charge.create(currency: 'jpy', amount: @product.price, customer: current_user.credit_card.customer_id)
+    @product.update(deal: 1)
     redirect_to root_path, notice: "支払いが完了しました"
   end
 

@@ -1,4 +1,4 @@
-.maincontents {
+.maincontents-index {
   background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
@@ -48,7 +48,7 @@
             border-image: initial;
             border-radius: 4px;
             outline: none;
-            padding: 0px 50px 0px 10px;
+            padding: 0px 0px 0px 10px;
             transition: all 0.3s ease-out 0s;
           }
           .form-button {
@@ -233,9 +233,93 @@
                 }
               }
             }
+            a.signuplist {
+              text-align: center;
+              box-sizing: border-box;
+              background-color: rgb(234, 53, 45);
+              color: rgb(255, 255, 255);
+              display: block;
+              font-size: 14px;
+              border-width: 1px;
+              border-style: solid;
+              border-color: rgb(234, 53, 45);
+              border-image: initial;
+              border-radius: 4px;
+              padding: 5px 10px;
+              margin-bottom: 8px;
+              cursor: pointer;
+            }
+            a.loginList {
+              text-align: center;
+              margin-left: 11px;
+              background-color: rgb(255, 255, 255);
+              color: rgb(0, 149, 238);
+              display: block;
+              font-size: 14px;
+              border-width: 1px;
+              border-style: solid;
+              border-color: rgb(0, 149, 238);
+              border-image: initial;
+              border-radius: 4px;
+              padding: 5px 10px;
+              transition: all 0.3s ease-out 0s;
+              margin-bottom: 8px;
+              cursor: pointer;
+            }
           }
         }
       }
+    }
+  }
+  .special-issue-image{
+    height: 390px;
+    width: 100vw;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+  }
+  //スライダー
+  .top__banners{
+    display: flex;
+    position: absolute;
+  }
+  
+  //戻る進むボタン
+   .slider-control__right{
+    background-color: transparent;
+    position: absolute;
+    top: 150px;
+    right: 100px;
+    }
+  .slider-control__left{
+    background-color: transparent;
+    position: absolute;
+    top: 150px;
+    right: 1300px;
+    }
+  
+  //インジケーター
+  .top__indicators{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 20px;
+    width: 100px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .top-banner__btn{
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    display: block;
+    border-radius: 5px;
+    background-color: hsla(0,0%,100%,.6);
+    &:first-child{
+      background-color: #fff;
     }
   }
   .categorycontents {
@@ -245,75 +329,76 @@
     padding: 0px;
     .categorycontents-center {
       position: relative;
-      .top-information {
-        height: 390px;
-        left: 50%;
-        margin-left: -50vw;
-        position: relative;
-        top: 0px;
-        width: 100vw;
-        overflow: hidden;
-        ul {
-          position: relative;
-          margin: 0px;
-          padding: 0px;
-          height: 390px;
-          width: 3498px;
-          li {
-            display: inline-block;
-            height: auto;
-            margin: auto 0px;
-            position: absolute;
-            width: 50%;
-            left: 150px;
-            img {
-              background-size: auto;
-              display: inline-block;
-              text-align: center;
-              height: 390px;
-              width: 50%;
-              align-items: center;
-            }
-          }
-        }
-        .slider-controlleft {
-          margin-left: 60px;
-          position: absolute;
-          top: 50%;
-          left: 0;
-          &__button {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 25px;
-            height: 25px;
-            border-top: 3px solid #fff;
-            border-right: 3px solid #fff;
-            transform: rotate(-140deg);
-            margin-top: -5px;
-          }
-        }
-        .slider-controllright {
-          position: absolute;
-          top: 50%;
-          right: 0;
-          margin-right: 60px;
-          &__button {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 25px;
-            height: 25px;
-            border-top: 3px solid #fff;
-            border-right: 3px solid #fff;
-            transform: rotate(45deg);
-            margin-top: -5px;
-          }
-        }
-        
-      }
+      //スライダー全体
+
+      // .top-information {
+      //   height: 390px;
+      //   left: 50%;
+      //   margin-left: -50vw;
+      //   position: relative;
+      //   top: 0px;
+      //   width: 100vw;
+      //   overflow: hidden;
+      //   ul {
+      //     position: relative;
+      //     margin: 0px;
+      //     padding: 0px;
+      //     height: 390px;
+      //     width: 3498px;
+      //     li {
+      //       display: inline-block;
+      //       height: auto;
+      //       margin: auto 0px;
+      //       position: absolute;
+      //       width: 50%;
+      //       left: 150px;
+      //       img {
+      //         background-size: auto;
+      //         display: inline-block;
+      //         text-align: center;
+      //         height: 390px;
+      //         width: 50%;
+      //         align-items: center;
+      //       }
+      //     }
+      //   }
+      //   .slider-controlleft {
+      //     margin-left: 60px;
+      //     position: absolute;
+      //     top: 50%;
+      //     left: 0;
+      //     &__button {
+      //       content: "";
+      //       position: absolute;
+      //       top: 50%;
+      //       left: 0;
+      //       width: 25px;
+      //       height: 25px;
+      //       border-top: 3px solid #fff;
+      //       border-right: 3px solid #fff;
+      //       transform: rotate(-140deg);
+      //       margin-top: -5px;
+      //     }
+      //   }
+      //   .slider-controllright {
+      //     position: absolute;
+      //     top: 50%;
+      //     right: 0;
+      //     margin-right: 60px;
+      //     &__button {
+      //       content: "";
+      //       position: absolute;
+      //       top: 50%;
+      //       left: 0;
+      //       width: 25px;
+      //       height: 25px;
+      //       border-top: 3px solid #fff;
+      //       border-right: 3px solid #fff;
+      //       transform: rotate(45deg);
+      //       margin-top: -5px;
+      //     }
+      //   }
+      // }
       .popularity-category {
         background-color: rgb(255, 255, 255);
         left: 50%;

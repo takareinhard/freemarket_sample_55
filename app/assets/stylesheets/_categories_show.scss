@@ -10,6 +10,7 @@
   line-height: 1.4;
 }
 .categories-products-area {
+  
   &__each {
     display:flex;
     flex-wrap: wrap;
@@ -23,7 +24,7 @@
       .product-card__image-area {
         height: 188px;
         position: relative;
-        card-image {
+        .card-image {
           height: 188px;
           width: 188px;
           object-fit: cover;
@@ -34,6 +35,7 @@
             object-fit: cover;
           }
         }
+
         span {
           -webkit-box-align: center;
           -ms-flex-align: center;
@@ -56,6 +58,7 @@
           left: 1px;
         }
       }
+      
       &__text-area {
         margin-top: 10px;
         box-sizing: border-box;
@@ -66,7 +69,6 @@
         padding: 0 12px;
         white-space: normal;
         word-break: break-word;
-        height: calc(252px - 188px);
         span {
           display: inline-block;
           height: 2.8em;
@@ -85,5 +87,8 @@
         }
       }
     }
+  }
+  #pagenation {
+    margin-bottom:10px;
   }
 }

@@ -49,6 +49,10 @@ Rails.application.routes.draw do
 
   get "mypage" => 'categories#mypage' #マイページ
   #ユーザープロフィール編集ページ
+
+  get "profile" => 'categories#profile' #マイページ
+  #ユーザープロフィール編集ページ
+
   get "edit_profile" => 'categories#edit_profile' #ユーザープロフィール編集ページ
 
   #ユーザーログアウトページ

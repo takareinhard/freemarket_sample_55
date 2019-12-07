@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191203115043) do
+ActiveRecord::Schema.define(version: 20191204120627) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       default: "", null: false
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20191203115043) do
     t.string   "house_number"
     t.string   "building_name"
     t.date     "birthday",                      null: false
-    t.integer  "tel_number"
+    t.string   "tel_number"
     t.text     "profile",         limit: 65535
     t.string   "avator"
     t.integer  "user_id",                       null: false
