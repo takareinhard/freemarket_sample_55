@@ -1,113 +1,96 @@
-!!!
-%html{:lang => "ja-JP"}
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    .single-container
-      %header.single-header
-        %h1
-          %a{:href => "https://www.mercari.com/jp/"}
-            %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3761641567"}/
-        %nav.progress-bar.signup-bar
-          %ol.clearfix
-            %li.active
-              会員情報
-              .progress-status
-            %li
-              電話番号認証
-              .progress-status
-            %li
-              お届け先住所入力
-              .progress-status
-            %li
-              支払い方法
-              .progress-status
-            %li
-              完了
-              .progress-status
-      %main.single-main-information-input
-        %section.l-single-container
-          %h2.l-single-head.registration 会員情報入力
-          %form.l-single-inner.registration-form
-          = form_for @user, url: registration_signup_index_path,method: :post do |f|
-            %input{:name => "__csrf_value", :type => "hidden", :value => "7088e23ff34753755fa91a4bd357742cb0b9477a98bc9bf39fa29885088ce782622488d02d5244764a1951cd25bb0f0e3bb22c2dcaafdc3031122e0b4d1b65767"}/
-            .l-single-content
-            = fields_for @profile, url: registration_signup_index_path,method: :post do |o|
-              .form-group
-                = o.label :nickname, "ニックネーム"
-                %span.form-require#must 必須
-                %br/
-                = o.text_field :nickname, class: "input-default",:placeholder => "例)メルカリ太郎"
-              .form-group
-                = f.label :email, 'メールアドレス'
-                %span.form-require#must 必須
-                %br/
-                = f.email_field :email, placeholder: 'PC・携帯どちらでも可', class: "input-default"
-              .form-group
-                = f.label :password, 'パスワード'
-                %span.form-require#must 必須
-                - if @minimum_password_length
-                  %em
-                    (#{@minimum_password_length} characters minimum)
-                %br/
-                = f.password_field :password,placeholder: '７文字以上', class: "input-default"
-              .form-group
-                = f.label :password_confirmation, 'パスワード（確認）'
-                %span.form-require#must 必須
-                %br/
-                = f.password_field :password_confirmation, placeholder: '7文字以上', class: "input-default"
-              .form-group
-                %h3.text-left.l-chapter-sub-head 本人確認
-                %p.l-single-text
-                  安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-            = fields_for @profile, url: registration_signup_index_path,method: :post do |o|
-              .form-group
-                %div
-                  %label お名前(全角)
-                  %span.form-require#must 必須
-                = o.text_field :last_name, class: "input-default-half",:placeholder => "例) 山田"
-                = o.text_field :first_name, class: "input-default-half",:placeholder => "例) 彩"
-              .form-group
-                %div
-                  %label お名前カナ(全角)
-                  %span.form-require#must 必須
-                = o.text_field :last_name_kana, class: "input-default-half", :placeholder => "例) ヤマダ"
-                = o.text_field :first_name_kana, class: "input-default-half", :placeholder => "例) アヤ"
-            = fields_for @profile, url: registration_signup_index_path,method: :post do |o|
-              .form-group
-                = o.label :birthday, "生年月日", {class:"signup-form__label"}
-                %span.form-require#must 必須
-                %br/
-                .birthday-wrap
-                = raw sprintf o.datetime_select(:birthday,start_year: Date.today.year-120, end_year: Date.today.year,prompt:"--", use_month_numbers: true,with_css_classes: true,discard_minute:true, date_separator: '%s', datetime_separator: '%s'), '<i class="fas fa-chevron-down"><span class="year-write">年</span></i>', '<i class="fas fa-chevron-down"><span class="month-write">月</span></i>', '<i class="fas fa-chevron-down"><span class="day-write">日</span></i>'
-              %p.form-info-text
-                ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-            .l-single-content
-              %input{:name => "after_save_callback", :type => "hidden", :value => ""}/
-              .form-group
-                = recaptcha_tags
-              .form-group
-                %p.l-single-text.text-center
-                  「次へ進む」のボタンを押すことにより、
-                  %a{:href => "/jp/tos_list/", :target => "_blank"}> 利用規約
-                  に同意したものとみなします
-              = f.submit "次へ進む", class: 'btn-red'
-              
-              .form-group.text-right
-                %p
-                  %a{:href => "/jp/help_center/article/423/", :target => "_blank"}
-                    本人情報の登録について
-                    %i.fas.fa-chevron-right
-      %footer.single-footer
-        %nav
-          %ul.clearfix
-            %li
-              %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
-            %li
-              %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
-            %li
-              %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
-        %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
-          %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3761641567", :width => "80"}/
-        %p
-          %small © 2019 Mercari
-  %script{:src => "//www-mercari-jp.akamaized.net/assets/js/app.js?4246962500"}
+.single-container
+  %header.single-header
+    %h1
+      %a{:href => "https://www.mercari.com/jp/"}
+        %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3761641567"}/
+    %nav.progress-bar.signup-bar
+      %ol.clearfix
+        %li.active
+          会員情報
+          .progress-status
+        %li
+          電話番号認証
+          .progress-status
+        %li
+          お届け先住所入力
+          .progress-status
+        %li
+          支払い方法
+          .progress-status
+        %li
+          完了
+          .progress-status
+  %main.single-main-information-input
+    %section.l-single-container
+      %h2.l-single-head.registration 会員情報入力
+      %form.l-single-inner.registration-form
+      = form_for @user, url: registration_signup_index_path,method: :post do |f|
+        %input{:name => "__csrf_value", :type => "hidden", :value => "7088e23ff34753755fa91a4bd357742cb0b9477a98bc9bf39fa29885088ce782622488d02d5244764a1951cd25bb0f0e3bb22c2dcaafdc3031122e0b4d1b65767"}/
+        .l-single-content
+        = fields_for @profile, url: registration_signup_index_path,method: :post do |o|
+          .form-group
+            = o.label :nickname, "ニックネーム"
+            %span.form-require#must 必須
+            %br/
+            = o.text_field :nickname, class: "input-default",:placeholder => "例)メルカリ太郎"
+          .form-group
+            = f.label :email, 'メールアドレス'
+            %span.form-require#must 必須
+            %br/
+            = f.email_field :email, placeholder: 'PC・携帯どちらでも可', class: "input-default"
+          .form-group
+            = f.label :password, 'パスワード'
+            %span.form-require#must 必須
+            - if @minimum_password_length
+              %em
+                (#{@minimum_password_length} characters minimum)
+            %br/
+            = f.password_field :password,placeholder: '７文字以上', class: "input-default"
+          .form-group
+            = f.label :password_confirmation, 'パスワード（確認）'
+            %span.form-require#must 必須
+            %br/
+            = f.password_field :password_confirmation, placeholder: '7文字以上', class: "input-default"
+          .form-group
+            %h3.text-left.l-chapter-sub-head 本人確認
+            %p.l-single-text
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        = fields_for @profile, url: registration_signup_index_path,method: :post do |o|
+          .form-group
+            %div
+              %label お名前(全角)
+              %span.form-require#must 必須
+            = o.text_field :last_name, class: "input-default-half",:placeholder => "例) 山田"
+            = o.text_field :first_name, class: "input-default-half",:placeholder => "例) 彩"
+          .form-group
+            %div
+              %label お名前カナ(全角)
+              %span.form-require#must 必須
+            = o.text_field :last_name_kana, class: "input-default-half", :placeholder => "例) ヤマダ"
+            = o.text_field :first_name_kana, class: "input-default-half", :placeholder => "例) アヤ"
+        = fields_for @profile, url: registration_signup_index_path,method: :post do |o|
+          .form-group
+            = o.label :birthday, "生年月日", {class:"signup-form__label"}
+            %span.form-require#must 必須
+            %br/
+            .birthday-wrap
+            = raw sprintf o.datetime_select(:birthday,start_year: Date.today.year-120, end_year: Date.today.year,prompt:"--", use_month_numbers: true,with_css_classes: true,discard_minute:true, date_separator: '%s', datetime_separator: '%s'), '<i class="fas fa-chevron-down"><span class="year-write">年</span></i>', '<i class="fas fa-chevron-down"><span class="month-write">月</span></i>', '<i class="fas fa-chevron-down"><span class="day-write">日</span></i>'
+          %p.form-info-text
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .l-single-content
+          %input{:name => "after_save_callback", :type => "hidden", :value => ""}/
+          .form-group
+            = recaptcha_tags
+          .form-group
+            %p.l-single-text.text-center
+              「次へ進む」のボタンを押すことにより、
+              %a{:href => "/jp/tos_list/", :target => "_blank"}> 利用規約
+              に同意したものとみなします
+          = f.submit "次へ進む", class: 'btn-red'
+          
+          .form-group.text-right
+            %p
+              %a{:href => "/jp/help_center/article/423/", :target => "_blank"}
+                本人情報の登録について
+                %i.fas.fa-chevron-right
+    = render "signup/footer"

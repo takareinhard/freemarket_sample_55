@@ -1,3 +1,11 @@
+.maincontents-credit_card {
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  min-height: 148px;
+ li {
+  display: inline;
+}
 .single-container {
   padding: 0 0 250px;
     background: #f5f5f5;
@@ -69,5 +77,6 @@
     line-height: 14px;
     font-size: 12px;
     text-align: center;
+    }
   }
 }
