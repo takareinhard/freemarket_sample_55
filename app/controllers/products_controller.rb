@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
     params[:product_images]['name'].each do |a|
     # binding.pry
     @item_image = ProductImage.create!(image: a,product_id: @product.id)
+    @item_image = ProductSize.create!(size: 3,product_id: @product.id)
     # @productImage = ProductImage.new(image: params[:item_images],product_id: @product.id)
     # @pruduct_image = ProductImage.create!(product_id: @product.id)
     # binding.pry
@@ -111,9 +112,12 @@ class ProductsController < ApplicationController
     params.require(:category).permit(:name, :id)
   end
 
-
   def product_image_params
     params.require(:product_images).permit(:image, :product_id)
+  end
+
+  def product_size_params
+    params.require(:product_sizes).permit(:size, :product_id)
   end
 
 
