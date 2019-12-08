@@ -11,29 +11,16 @@
           %h3 出品画像
           %span 必須
           %p 最大10枚までアップロードできます
-          = f.fields_for :image, @product do |image|
+          = f.fields_for :product_images, @product do |image|
             .item__img__dropzone.clearfix
               #preview
               -# １〜５枚目プレビュー表示
               .item__img__dropzone__input
                 = image.label :image, for: "upload-image" do
                   .input-area
-                    = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
-
-                  .item__img__dropzone__input__description
+                    = image.file_field :product_image, id: "upload-image", class: "upload-image", 'data-image': 0
+                  
                     .item__img__dropzone__input__description__text
-                      ドラッグアンドドロップ
-                      %br
-                      またはクリックしてファイルをアップロード
-            .item__img__dropzone2.clearfix
-              #preview2
-              -# ６〜１０枚目プレビュー表示
-              .item__img__dropzone2__input2
-                = image.label :image, for: "upload-image" do
-                  .input-area
-                    = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
-                  .item__img__dropzone2__input2__description
-                    .item__img__dropzone2__input2__description__text
                       ドラッグアンドドロップ
                       %br
                       またはクリックしてファイルをアップロード
@@ -57,7 +44,7 @@
               %div
                 .select-form
                   %i.fas.fa-chevron-down
-                  = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                  = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
             .status-form
               .status-form__text 商品の状態
               .status-form__icon 必須

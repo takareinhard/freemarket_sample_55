@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @pruduct_image = ProductImage.new
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -25,6 +26,12 @@ class ProductsController < ApplicationController
   def get_category_children
       #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
       @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def create
+    @product = Product.new(product_params)
+    @pruduct_image = ProductImage.new   
+    redirect_to root_path, notice: "出品が完了しました"
   end
 
    # 子カテゴリーが選択された後に動くアクション
@@ -100,6 +107,9 @@ class ProductsController < ApplicationController
   def category_params
     params.require(:category).permit(:name, :id)
   end
+
+
+  
 
 
 end
