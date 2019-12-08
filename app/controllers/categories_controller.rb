@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
   end
   
   def product_image_params
-    params.require(:product_image).permit(:name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :deal, :category_id, user_id).merge(user_id:current_user.id)
+    params.require(:product_image).permit(:image)
   end
 
 end

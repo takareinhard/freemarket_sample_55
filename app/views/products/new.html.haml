@@ -11,7 +11,7 @@
           %h3 出品画像
           %span 必須
           %p 最大10枚までアップロードできます
-          = f.fields_for :image, @product_image do |image|
+          = f.fields_for :product, @product_image do |image|
             .item__img__dropzone.clearfix
               #preview
               -# １〜５枚目プレビュー表示
