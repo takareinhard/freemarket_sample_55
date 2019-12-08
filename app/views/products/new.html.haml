@@ -18,7 +18,7 @@
               .item__img__dropzone__input
                 = i.label :image, for: "upload-image" do
                   .input-area
-                    = i.file_field :name, multiple: true, class: 'image-upload-dropfile hidden', type: 'file', name: "product_images[name][]"
+                    = i.file_field :name, multiple: true, class: 'image-upload-dropfile hidden', type: 'file', name: "product_images[name][]", style:"opacity: 0"
                   
                     .item__img__dropzone__input__description__text
                       ドラッグアンドドロップ
