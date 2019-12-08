@@ -19,19 +19,20 @@ class ProductsController < ApplicationController
   def create
     @product = Product.create!(name: products_params[:name], detail: products_params[:detail], detail: products_params[:detail], condition: products_params[:condition], postage_payer: products_params[:postage_payer],
      shipping_method: products_params[:shipping_method],prefecture_id: products_params[:prefecture_id],shipping_days: products_params[:shipping_days],price: products_params[:price],
+<<<<<<< Updated upstream
     user_id: current_user.id, category_id: params[:category_id], brand_id: 1, shipping_area: 10)
+=======
+    user_id: current_user.id, category_id: params[:category_id], image: params[:image])
+    @pruduct_image = ProductImage.new   
+    binding.pry
+    @product.save
+>>>>>>> Stashed changes
     redirect_to root_path, notice: "出品が完了しました"
   end
 
   def get_category_children
       #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
       @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-  end
-
-  def create
-    @product = Product.new(product_params)
-    @pruduct_image = ProductImage.new   
-    redirect_to root_path, notice: "出品が完了しました"
   end
 
    # 子カテゴリーが選択された後に動くアクション
