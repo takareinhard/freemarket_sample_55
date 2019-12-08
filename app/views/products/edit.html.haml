@@ -1,0 +1,147 @@
+.product-form-screen
+  %header.exhibit
+    %h1
+      %a
+        %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1248199994"}/
+  .exhibit-main
+    .single-containar
+      .single-containar__head 商品の情報を入力
+      = form_for @product, html: {class: "sell-form"} do |f| 
+        .upload-box
+          %h3 出品画像
+          %span 必須
+          %p 最大10枚までアップロードできます
+          = f.fields_for :image, @product do |image|
+            .item__img__dropzone.clearfix
+              #preview
+              -# １〜５枚目プレビュー表示
+              .item__img__dropzone__input
+                = image.label :image, for: "upload-image" do
+                  .input-area
+                    = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+
+                  .item__img__dropzone__input__description
+                    .item__img__dropzone__input__description__text
+                      ドラッグアンドドロップ
+                      %br
+                      またはクリックしてファイルをアップロード
+            .item__img__dropzone2.clearfix
+              #preview2
+              -# ６〜１０枚目プレビュー表示
+              .item__img__dropzone2__input2
+                = image.label :image, for: "upload-image" do
+                  .input-area
+                    = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+                  .item__img__dropzone2__input2__description
+                    .item__img__dropzone2__input2__description__text
+                      ドラッグアンドドロップ
+                      %br
+                      またはクリックしてファイルをアップロード
+        .sell-product-content
+          .name-form
+            .name-form__text 商品名
+            .name-form__icon 必須
+            %div
+              = f.text_field :name, required: true, placeholder: "商品名（必須 40文字まで)", class: "input-default"
+          .explain-form
+            .explain-form__text 商品の説明
+            .explain-form__icon 必須
+            %div
+              = f.text_area :detail, required: true, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", :rows => "5"
+        .sell-product-details
+          %h3 商品の詳細
+          .details-form-box
+            .category-form
+              .category-form__text カテゴリー
+              .category-form__icon 必須
+              %div
+                .select-form
+                  %i.fas.fa-chevron-down
+                  = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+            .status-form
+              .status-form__text 商品の状態
+              .status-form__icon 必須
+              %div
+                .select-form
+                  %i.fas.fa-chevron-down
+                  = f.select(:condition,[["新品、未使用", 1],["未使用に近い", 2],["目立った傷や汚れなし", 3],["やや傷や汚れあり", 4],["傷や汚れあり", 5],["全体的に状態が悪い", 6]], {prompt: "---"})
+        .delivery-details{id: 'delivery-detail'}
+          %h3 配送について
+          %a{:target => "_blank"} ?
+          .details-form-box
+            .delivery-fee-form
+              .delivery-fee-form__text 配送料の負担
+              .delivery-fee-form__icon 必須
+              %div
+                .select-form
+                  %i.fas.fa-chevron-down
+                  = f.select(:postage_payer,[["送料込み(出品者負担)", 1],["着払い(購入者負担)", 2]], {prompt: "---"},{id: 'delivery_fee'})
+            .delivery-method-form{id: 'method-form'}
+              .delivery-method-form__text 配送の方法
+              .delivery-method-form__icon 必須
+              %div
+                .select-form
+                  %i.fas.fa-chevron-down
+                  = f.select(:shipping_method,[["---", 0],["未定", 1],["らくらくメルカリ便", 2],["ゆうメール", 3],["レターパック", 4],["普通郵便(定形、定形外)", 5],["クロネコヤマト", 6],["ゆうパック", 7],["クリックポスト", 8],["ゆうパケット", 9]],{id: 'delivery_method'})
+            .delivery-area-form
+              .delivery-area-form__text 発送元の地域
+              .delivery-area-form__icon 必須
+              %div
+                .select-form
+                  %i.fas.fa-chevron-down
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :prefecture, {prompt: "---"}
+            .delivery-date-form
+              .delivery-date-form__text 発送までの日数
+              .delivery-date-form__icon 必須
+              %div
+                .select-form
+                  %i.fas.fa-chevron-down
+                  =f.select(:shipping_days,[["1~2日で発送", 1],["2~3日で発送", 2],["4~7日で発送", 3]], {prompt: "---"})
+        .selling-price-form
+          %h3 販売価格(300〜9,999,999)
+          %a{:target => "_blank"} ?
+          .price-form-box
+            %ul
+              %li.form
+                .left-content-text 価格
+                .left-content-icon 必須
+                .right-price-form
+                  ¥
+                  %div
+                    = f.text_field :price, required: true, placeholder: "例）1,000", id: "input_price"
+              %li.fee
+                .left-content 販売手数料(10%)
+                .right-content{id: 'mercari-margin'} -
+              %li.profit
+                .left-content 販売利益
+                .right-content{id: 'saler-profit'} -
+        .exhibit-btn-box
+          %div
+            %p
+              %a{:href => "/jp/help_center/getting_started/prohibited_items/", :target => "_blank"} 禁止されている出品
+              、
+              %a{:href => "/jp/help_center/getting_started/prohibited_conduct/", :target => "_blank"} 行為
+              を必ずご確認ください。
+            %p
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              %a{:href => "/jp/help_center/getting_started/counterfeit_goods/", :target => "_blank"} 偽ブランドの販売
+              は犯罪であり処罰される可能性があります。
+            %p
+              また、出品をもちまして
+              %a{:href => "/jp/seller_terms/"} 加盟店規約
+              に同意したことになります。
+          = f.submit "出品する", class: "button" , id: "submit-btn"
+          %a.back-btn もどる
+  %footer.exhibit-bottom
+    %nav
+      %ul.nav
+        %li
+          %a プライバシーポリシー
+        %li
+          %a メルカリ利用規約
+        %li
+          %a 特定商取引に関する表記
+      %a.mercari-footer-logo
+        %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1248199994", :width => "80"}/
+      %p © 2019 Mercari
+      = javascript_include_tag "add_category.js","delivery.js","price.js","product_image.js"

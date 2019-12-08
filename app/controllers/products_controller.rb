@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:new,:create]
+  before_action :authenticate_user!, only: [:new,:create,:edit]
+
   
   def index
     @products = Product.includes(:category).order(id: "DESC").limit(10)
@@ -16,10 +17,10 @@ class ProductsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @product = Product.new(name: products_params[:name], detail: products_params[:detail], detail: products_params[:detail], condition: products_params[:condition], postage_payer: products_params[:postage_payer],
+    @product = Product.create!(name: products_params[:name], detail: products_params[:detail], detail: products_params[:detail], condition: products_params[:condition], postage_payer: products_params[:postage_payer],
      shipping_method: products_params[:shipping_method],prefecture_id: products_params[:prefecture_id],shipping_days: products_params[:shipping_days],price: products_params[:price],
-    user_id: current_user.id, category_id: params[:category_id], image: params[:image])
+    user_id: current_user.id, category_id: params[:category_id],brand_id: 1,shipping_area: 10)
+    @pruduct_image = ProductImage.create!
     binding.pry
     @product.save
     redirect_to root_path, notice: "出品が完了しました"
@@ -28,12 +29,6 @@ class ProductsController < ApplicationController
   def get_category_children
       #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
       @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-  end
-
-  def create
-    @product = Product.new(product_params)
-    @pruduct_image = ProductImage.new   
-    redirect_to root_path, notice: "出品が完了しました"
   end
 
    # 子カテゴリーが選択された後に動くアクション
@@ -70,6 +65,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @product = Product.find(params[:id])
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+  end
+
   def get_delivery
   end
 
@@ -95,7 +98,7 @@ class ProductsController < ApplicationController
   end
 
   def products_params
-    params.require(:product).permit(:image, :name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :shipping_method, :deal, :category_id, :prefecture_id, :category, :user_id)
+    params.require(:product).permit(:image, :name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :shipping_method, :deal, :category_id, :prefecture_id, :category, :user_id, :brand_id)
   end
 
   def category_params

@@ -8,6 +8,7 @@ Rails.application.config.assets.precompile += %w( add_category.js )
 Rails.application.config.assets.precompile += %w( delivery.js )
 Rails.application.config.assets.precompile += %w( price.js )
 Rails.application.config.assets.precompile += %w( toppage_banner.js )
+Rails.application.config.assets.precompile += %w( product_images.js )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

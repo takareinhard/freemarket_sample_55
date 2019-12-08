@@ -88,7 +88,7 @@
       %span.tax (税込)
       %span.delivery-fee
         送料込み
-
+    
     - if user_signed_in?
       -if current_user.id != @product.user.id
         - if @product.deal == 0
@@ -113,6 +113,10 @@
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み
   .listing-item-change-box
+    - if user_signed_in? && current_user.id == @product.user_id
+      .listing-item-destroy-box
+        %button.btn-default.btn-gray
+          = link_to "この商品を編集する", "/products/#{@product.id}/edit", method: :get
     - if user_signed_in? && current_user.id == @product.user_id
       .listing-item-destroy-box
         %button.btn-default.btn-gray
