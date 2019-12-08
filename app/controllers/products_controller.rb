@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @product = Product.new(name: products_params[:name], detail: products_params[:detail], detail: products_params[:detail], condition: products_params[:condition], postage_payer: products_params[:postage_payer],
      shipping_method: products_params[:shipping_method],prefecture_id: products_params[:prefecture_id],shipping_days: products_params[:shipping_days],price: products_params[:price],
     user_id: current_user.id, category_id: params[:category_id],brand_id: 1,shipping_area: 10)
