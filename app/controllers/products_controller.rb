@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, only: [:new,:create]
   
   def index
     @products = Product.includes(:category).order(id: "DESC").limit(10)
@@ -11,6 +12,16 @@ class ProductsController < ApplicationController
       @category_parent_array << parent.name
     end
     @products = Product.includes(:category).order(id: "DESC").limit(10)
+  end
+
+  def create
+    binding.pry
+    @product = Product.new(name: products_params[:name], detail: products_params[:detail], detail: products_params[:detail], condition: products_params[:condition], postage_payer: products_params[:postage_payer],
+     shipping_method: products_params[:shipping_method],prefecture_id: products_params[:prefecture_id],shipping_days: products_params[:shipping_days],price: products_params[:price],
+    user_id: current_user.id, category_id: params[:category_id], image: params[:image])
+    binding.pry
+    @product.save
+    redirect_to root_path, notice: "出品が完了しました"
   end
 
   def get_category_children
@@ -73,7 +84,15 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :deal, :category_id, user_id).merge(user_id:current_user.id)
+    params.require(:product).permit(:image, :name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :shipping_method, :deal, :category_id, :category, :prefecture_id, user_id).merge(user_id:current_user.id)
+  end
+
+  def products_params
+    params.require(:product).permit(:image, :name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :shipping_method, :deal, :category_id, :prefecture_id, :category, :user_id)
+  end
+
+  def category_params
+    params.require(:category).permit(:name, :id)
   end
 
 
