@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @pruduct_image = ProductImage.new
+    @product_image = @product.product_image
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -17,13 +17,18 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create!(name: products_params[:name], detail: products_params[:detail], detail: products_params[:detail], condition: products_params[:condition], postage_payer: products_params[:postage_payer],
+    @product = Product.new(name: products_params[:name], detail: products_params[:detail], detail: products_params[:detail], condition: products_params[:condition], postage_payer: products_params[:postage_payer],
      shipping_method: products_params[:shipping_method],prefecture_id: products_params[:prefecture_id],shipping_days: products_params[:shipping_days],price: products_params[:price],
     user_id: current_user.id, category_id: params[:category_id],brand_id: 1,shipping_area: 10)
-    @pruduct_image = ProductImage.create!
-    binding.pry
     @product.save
+    params[:product_images]['name'][@tempfile].each do |a|
+    binding.pry
+    @item_image = ProductImage.create!(image: a,product_id: @product.id)
+    # @productImage = ProductImage.new(image: params[:item_images],product_id: @product.id)
+    # @pruduct_image = ProductImage.create!(product_id: @product.id)
+    binding.pry
     redirect_to root_path, notice: "出品が完了しました"
+    end
   end
 
   def get_category_children
@@ -98,11 +103,16 @@ class ProductsController < ApplicationController
   end
 
   def products_params
-    params.require(:product).permit(:image, :name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :shipping_method, :deal, :category_id, :prefecture_id, :category, :user_id, :brand_id)
+    params.require(:product).permit(:image, :name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :shipping_method, :deal, :category_id, :prefecture_id, :category, :user_id, :brand_id, product_images_attributes: [:name])
   end
 
   def category_params
     params.require(:category).permit(:name, :id)
+  end
+
+
+  def product_image_params
+    params.require(:product_images).permit(:image, :product_id)
   end
 
 
