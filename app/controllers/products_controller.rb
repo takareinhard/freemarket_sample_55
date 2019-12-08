@@ -22,7 +22,6 @@ class ProductsController < ApplicationController
     user_id: current_user.id, category_id: params[:category_id],brand_id: 1,shipping_area: 10)
     @product.save
     params[:product_images]['name'].each do |a|
-
     @item_image = ProductImage.create!(image: a,product_id: @product.id)
     # @productImage = ProductImage.new(image: params[:item_images],product_id: @product.id)
     # @pruduct_image = ProductImage.create!(product_id: @product.id)
