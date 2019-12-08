@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
      shipping_method: products_params[:shipping_method],prefecture_id: products_params[:prefecture_id],shipping_days: products_params[:shipping_days],price: products_params[:price],
     user_id: current_user.id, category_id: params[:category_id],brand_id: 1,shipping_area: 10)
     @product.save
-    params[:product_images]['name'][@tempfile].each do |a|
+    params[:product_images]['name'].each do |a|
     binding.pry
     @item_image = ProductImage.create!(image: a,product_id: @product.id)
     # @productImage = ProductImage.new(image: params[:item_images],product_id: @product.id)
