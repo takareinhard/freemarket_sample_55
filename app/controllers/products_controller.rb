@@ -80,6 +80,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  def update
+    product = Product.find(params[:id])
+    if product.user_id == current_user.id
+       product.update(products_params)
+    end
+    redirect_to root_path, notice: "編集が完了しました"
+  end
+
   def get_delivery
   end
 
@@ -105,7 +113,7 @@ class ProductsController < ApplicationController
   end
 
   def products_params
-    params.require(:product).permit(:image, :name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :shipping_method, :deal, :category_id, :prefecture_id, :category, :user_id, :brand_id, product_images_attributes: [:name])
+    params.require(:product).permit(:image, :name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :shipping_method, :deal, :category_id, :prefecture_id, :user_id, :brand_id, product_images_attributes: [:name])
   end
 
   def category_params
