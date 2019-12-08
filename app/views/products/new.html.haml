@@ -11,14 +11,14 @@
           %h3 出品画像
           %span 必須
           %p 最大10枚までアップロードできます
-          = f.fields_for :product_images, @product do |image|
+          = f.fields_for :image, @product_image do |image|
             .item__img__dropzone.clearfix
               #preview
               -# １〜５枚目プレビュー表示
               .item__img__dropzone__input
                 = image.label :image, for: "upload-image" do
                   .input-area
-                    = image.file_field :product_image, id: "upload-image", class: "upload-image", 'data-image': 0
+                    = image.file_field :image, id: "upload-image", class: "upload-image", 'data-image': 0
                   
                     .item__img__dropzone__input__description__text
                       ドラッグアンドドロップ

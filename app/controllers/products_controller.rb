@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, only: [:new,:create]
   
   def index
     @products = Product.includes(:category).order(id: "DESC").limit(10)
@@ -12,6 +13,15 @@ class ProductsController < ApplicationController
       @category_parent_array << parent.name
     end
     @products = Product.includes(:category).order(id: "DESC").limit(10)
+  end
+
+  def create
+    @product = Product.new(name: products_params[:name], detail: products_params[:detail], detail: products_params[:detail], condition: products_params[:condition], postage_payer: products_params[:postage_payer],
+     shipping_method: products_params[:shipping_method],prefecture_id: products_params[:prefecture_id],shipping_days: products_params[:shipping_days],price: products_params[:price],
+    user_id: current_user.id, category_id: params[:category_id], image: params[:image])
+    binding.pry
+    @product.save
+    redirect_to root_path, notice: "出品が完了しました"
   end
 
   def get_category_children
