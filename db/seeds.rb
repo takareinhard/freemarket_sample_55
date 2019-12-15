@@ -171,17 +171,17 @@ end
   Brand.create!(name: "ハワイ産#{i}")
 end
 
-(1..10).each do |i|
-  Product.create!(name: "パンケーキ", price: "#{i}000", detail: "TESTTEST", condition: "1", postage_payer: "1", shipping_area: "1", shipping_days: "1", deal: "0", category_id: "10", user_id: "#{i}", shipping_method: "郵送", brand_id: "1", prefecture_id:  "#{i}")
-end
+# (1..10).each do |i|
+#   Product.create!(name: "パンケーキ", price: "#{i}000", detail: "TESTTEST", condition: "1", postage_payer: "1", shipping_area: "1", shipping_days: "1", deal: "0", category_id: "10", user_id: "#{i}", shipping_method: "郵送", brand_id: "1", prefecture_id:  "#{i}")
+# end
 
-(1..10).each do |i|
-  ProductImage.create!(image: "kaira.jpg", product_id: "#{i}")
-end
+# (1..10).each do |i|
+#   ProductImage.create!(image: "kaira.jpg", product_id: "#{i}")
+# end
 
-(1..10).each do |i|
-  ProductSize.create!(size: "3", product_id: "#{i}")
-end
+# (1..10).each do |i|
+#   ProductSize.create!(size: "3", product_id: "#{i}")
+# end
 
 (1..3).each do |i|
   Rate.create!(rate: "#{i}", user_id: "#{i}", comment: "GOOD BAD FUNNY")
