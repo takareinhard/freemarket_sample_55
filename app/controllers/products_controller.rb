@@ -17,18 +17,13 @@ class ProductsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @product = Product.new(name: products_params[:name], detail: products_params[:detail], detail: products_params[:detail], condition: products_params[:condition], postage_payer: products_params[:postage_payer],
      shipping_method: products_params[:shipping_method],prefecture_id: products_params[:prefecture_id],shipping_days: products_params[:shipping_days],price: products_params[:price],
     user_id: current_user.id, category_id: params[:category_id],brand_id: 1,shipping_area: 10)
     @product.save
-    params[:product_images]['name'].each do |a|
-    # binding.pry
+    @image = params[:product_images]['name'].each do |a|
     @item_image = ProductImage.create!(image: a,product_id: @product.id)
-    @item_image = ProductSize.create!(size: 3,product_id: @product.id)
-    # @productImage = ProductImage.new(image: params[:item_images],product_id: @product.id)
-    # @pruduct_image = ProductImage.create!(product_id: @product.id)
-    # binding.pry
+    @item_size = ProductSize.create!(size: 3,product_id: @product.id)
     redirect_to root_path, notice: "出品が完了しました"
     end
   end
@@ -113,7 +108,7 @@ class ProductsController < ApplicationController
   end
 
   def products_params
-    params.require(:product).permit(:image, :name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :shipping_method, :deal, :category_id, :prefecture_id, :user_id, :brand_id, product_images_attributes: [:name])
+    params.require(:product).permit(:image, :name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :shipping_method, :deal, :category_id, :prefecture_id, :user_id, :brand_id, images_attributes: [:name])
   end
 
   def category_params
