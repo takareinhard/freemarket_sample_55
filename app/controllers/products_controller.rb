@@ -69,6 +69,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @product_image = ProductImage.where(product_id: @product)
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -77,8 +78,12 @@ class ProductsController < ApplicationController
 
   def update
     product = Product.find(params[:id])
+    product_image = ProductImage.where(product_id: product)
     if product.user_id == current_user.id
        product.update(products_params)
+       @image = params[:product_images]['name'].each do |a|
+       @item_image = ProductImage.update(image: a,product_id: product.id)
+      end
     end
     redirect_to root_path, notice: "編集が完了しました"
   end
@@ -108,7 +113,7 @@ class ProductsController < ApplicationController
   end
 
   def products_params
-    params.require(:product).permit(:image, :name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :shipping_method, :deal, :category_id, :prefecture_id, :user_id, :brand_id, images_attributes: [:name])
+    params.require(:product).permit(:image, :name, :price, :detail, :condition, :postage_payer, :shipping_area, :shipping_days, :shipping_method, :deal, :category_id, :prefecture_id, :user_id, :brand_id, images_attributes: [:image])
   end
 
   def category_params
