@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
     @product_image = @product.product_image
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+      @category_parent_array << parent.name 
     end
     @products = Product.includes(:category).order(id: "DESC").limit(10)
   end
