@@ -57,6 +57,7 @@ class ProductsController < ApplicationController
     @normals = Rate.where(rate: 2, user_id: @user.id)
     @bads = Rate.where(rate: 3, user_id: @user.id)
     @products = ProductImage.where(product_id: params[:id])
+    binding.pry
   end
   
   def destroy
@@ -70,6 +71,7 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find(params[:id])
     @product_image = ProductImage.where(product_id: @product)
+    @product.product_image.image.cache! unless @product.product_image.image.blank?
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -77,12 +79,18 @@ class ProductsController < ApplicationController
   end
 
   def update
-    product = Product.find(params[:id])
-    product_image = ProductImage.where(product_id: product)
-    if product.user_id == current_user.id
-       product.update(products_params)
-       @image = params[:product_images]['name'].each do |a|
-       @item_image = ProductImage.update(image: a,product_id: product.id)
+    @product = Product.find(params[:id])
+    @product_image = ProductImage.where(product_id: @product)
+    if @product.user_id == current_user.id
+       @products = @product.update(name: products_params[:name], detail: products_params[:detail], detail: products_params[:detail], condition: products_params[:condition], postage_payer: products_params[:postage_payer],
+       shipping_method: products_params[:shipping_method],prefecture_id: products_params[:prefecture_id],shipping_days: products_params[:shipping_days],price: products_params[:price],
+       user_id: current_user.id, category_id: params[:category_id],brand_id: 1,shipping_area: 10)
+       if params[:product_images] == nil
+        @item_image = ProductImage.update(product_id: @product.id)
+       else
+        @image = params[:product_images]['name'].each do |a|
+        @item_image = ProductImage.update(image: a,product_id: @product.id)
+        end
       end
     end
     redirect_to root_path, notice: "編集が完了しました"
@@ -121,11 +129,15 @@ class ProductsController < ApplicationController
   end
 
   def product_image_params
-    params.require(:product_images).permit(:image, :product_id)
+    params.require(:product_images).permit(:image, :product_id, :image_cache)
   end
 
   def product_size_params
     params.require(:product_sizes).permit(:size, :product_id)
+  end
+
+  def products_image_params
+    params.require(:product_image).permit(:image, :product_id, :image_cache)
   end
 
 

@@ -18,8 +18,7 @@
           .sub-photos
             %ul
               %li
-                - @products.pluck("image").each.with_index(0) do |image,i|
-                  = image_tag "#{image}", size: "75x75", class:"mini-image",data:{"image": image}
+                = image_tag @product.product_image.image, size: "75x75", class:"mini-image",data:{"image": @product.product_image.image}
       %table.product-detail
         %tbody
           %tr
