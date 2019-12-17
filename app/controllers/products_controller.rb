@@ -57,6 +57,7 @@ class ProductsController < ApplicationController
     @normals = Rate.where(rate: 2, user_id: @user.id)
     @bads = Rate.where(rate: 3, user_id: @user.id)
     @products = ProductImage.where(product_id: params[:id])
+    binding.pry
   end
   
   def destroy
