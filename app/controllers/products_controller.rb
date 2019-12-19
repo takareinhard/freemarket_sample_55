@@ -85,7 +85,7 @@ class ProductsController < ApplicationController
        shipping_method: products_params[:shipping_method],prefecture_id: products_params[:prefecture_id],shipping_days: products_params[:shipping_days],price: products_params[:price],
        user_id: current_user.id, category_id: params[:category_id],brand_id: 1,shipping_area: 10)
        if params[:product_images] == nil
-        @item_image = ProductImage.update(product_id: @product.id)
+        @item_image = @product_image.update(product_id: @product.id)
        else
         @image = params[:product_images]['name'].each do |a|
         @item_image = @product_image.update(image: a,product_id: @product.id)
