@@ -57,7 +57,6 @@ class ProductsController < ApplicationController
     @normals = Rate.where(rate: 2, user_id: @user.id)
     @bads = Rate.where(rate: 3, user_id: @user.id)
     @products = ProductImage.where(product_id: params[:id])
-    binding.pry
   end
   
   def destroy
@@ -89,7 +88,7 @@ class ProductsController < ApplicationController
         @item_image = ProductImage.update(product_id: @product.id)
        else
         @image = params[:product_images]['name'].each do |a|
-        @item_image = ProductImage.update(image: a,product_id: @product.id)
+        @item_image = @product_image.update(image: a,product_id: @product.id)
         end
       end
     end
