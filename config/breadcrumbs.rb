@@ -12,6 +12,21 @@ crumb :mypage do
   parent :root
 end
 
+crumb :edit_profile do |edit|
+  link "プロフィール編集", edit_profile_path(edit)
+  parent :mypage
+end
+
+crumb :logout do |logout|
+  link "ログアウト", logout_path(logout)
+  parent :mypage
+end
+
+crumb :identification do |identification|
+  link "本人情報の登録", identification_path(identification)
+  parent :mypage
+end
+
 
 crumb :category_show do |category|
   link "#{category.name}", categories_path(category)
