@@ -831,11 +831,13 @@
       height: 100%;
       text-align: center;
       position: relative;
+      
 
       .input-area {
         height: 100%;
         width: 100%;
         position: relative;
+        
 
         #upload-image {
           position: absolute;
@@ -855,7 +857,19 @@
         font-size: 0.8rem;
         -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
+        
       }
     }
   }
+}
+
+.image-upload-dropfile {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  border: 1px solid #d3d3d3;
+  background: #fff;
+  line-height: 1.5;
+  cursor: pointer;
+  outline-width: 2px;
 }
