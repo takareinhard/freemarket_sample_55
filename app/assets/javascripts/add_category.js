@@ -143,8 +143,9 @@ $(function(){
       $('.sell-product-details').css('height', '270px');
     }
     })
-    .fail(function(){
-    })
+//     .fail(function(){
+//       alert('サイズ取得に失敗しました');
+//     })
     } else {
       $('#size_wrapper').remove();
       $('.sell-product-details').css('height', '270px');
