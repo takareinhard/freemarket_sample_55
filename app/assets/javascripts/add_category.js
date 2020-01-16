@@ -144,7 +144,6 @@ $(function(){
     }
     })
     .fail(function(){
-      alert('サイズ取得に失敗しました');
     })
     } else {
       $('#size_wrapper').remove();
