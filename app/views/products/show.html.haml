@@ -1,0 +1,234 @@
+= render "products/headers"
+.product-detail-contents
+  .product-detail-box
+    %h1.product-name
+      =@product.name
+    .product-detail-contents
+      .product-photo#test
+        .photo-area
+          .photo-area-main
+            .photo-area-slider
+              .photo-area-slider__active
+                .photo-area-adjust
+                  = image_tag @product.product_image.image, size: "300x285",class:"bigimg",id:"bigimage",data:{"image": @product.product_image.image}
+                - if @product.deal == 1
+                  .triangle_box
+                    .triangle_box__sold_triangle
+                      .triangle_box__sold_triangle__text SOLD
+          .sub-photos
+            %ul
+              %li
+                = image_tag @product.product_image.image, size: "75x75", class:"mini-image",data:{"image": @product.product_image.image}
+      %table.product-detail
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              %a 
+              =@product.user.profile.nickname
+              %div
+                .product-rate
+                  %i.fas.fa-laugh
+                  %span #{@goods.count}
+                .product-rate
+                  %i.fas.fa-meh
+                  %span #{@normals.count}
+                .product-rate
+                  %i.fas.fa-frown
+                  %span #{@bads.count}
+          %tr
+            %th カテゴリー 
+            %td
+              %a
+                %div
+                .main-category
+                = link_to "#{@product.category.parent.parent.name}", category_path(@product.category.parent.parent)
+              %a
+                .sub-category
+                  %i.fas.fa-chevron-right
+                  = link_to "#{@product.category.parent.name}", category_path(@product.category.parent)
+              %a
+                .sub-sub-category
+                  %i.fas.fa-chevron-right
+                  = link_to "#{@product.category.name}", category_path(@product.category.id)
+          %tr
+            %th ブランド
+            %td
+              %a
+                %div 
+                  = link_to @product.brand.name, class: "products-link_to"
+          %tr
+            %th 商品のサイズ
+            %td 
+              = @product.display_size
+          %tr
+            %th 商品の状態
+            %td 
+              = @product.display_condition
+          %tr
+            %th 配送料の負担
+            %td 
+              = @product.display_postage_payer
+          %tr
+            %th 配送の方法
+            %td 
+              = @product.shipping_method
+          %tr
+            %th 配送元地域
+            %td
+              %a 
+              = link_to "#{Prefecture.find(@product.prefecture_id).prefecture}", ""
+          %tr
+            %th 配送日の目安
+            %td 
+              = @product.display_shipping_days
+    .price-text-box
+      %span.text ¥#{@product.price}
+      %span.tax (税込)
+      %span.delivery-fee
+        送料込み
+    
+    - if user_signed_in?
+      -if current_user.id != @product.user.id
+        - if @product.deal == 0
+          = link_to product_purchase_confirmation_product_url(@product), data: {turbolinks: :false} do
+            .product-buy-btn  購入画面に進む
+        - else
+          .product-sold-btn 売り切れました
+    .product-description
+      %p.product-description-text
+        = simple_format(@product.detail)
+    .product-bottom-btn
+      .left-btn
+        %button.like-button{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m93020510979", "data-toggle" => "like", :name => "like!", :type => "button"}
+          %i.far.fa-heart
+          %span いいね!
+          %span.like-count{"data-num" => "like"} 7
+        %a.product-report-btn{"data-modal" => "report-item", "data-open" => "modal", :href => ""}
+          %i.far.fa-flag
+          %span 不適切な商品の報告
+      .right-btn
+        %a.safety-content
+          %i.fas.fa-lock
+          %span あんしん・あんぜんへの取り組み
+  .listing-item-change-box
+    - if user_signed_in? && current_user.id == @product.user_id
+      .listing-item-destroy-box
+        %button.btn-default.btn-gray
+          = link_to "この商品を編集する", "/products/#{@product.id}/edit", method: :get
+    - if user_signed_in? && current_user.id == @product.user_id
+      .listing-item-destroy-box
+        %button.btn-default.btn-gray
+          = link_to "この商品を削除する", "/products/#{@product.id}", method: :delete, data: { confirm: 'この商品を削除しますか？' } 
+
+  .product-comment-box
+    .comment-content
+      %form.message-form{:action => "https://www.mercari.com/jp/comment/add/", :method => "POST"}
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea{:name => "body", :type => "text", :value => ""}
+        %button.comment-send-btn{:type => "submit"}
+          %span コメントする
+  %ul.product-link-btn
+    %li.product-prev-link
+      %a{:href => "https://item.mercari.com/jp/m99162609224/"}
+        %i.fas.fa-chevron-left
+        Petitetalage  サルールパンツ  90サイズ
+    %li.product-next-link
+      %a{:href => "https://item.mercari.com/jp/m13795550378/"}
+        【18】クリアアクリルビーズ 4㎜ 400個
+        %i.fas.fa-chevron-right
+  .social-contents-link
+    %ul.contents-area
+      %li
+        %a{"data-window-name" => "facebook_window", :href => "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm93020510979%2F", :target => "_blank"}
+          %i.fab.fa-facebook-square
+      %li
+        %a{"data-window-name" => "twitter_window", :href => "http://twitter.com/share?count=horizontal&original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm93020510979%2F&text=ITS%27%20DEMO%20%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B9%20%E2%80%A6%20%28%C2%A51%2C000%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm93020510979%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89", :target => "_blank"}
+          %i.fab.fa-twitter-square
+      %li
+        %a{"data-window-name" => "pinterest_window", :href => "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm93020510979%2F&media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm93020510979_1.jpg%3F1569929398&description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20ITS%27%20DEMO%20%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B9%20%E3%83%88%E3%83%83%E3%83%97%E3%82%B9%20%E3%82%AB%E3%83%83%E3%83%88%E3%82%BD%E3%83%BC%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA", :target => "_blank"}
+          %i.fab.fa-pinterest-square
+  .other-products
+    .other-products__area
+      %h2.name-text
+        %a{:href => "https://www.mercari.com/jp/u/823658594/"} 
+          = "#{Profile.find(@product.user_id).nickname}さんのその他の出品"
+      .products-box-area
+        .product-card
+          %a
+            %figure.product-photo
+              %img{:alt => "枕頭ナット", "data-src" => "https://www.mercari.com/jp/static.mercdn.net/thumb/photos/m99317954545_1.jpg?1571918152", :src => "https://static.mercdn.net/thumb/photos/m99317954545_1.jpg?1571918152"}/
+            .text-area
+              %h3.product-name 枕頭ナット
+              .product-contents
+                .product-contents__price ¥2,300
+                .product-contents__like
+                  %i.far.fa-heart
+                  %span 16
+        .product-card
+          %a
+            %figure.product-photo
+              %img{:alt => "枕頭ナット", "data-src" => "https://www.mercari.com/jp/static.mercdn.net/thumb/photos/m99317954545_1.jpg?1571918152", :src => "https://static.mercdn.net/thumb/photos/m99317954545_1.jpg?1571918152"}/
+            .text-area
+              %h3.product-name 枕頭ナット
+              .product-contents
+                .product-contents__price ¥2,300
+                .product-contents__like
+                  %i.far.fa-heart
+                  %span 16
+        .product-card
+          %a
+            %figure.product-photo
+              %img{:alt => "枕頭ナット", "data-src" => "https://www.mercari.com/jp/static.mercdn.net/thumb/photos/m99317954545_1.jpg?1571918152", :src => "https://static.mercdn.net/thumb/photos/m99317954545_1.jpg?1571918152"}/
+            .text-area
+              %h3.product-name 枕頭ナット
+              .product-contents
+                .product-contents__price ¥2,300
+                .product-contents__like
+                  %i.far.fa-heart
+                  %span 16
+        .product-card
+          %a
+            %figure.product-photo
+              %img{:alt => "枕頭ナット", "data-src" => "https://www.mercari.com/jp/static.mercdn.net/thumb/photos/m99317954545_1.jpg?1571918152", :src => "https://static.mercdn.net/thumb/photos/m99317954545_1.jpg?1571918152"}/
+            .text-area
+              %h3.product-name 枕頭ナット
+              .product-contents
+                .product-contents__price ¥2,300
+                .product-contents__like
+                  %i.far.fa-heart
+                  %span 16
+        .product-card
+          %a
+            %figure.product-photo
+              %img{:alt => "枕頭ナット", "data-src" => "https://www.mercari.com/jp/static.mercdn.net/thumb/photos/m99317954545_1.jpg?1571918152", :src => "https://static.mercdn.net/thumb/photos/m99317954545_1.jpg?1571918152"}/
+            .text-area
+              %h3.product-name 枕頭ナット
+              .product-contents
+                .product-contents__price ¥2,300
+                .product-contents__like
+                  %i.far.fa-heart
+                  %span 16
+        .product-card
+          %a
+            %figure.product-photo
+              %img{:alt => "枕頭ナット", "data-src" => "https://www.mercari.com/jp/static.mercdn.net/thumb/photos/m99317954545_1.jpg?1571918152", :src => "https://static.mercdn.net/thumb/photos/m99317954545_1.jpg?1571918152"}/
+            .text-area
+              %h3.product-name 枕頭ナット
+              .product-contents
+                .product-contents__price ¥2,300
+                .product-contents__like
+                  %i.far.fa-heart
+                  %span 16
+  %nav.transition-link
+    %ul
+      %li
+        %a
+          %span メルカリ
+        %i.fas.fa-chevron-right
+      %li
+        %span 
+          =@product.name
+  = render "products/app_banner"
+  = render "products/footers"
+  = javascript_include_tag 'product_images.js'

@@ -1,0 +1,269 @@
+
+.header {
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  position: relative;
+  z-index: 3;
+  .header-contents {
+    width: 1020px;
+    margin: 0px auto;
+    padding: 8px 0px 0px;
+    .header-search {
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      &__icon {
+        -webkit-box-align: center;
+        align-items: center;
+        display: flex;
+        height: 40px;
+        margin-right: 45px;
+        a.mercari-icon {
+          color: inherit;
+          text-decoration: none;
+          img.mercari-icon {
+            height: 36px;
+            width: 134px;
+          }
+        }
+      }
+      &__form {
+        position: relative;
+        width: 100%;
+        input {
+          background-color: rgb(245, 245, 245);
+          font-size: 16px;
+          height: 40px;
+          line-height: 1.4em;
+          position: relative;
+          width: 100%;
+          -webkit-appearance: none;
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgb(204, 204, 204);
+          border-image: initial;
+          border-radius: 4px;
+          outline: none;
+          padding: 0px 0px 0px 10px;
+          transition: all 0.3s ease-out 0s;
+        }
+        .form-button {
+          background-color: transparent;
+          cursor: pointer;
+          height: 40px;
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          width: 40px;
+          -webkit-appearance: none;
+          border-width: initial;
+          border-style: none;
+          border-color: initial;
+          border-image: initial;
+          border-radius: 0px 4px 4px 0px;
+          padding: 0px;
+          svg {
+            max-width: 100%;
+            max-height: 100%;
+            color: rgb(34, 34, 34);
+            height: 14px;
+            margin-top: 13px;
+            margin-left: 13px;
+            width: 14px;
+          }
+        }
+      }
+    }
+    .header-navi {
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      margin-top: 8px;
+      .header-leftlist {
+        display: flex;
+        margin-left: -13px;
+        &__category {
+          cursor: pointer;
+          height: 44px;
+          position: relative;
+          z-index: 3;
+          padding: 0px 9px;
+          a.categorybutton {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 36px;
+            white-space: nowrap;
+            svg.categorybutton {
+              max-width: 100%;
+              max-height: 100%;
+              color: rgb(234, 53, 45);
+              height: 12px;
+              margin-right: 1px;
+            }
+          }
+        }
+        &__brand {
+          cursor: pointer;
+          height: 44px;
+          position: relative;
+          z-index: 3;
+          padding: 0px 9px;
+          a {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 36px;
+            white-space: nowrap;
+            svg.brandbutton {
+              max-width: 100%;
+              max-height: 100%;
+              color: rgb(234, 53, 45);
+              height: 12px;
+              margin-right: 1px;
+            }
+          }
+        }
+      }
+      .header-rightlist {
+        ul.rightlist {
+          display: flex;
+          position: relative;
+          li.likelist {
+            padding-left: 0px;
+            padding: 0px 10px;
+            height: 44px;
+            display: block;
+            a.likelist {
+              -webkit-box-align: center;
+              align-items: center;
+              display: flex;
+              font-size: 14px;
+              height: 32px;
+              transform: scale(1);
+              transition: all 0.3s ease-out 0s;
+              svg.likelist {
+                max-width: 100%;
+                height: auto;
+                max-height: 100%;
+                color: rgb(204, 204, 204);
+                margin-right: 10px;
+                width: 19px;
+              }
+            }
+          }
+          li.noticelist {
+            padding: 0px 10px;
+            height: 44px;
+            position: relative;
+            a.noticelist {
+              -webkit-box-align: center;
+              align-items: center;
+              display: flex;
+              font-size: 14px;
+              height: 32px;
+              transform: scale(1);
+              transition: all 0.3s ease-out 0s;
+              svg.noticelist {
+                max-width: 100%;
+                height: auto;
+                max-height: 100%;
+                color: rgb(204, 204, 204);
+                margin-right: 10px;
+                width: 17px;
+              }
+              span {
+                background-color: rgb(234, 53, 45);
+                color: rgb(255, 255, 255);
+                font-size: 12px;
+                height: 20px;
+                left: 6px;
+                line-height: 20px;
+                position: absolute;
+                text-align: center;
+                top: -2px;
+                width: 20px;
+                border-radius: 50%;
+              }
+            }
+          }
+          li.todolist {
+            height: 44px;
+            position: relative;
+            padding: 0px 10px;
+            a.todolist {
+              -webkit-box-align: center;
+              align-items: center;
+              display: flex;
+              font-size: 14px;
+              height: 32px;
+              transform: scale(1);
+              transition: all 0.3s ease-out 0s;
+              svg.todolist {
+                max-width: 100%;
+                height: auto;
+                max-height: 100%;
+                color: rgb(204, 204, 204);
+                margin-right: 10px;
+              }
+            }
+          }
+          li.mypagelist {
+            padding-left: 10px;
+            height: 44px;
+            position: relative;
+            a.mypagelist {
+              -webkit-box-align: center;
+              align-items: center;
+              display: flex;
+              font-size: 14px;
+              height: 32px;
+              transform: scale(1);
+              transition: all 0.3s ease-out 0s;
+              img.mypagelist {
+                margin-right: 10px;
+                width: 32px;
+                border-radius: 50%;
+                overflow: hidden;
+                vertical-align: middle;
+              }
+            }
+          }
+          a.signuplist {
+            text-align: center;
+            box-sizing: border-box;
+            background-color: rgb(234, 53, 45);
+            color: rgb(255, 255, 255);
+            display: block;
+            font-size: 14px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(234, 53, 45);
+            border-image: initial;
+            border-radius: 4px;
+            padding: 5px 10px;
+            margin-bottom: 8px;
+            cursor: pointer;
+          }
+          a.loginList {
+            text-align: center;
+            margin-left: 11px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 149, 238);
+            display: block;
+            font-size: 14px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(0, 149, 238);
+            border-image: initial;
+            border-radius: 4px;
+            padding: 5px 10px;
+            transition: all 0.3s ease-out 0s;
+            margin-bottom: 8px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

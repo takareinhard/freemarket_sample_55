@@ -1,0 +1,17 @@
+.product-card
+  .productList
+    = link_to product_path(product), data: {turbolinks: :false} do
+      .product-card__image-area
+        .card-image
+          = image_tag product.product_image.image, size: "188x188"
+        - if product.deal == 1
+          .triangle_box
+            .triangle_box__sold_triangle
+              .triangle_box__sold_triangle__text SOLD
+        %span.price-area ¥#{product.price}
+
+      .product-card__text-area
+        %h3.name
+          = product.name
+        .product_details_heart
+          %i.far.fa-heart

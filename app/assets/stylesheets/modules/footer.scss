@@ -1,0 +1,121 @@
+footer.global-footer {
+  background-color: rgb(34, 34, 34);
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  padding: 0px 20px 10px;
+  nav {
+    width: 1020px;
+    margin: 0px auto;
+    .footer-cell {
+      display: inline-block;
+      margin-top: 18px;
+      padding-left: 0px;
+      width: auto;
+      padding: 0 40px 0 0;
+      vertical-align: top;
+      h2.footer-head {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4em;
+      }
+      .inner-footer-cell {
+        padding: 0px 20px 0px 0px;
+        vertical-align: top;
+        margin-top: 18px;
+        padding-right: 20px;
+        width: 43%;
+        display: inline-block;
+        &__left {
+          padding: 0 10px 0 0;
+          display: inline-block;
+          vertical-align: top;
+          width: 43%;
+          float: left;
+        }
+        &__right {
+          display: inline-block;
+          padding-left: 15px;
+          vertical-align: top;
+          width: 43%;
+          float: right;
+        }
+      }
+      &.footer-nav-lang {
+        width: auto;
+        margin-top: 18px;
+        vertical-align: top;
+        float: right;
+      }
+      &:first-child {
+      padding: 0 20px 0 0;
+      width: auto;
+      }
+      &.full-width {
+        margin-top: 18px;
+        padding: 0 20px 0 0;
+        width: 42%;
+      }
+      ul {
+        & li:first-child {
+          margin: 16px 0 0;
+        }
+        & li {
+          line-height: 1.4em;
+          margin: 16px 0px 0px;
+          a {
+            color: #fff;
+            font-size: 12px;
+            line-height: 1.5em;
+            text-decoration: none;
+            color: #fff;
+            font-size: 12px;
+            line-height: 1.5em;
+            display: block;
+            opacity: .7;
+          }
+        }
+        & li.footer-social-link {
+          color: white;
+          display: inline-block;
+          margin-top: 30px;
+          a {
+            opacity: 1.0;
+            i.fab.fa-twitter {
+              background: transparent;
+              margin: 16px 18px 0 0;
+              max-width: 100%;
+              height: auto;
+              max-height: 100%;
+              width: 30px;
+              margin-right: 20px;
+              font-size: 30px;
+            }
+            i.fab.fa-facebook-square {
+              font-size: 30px;
+              max-width: 100%;
+              height: auto;
+              max-height: 100%;
+              width: 26px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer-bottom {
+    width: 1020px;
+    margin: 30px auto 20px;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    span {
+      font-size: 12px;
+      text-align: center;
+      padding-left: 15px;
+      width: 75%;
+    }
+    a.footer-logo {
+      text-align: center;
+    }
+  }
+}

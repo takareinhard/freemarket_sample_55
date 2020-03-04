@@ -1,0 +1,65 @@
+aside.downloadlink {
+  color: rgb(255, 255, 255);
+  background: url(https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?39597161) center center / cover;
+  background-position: center center;
+  margin-top: auto;
+  position: relative;
+  height: 260px;
+  width: 100%;
+  .contents-area {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 780px;
+    margin: 0px auto;
+    height: 260px;
+    &__download {
+      display: flex;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      justify-content: center;
+      width: 430px;
+      .text-free {
+        color: white;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+      .text-soon {
+        color: white;
+        font-size: 35px;
+        margin-bottom: 20px;
+      }
+      .download-icon {
+        img.mercari {
+          height: 68px;
+          margin-right: 20px;
+          width: 68px;
+        }
+        a.appstore {
+          img.appstore {
+            height: 40px;
+            margin-right: 8px;
+            width: 144px;
+          }
+        a.googlestore {
+          img.googlestore {
+            height: 40px;
+            width: 144px;
+          }
+        }
+        }
+      }
+    }
+    figure.smartphone {
+      display: block;
+      margin-top: 0;
+      margin-right: 0;
+      img.smartphone {
+        height: 260px;
+        width: 300px;
+        margin-top: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+.categoriescontents {
+  max-width: 1020px;
+  width: 100%;
+  margin: 0px auto;
+  padding: 0px;
+.category-show-wrapper__category-name {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 24px 0px 16px 0px;
+  line-height: 1.4;
+}
+.categories-products-area {
+  
+  &__each {
+    display:flex;
+    flex-wrap: wrap;
+    width: 1020px;
+    margin: auto;
+    .product-card {
+      height: 252px;
+      width: 188px;
+      margin: 0 20px 20px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,.18);
+      .product-card__image-area {
+        height: 188px;
+        position: relative;
+        .card-image {
+          height: 188px;
+          width: 188px;
+          object-fit: cover;
+          overflow: hidden;
+          .img {
+            height: 188px;
+            width: 188px;
+            object-fit: cover;
+          }
+        }
+
+        span {
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          background: rgba(0,0,0,.4);
+          border-radius: 0 14px 14px 0;
+          bottom: 8px;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          color: #fff;
+          display: inline-flex;
+          font-size: 17px;
+          height: 32px;
+          height: 28px;
+          letter-spacing: .02em;
+          margin: 0;
+          padding: 0 12px;
+          position: absolute;
+          z-index: 2;
+          left: 1px;
+        }
+      }
+      
+      &__text-area {
+        margin-top: 10px;
+        box-sizing: border-box;
+        color: #222;
+        font-size: 14px;
+        height: 64px;
+        line-height: 1.4em;
+        padding: 0 12px;
+        white-space: normal;
+        word-break: break-word;
+        span {
+          display: inline-block;
+          height: 2.8em;
+          overflow: hidden;
+          position: relative;
+          &::after {
+            background: linear-gradient(90deg,hsla(0,0%,10%,0),#fff 72%);
+            bottom: 0;
+            content: "";
+            height: 50%;
+            position: absolute;
+            right: 0;
+            width: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+  #pagenation {
+    margin-bottom:10px;
+  }
+}

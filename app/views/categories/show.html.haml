@@ -1,0 +1,16 @@
+.maincontents-index
+  = render "products/headers"
+  = render "categories/bread_crumb_show"
+
+  .categoriescontents
+    .category-show-wrapper
+      .category-show-wrapper__category-name
+        = @category.name + "の商品一覧"
+      .categories-products-area
+        .categories-products-area__each
+          = render partial: "/products/new_item", collection: @products, as: :product
+      #pagenation
+        = paginate(@products)
+        
+  = render "products/app_banner"
+  = render "products/footers"

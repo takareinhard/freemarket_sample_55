@@ -1,5 +1,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
+  has_many :products
+
   # POST_NUMBER_VALID = /\A\d{3}-\d{4}\z/i
   # バリデーション
   validates :nickname,              presence: true, length: {maximum: 20}

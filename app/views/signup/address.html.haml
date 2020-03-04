@@ -3,51 +3,7 @@
 %html{:lang => "ja-JP"}
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    / Anti-flicker snippet
-    :css
-      .async-hide { opacity: 0 !important}
-    :javascript
-      (function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
-      h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
-      (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
-      })(window,document.documentElement,'async-hide','dataLayer',4000,
-      {'GTM-KLPT5L5':true});
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
-    %title 会員情報入力 - メルカリ スマホでかんたん フリマアプリ
-    %meta{:content => "CMで話題！フリマアプリ「メルカリ」は、スマホから誰でも簡単に売り買いが楽しめるフリマアプリです。購入時はクレジットカード・キャリア決済・コンビニ・銀行ATMで支払いでき、品物が届いてから出品者に入金される独自システムで安心です。", :name => "description"}/
-    %meta{:content => "telephone=no", :name => "format-detection"}/
-    %link{:href => "https://www.mercari.com/jp/signup/registration/", :rel => "canonical"}/
-    %link{:href => "https://www.mercari.com/jp/signup/registration/", :hreflang => "ja", :rel => "alternate"}/
-    %link{:href => "https://www.mercari.com/signup/registration/", :hreflang => "en", :rel => "alternate"}/
-    %link{:href => "/jp/assets/css/app.jp.css?2440642250", :rel => "stylesheet"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/favicon.ico?3761641567", :rel => "shortcut icon"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon.png?3761641567", :rel => "apple-touch-icon"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/favicon-16x16.png?3761641567", :rel => "icon", :sizes => "16x16", :type => "image/png"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/favicon-32x32.png?3761641567", :rel => "icon", :sizes => "32x32", :type => "image/png"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/favicon-194x194.png?3761641567", :rel => "icon", :sizes => "194x194", :type => "image/png"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/android-chrome-192x192.png?3761641567", :rel => "icon", :sizes => "192x192", :type => "image/png"}/
-    %link{:color => "#ea352d", :href => "//www-mercari-jp.akamaized.net/safari-pinned-tab.svg?3761641567", :rel => "mask-icon"}/
-    %link{:href => "https://www.mercari.com/jp/manifest.json?3761641567", :rel => "manifest"}/
-    %meta{:content => "#ffc40d", :name => "msapplication-TileColor"}/
-    %meta{:content => "//www-mercari-jp.akamaized.net/mstile-144x144.png?3761641567", :name => "msapplication-TileImage"}/
-    %meta{:content => "#ea352d", :name => "theme-color"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-precomposed.png?3761641567", :rel => "apple-touch-icon-precomposed"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-57x57.png?3761641567", :rel => "apple-touch-icon", :sizes => "57x57"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-60x60.png?3761641567", :rel => "apple-touch-icon", :sizes => "60x60"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-72x72.png?3761641567", :rel => "apple-touch-icon", :sizes => "72x72"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-76x76.png?3761641567", :rel => "apple-touch-icon", :sizes => "76x76"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-114x114.png?3761641567", :rel => "apple-touch-icon", :sizes => "114x114"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-120x120.png?3761641567", :rel => "apple-touch-icon", :sizes => "120x120"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-144x144.png?3761641567", :rel => "apple-touch-icon", :sizes => "144x144"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-152x152.png?3761641567", :rel => "apple-touch-icon", :sizes => "152x152"}/
-    %link{:href => "//www-mercari-jp.akamaized.net/apple-touch-icon-180x180.png?3761641567", :rel => "apple-touch-icon", :sizes => "180x180"}/
-    %script{:src => "https://www.google.com/recaptcha/api.js?hl=ja"}
   %body
-    / Google Tag Manager (noscript)
-    %noscript
-      %iframe{:height => "0", :src => "https://www.googletagmanager.com/ns.html?id=GTM-KLPT5L5", :style => "display:none;visibility:hidden", :width => "0"}
-    / End Google Tag Manager (noscript)
     .single-container
       %header.single-header
         %h1
@@ -71,7 +27,7 @@
               完了
               .progress-status
       %main.single-main
-        %section.l-single-container
+        %section.l-single-container-profile
           %h2.l-single-head.registration 住所入力
           %form.l-single-inner.registration-form{:action => "https://www.mercari.com/jp/signup/sms_confirmation/", :method => "POST", :novalidate => "novalidate"}
           = form_for @profile, url: address_signup_index_path,method: :post do |f|
@@ -80,56 +36,27 @@
               .form-group
                 %label{:for => "post_number"} 郵便番号
                 %span.form-require 必須
-                -# %input.input-default{:name => "post_number", :placeholder => "例) 123-4567", :type => "integer", :value => ""}/
-                = f.text_field :post_number, placeholder: '郵便番号'
+                = f.text_field :post_number, placeholder: '例) 1234567'
               .form-group
-                %label{:for => "prefecture"} 都道府県
+                %label{:for => "id"} 都道府県
                 %span.form-require 必須
-                -# %input.input-default{:name => "prefecture", :placeholder => "", :type => "integer", :value => ""}/
-                = f.text_field :prefecture, placeholder: '都道府県'
+                = f.collection_select :id, Prefecture.all, :id, :prefecture,{prompt: "--"}, {class:"signup-form__input-default"}
+                %i.fas.fa-chevron-down
               .form-group
                 %label{:for => "city"} 市区町村
                 %span.form-require 必須
-                -# %input.input-default{:name => "city", :placeholder => "例) 横浜市緑区", :type => "string"}/
-                = f.text_field :city, placeholder: '市区町村'
+                = f.text_field :city, placeholder: '例) 横浜市緑区'
               .form-group
                 %label{:for => "house_number"} 番地
                 %span.form-require 必須
-                -# %input.input-default{:name => "house_number", :placeholder => "例) 青山1-1-1", :type => "string"}/
-                = f.text_field :house_number, placeholder: '番地'
+                = f.text_field :house_number, placeholder: '例) 青山1-1-1'
               .form-group
                 %label{:for => "building_name"} 建物名
-                %span.form-require 任意
-                -# %input.input-default{:name => "building_name", :placeholder => "例) 柳ビル103", :type => "string"}/
-                = f.text_field :building_name, placeholder: '建物名'
+                %span.form-require#no-need 任意
+                = f.text_field :building_name, placeholder: '例) 柳ビル103'
               .form-group
                 %label{:for => "tel_number"} 電話
-                %span.form-require 任意
-                -# %input.input-default{:name => "tel_number", :placeholder => "例) 080-0000-0000", :type => "string"}/
-                = f.text_field :building_name, placeholder: '電話'
-              -# %button.btn-default.btn-red{:type => "submit"} 次へ進む
-              = f.submit '次へ進む'
-              .form-group.text-right
-                %p
-      %footer.single-footer
-        %nav
-          %ul.clearfix
-            %li
-              %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
-            %li
-              %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
-            %li
-              %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
-        %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
-          %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3761641567", :width => "80"}/
-        %p
-          %small © 2019 Mercari
-    %script{:src => "//www-mercari-jp.akamaized.net/assets/js/app.js?4246962500"}
-    / Google Tag Manager
-    :javascript
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-KLPT5L5');
-    / End Google Tag Manager
+                %span.form-require#no-need 任意
+                = f.text_field :tel_number, placeholder: '例) 09012345678'
+              = f.submit '次へ進む', class: 'btn-red'
+      = render "signup/footer"

@@ -1,0 +1,88 @@
+.l-single-container-profile {
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  .registration {
+    font-size: 22px;
+    padding: 32px;
+    font-weight: 600;
+    text-align:center;
+  }
+  .new_profile {
+  padding: 40px 40px 64px;
+  }
+  .l-single-content {
+    margin: 0 auto;
+    max-width: 343px;
+  }
+  .signup-form__input-default {
+    width: 100%;
+    margin: 8px 0 0;
+    outline: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    height: 48px;
+    padding: 0 16px;
+    border: 1px solid #ccc;
+    background: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+  .fas.fa-chevron-down {
+    position: relative;
+    left:1px;
+  }
+  .fas.fa-chevron-down:before {
+    color: #888;
+    font-size: 1rem;
+    position: absolute;
+    top: 0rem;
+    bottom: 4rem;
+    left: 20rem;
+    right: 0;
+    margin: auto 0;
+    z-index: 5;
+  }
+  .form-require {
+    background: #ea352d;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+  }
+    #no-need {
+      background: gray;
+  }
+  .form-group {
+    margin: 40px 0 0;
+  input {
+    width: 100%;
+    margin: 8px 0 0;
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    }
+  }
+  .btn-red {
+    margin: 50px 0 0;
+    color:white;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    background: #ea352d;
+  }
+}
