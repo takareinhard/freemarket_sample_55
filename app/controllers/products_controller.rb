@@ -20,11 +20,15 @@ class ProductsController < ApplicationController
     @product = Product.new(name: products_params[:name], detail: products_params[:detail], detail: products_params[:detail], condition: products_params[:condition], postage_payer: products_params[:postage_payer],
      shipping_method: products_params[:shipping_method],prefecture_id: products_params[:prefecture_id],shipping_days: products_params[:shipping_days],price: products_params[:price],
     user_id: current_user.id, category_id: params[:category_id],brand_id: 1,shipping_area: 10)
+    if params[:product_images] == nil
+      redirect_to new_product_path, notice: "画像も入れて頂きますようよろしくお願いします。"
+     else
     @product.save
     @image = params[:product_images]['name'].each do |a|
     @item_image = ProductImage.create!(image: a,product_id: @product.id)
     @item_size = ProductSize.create!(size: 3,product_id: @product.id)
     redirect_to root_path, notice: "出品が完了しました"
+      end
     end
   end
 
